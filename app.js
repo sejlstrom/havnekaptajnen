@@ -18,7 +18,7 @@
    version:2,day:1,cash:9800,reputation:36,satisfaction:60,slips:12,occupied:5,
    price:175,staff:1,upgrades:{bro:0,bad:0,power:0,cafe:0,workshop:0,clean:0,sauna:0,rental:0,office:0,fuel:0},
    marketing:0,boost:0,checkedGoals:[],history:[],lastIncome:0,lastCost:0,lastProfit:0,totalProfit:0,
-   pending:null,eventCount:0,log:['Dag 1: Du har fået nøglerne til en forsømt havn med 12 pladser. Gæsterne er skeptiske, men mulighederne er store.']
+   port:{collected:[],served:0,visits:[],visitDay:1,chapters:[],voyage:null,trips:0,theme:0},pending:null,eventCount:0,log:['Dag 1: Du har fået nøglerne til en forsømt havn med 12 pladser. Gæsterne er skeptiske, men mulighederne er store.']
  });
  const upgrades=[
   {id:'bro',icon:'🛶',name:'Ny flydebro',cost:4100,max:6,unlock:1,desc:'Fire ekstra gæstepladser og plads til større indtægter.',income:'4 nye pladser'},
@@ -82,6 +82,16 @@
   if(Array.isArray(data.history))v.history=data.history.slice(-120).filter(r=>r&&typeof r==='object'&&Number.isFinite(r.profit)&&Number.isFinite(r.cash)&&Number.isInteger(r.day)).map(r=>({day:clamp(r.day,1,v.day),profit:clamp(r.profit,-1000000,1000000),cash:clamp(r.cash,-1000000,1e12),guests:clamp(Math.round(r.guests)||0,0,36)}));
   if(data.pending&&typeof data.pending==='object'&&Number.isInteger(data.pending.event)&&data.pending.event>=0&&data.pending.event<events.length)v.pending={event:data.pending.event};
   // Version 1 event indices 0..4 correspond to the same events, so prior saves migrate unchanged.
+  if(data.port&&typeof data.port==='object'){
+   const p=data.port;v.port.collected=Array.isArray(p.collected)?[...new Set(p.collected.filter(n=>Number.isInteger(n)&&n>=0&&n<8))]:[];
+   v.port.served=Number.isInteger(p.served)?clamp(p.served,0,1000000):0;
+   v.port.visitDay=v.day;
+   v.port.visits=p.visitDay===v.day&&Array.isArray(p.visits)?[...new Set(p.visits.filter(n=>Number.isInteger(n)&&n>=0&&n<3))]:[];
+   v.port.chapters=Array.isArray(p.chapters)?[...new Set(p.chapters.filter(n=>Number.isInteger(n)&&n>=0&&n<4))]:[];
+   v.port.trips=Number.isInteger(p.trips)?clamp(p.trips,0,1000000):0;
+   v.port.theme=[0,1,2].includes(p.theme)?p.theme:0;
+   if(p.voyage&&[0,1,2].includes(p.voyage.route)&&Number.isInteger(p.voyage.arrival)&&p.voyage.arrival>=1&&p.voyage.arrival<=v.day+5)v.port.voyage={route:p.voyage.route,arrival:p.voyage.arrival};
+  }
   return v;
  }
  function load(){
@@ -122,11 +132,11 @@
   goals.forEach((g,i)=>{if(!state.checkedGoals.includes(i)&&g.check(state)){state.checkedGoals.push(i);state.cash+=g.reward;earned+=g.reward;log('Milepæl: '+g.name+'! Du får '+money(g.reward)+' i spilbonus.');}});
   if(earned)toast('Milepæl nået! Bonus: '+money(earned));
  }
- function commit(){completeGoals();save();render();}
+ function commit(){completeGoals();completeChapters();save();render();}
  function priceFor(u){return Math.round(u.cost*(u.id==='bro'?Math.pow(1.19,state.upgrades.bro):1)/50)*50;}
  function nextDay(){
   if(state.pending){toast('Du skal tage stilling til havnens hændelse først.');return;}
-  state.day++;
+  state.day++;state.port.visitDay=state.day;state.port.visits=[];
   const guests=occupancy();state.occupied=guests;
   const sunny=/Sol|Klar|blikstille/.test(weather());
   const extra=guests*(state.upgrades.power*25+state.upgrades.bad*12)
@@ -195,6 +205,7 @@
   }
   if(state.pending&&kind!=='event'){toast('Vælg først, hvad der skal ske med dagens hændelse.');return;}
   if(kind==='event'){eventChoice(value);return;}
+  if(portAction(kind,value))return;
   if(kind==='day'){nextDay();return;}
   if(kind==='upgrade'){upgrade(value);return;}
   if(kind==='price'){
@@ -210,13 +221,61 @@
    state.cash-=550;state.marketing+=4;state.reputation=clamp(state.reputation+2,0,100);log('Du har betalt '+money(550)+' for fire dages markedsføring.');commit();return;
   }
  }
- function harborMap(){
-  let slips=Array.from({length:state.slips},(_,i)=>{
-   const taken=i<state.occupied;const boat=['⛵','🛥️','⛵','🚤','⛵','🛥️'][(i*7+state.day)%6];
-   return `<button type="button" class="berth ${taken?'taken':'free'}" data-act="berth" data-val="${i+1}" aria-label="Plads ${i+1}: ${taken?'optaget':'ledig'}"><span class="boat">${taken?boat:'+'}</span><small>${i+1}</small></button>`;
-  }).join('');
-  return `<div class="harbor-scene" aria-label="Tegnet oversigt over havnens ${state.slips} gæstepladser"><div class="horizon"><span>HAVNEBASSIN</span><span>${esc(weather())}</span></div><div class="water"><div class="waterline a"></div><div class="waterline b"></div><div class="piers">${slips}</div></div><div class="quay"><span>⚓ Havnekontoret</span><span>${state.occupied} af ${state.slips} pladser i brug</span></div></div>`;
+ const captains=[
+  {name:'Alma',boat:'Svalen',type:'Folkebåd',color:'#fff5da',need:'bad',wish:'Et varmt bad efter en lang tur',tip:140},
+  {name:'Otto',boat:'Morgenfangst',type:'Fiskekutter',color:'#e77a54',need:'workshop',wish:'Min motor trænger til et eftersyn',tip:220},
+  {name:'Liv',boat:'Nordlys',type:'Katamaran',color:'#78cad0',need:'power',wish:'Strøm til kahytten, tak',tip:180},
+  {name:'Sofie',boat:'Lille My',type:'Jolle',color:'#f4c95d',need:'cafe',wish:'Kaffe og en plads i solen',tip:160},
+  {name:'Malik',boat:'Horisont',type:'Langtursbåd',color:'#7490c9',need:'bad',wish:'En frisk start efter nattens sejlads',tip:190},
+  {name:'Freja',boat:'Tangloppen',type:'Kajak',color:'#b5ce85',need:'clean',wish:'En ren kyst er den bedste kyst',tip:120},
+  {name:'Viggo',boat:'Ravnen',type:'Veteranbåd',color:'#bc846c',need:'sauna',wish:'Varme i kroppen efter havets kulde',tip:240},
+  {name:'Nora',boat:'Solstrejf',type:'Motorbåd',color:'#eee6d9',need:'fuel',wish:'Brændstof til næste ø',tip:260}
+ ];
+ const routes=[{name:'Post til Mågeø',cost:300,reward:680,days:2,desc:'En sikker levering. 380 kr. i overskud.'},{name:'Varer til Fyrø',cost:650,reward:1350,days:3,desc:'Større last. 700 kr. i overskud.'},{name:'Øhavets ekspedition',cost:1200,reward:2500,days:5,desc:'Lang tur. 1.300 kr. i overskud.'}];
+ const chapters=[
+  {name:'Velkommen ombord',desc:'Tag imod 3 gæster ved anløbsbroen.',check:()=>state.port.served>=3,reward:750},
+  {name:'Et sted at høre til',desc:'Saml 4 bådtyper og byg et badehus.',check:()=>state.port.collected.length>=4&&state.upgrades.bad,reward:1600},
+  {name:'Ud i øhavet',desc:'Fuldfør 2 sejlture og byg en ny flydebro.',check:()=>state.port.trips>=2&&state.upgrades.bro,reward:2400},
+  {name:'Havnens hjerte',desc:'Saml alle 8 bådtyper og åbn en café.',check:()=>state.port.collected.length===8&&state.upgrades.cafe,reward:4000}
+ ];
+ function completeChapters(){chapters.forEach((c,i)=>{if(!state.port.chapters.includes(i)&&c.check()){state.port.chapters.push(i);state.cash+=c.reward;log('Kapitel fuldført: '+c.name+'. Belønning '+money(c.reward));toast('✓ '+c.name+' · '+money(c.reward));}});}
+ function visitorIndex(slot){return (state.day-1+slot*3)%captains.length;}
+ function portAction(kind,value){
+  if(kind==='welcome'){
+   const slot=Number(value);if(!Number.isInteger(slot)||slot<0||slot>2||state.port.visits.includes(slot))return true;
+   const id=visitorIndex(slot),c=captains[id],happy=!!state.upgrades[c.need],reward=80+(happy?c.tip:0);
+   state.port.visits.push(slot);state.port.served++;state.cash+=reward;state.reputation=clamp(state.reputation+(happy?2:1),0,100);
+   if(!state.port.collected.includes(id))state.port.collected.push(id);
+   log(c.name+' anløb med '+c.boat+'. Velkomsthandel '+money(reward)+'.');commit();toast(c.name+': '+(happy?'Præcis hvad jeg drømte om!':'Tak for en venlig velkomst!')+' +'+money(reward));return true;
+  }
+  if(kind==='voyage'){
+   const n=Number(value),r=routes[n];if(!r||state.port.voyage||state.cash<r.cost)return true;
+   state.cash-=r.cost;state.port.voyage={route:n,arrival:state.day+r.days};log('Forsyningsbåden sejlede: '+r.name+'.');commit();return true;
+  }
+  if(kind==='claim'){
+   const v=state.port.voyage;if(!v||state.day<v.arrival)return true;
+   const r=routes[v.route];state.cash+=r.reward;state.port.trips++;state.port.voyage=null;log(r.name+' fuldført. Lasten gav '+money(r.reward)+'.');commit();toast('Forsyningsbåden er hjemme · +'+money(r.reward));return true;
+  }
+  if(kind==='theme'){const n=Number(value);if([0,1,2].includes(n)){state.port.theme=n;commit();}return true;}return false;
  }
+ function boatArt(color='#fff5da'){
+  const type=captains.find(c=>c.color===color)?.type;
+  let top='<path d="M51 13 V71" stroke="#694b39" stroke-width="3"/><path d="M46 20 L46 65 H20Z" fill="#fff9ec"/><path d="M56 29 L78 65 H56Z" fill="'+color+'"/>';
+  if(['Fiskekutter','Motorbåd','Veteranbåd'].includes(type))top='<rect x="34" y="40" width="34" height="31" rx="4" fill="'+color+'"/><rect x="39" y="47" width="23" height="10" fill="#486b7b"/><path d="M45 40V28H58V40" fill="#7b5c50"/>';
+  if(type==='Kajak')top='<ellipse cx="50" cy="68" rx="9" ry="13" fill="#634c46"/><path d="M16 51L84 84" stroke="#eacaa0" stroke-width="5"/>';
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="86" rx="36" ry="7" fill="#137c8c" opacity=".25"/><path d="M18 72 Q50 88 83 70 L75 86 H28Z" fill="${color}"/>${top}</svg>`;
+ }
+ function harborMap(){
+  const slips=Array.from({length:state.slips},(_,i)=>{const taken=i<state.occupied;return `<button type="button" class="berth ${taken?'taken':'free'}" data-act="berth" data-val="${i+1}" aria-label="Plads ${i+1}: ${taken?'optaget':'ledig'}">${taken?boatArt(captains[(i+state.day)%8].color):'<span class="empty-slip">+</span>'}<small>${i+1}</small></button>`;}).join('');
+  const buildings=[['office','HAVNEKONTOR','#dc7254'],['bad','BADEHUS','#f0d588'],['cafe','CAFÉ','#87b8a2'],['workshop','VÆRKSTED','#91a4bf']].map(([id,name,color],i)=>`<g transform="translate(${75+i*160} 150)" opacity="${id==='office'||state.upgrades[id]?1:.35}"><path d="M-45 0 L0 -38 L45 0" fill="#76534c"/><rect x="-38" width="76" height="60" rx="3" fill="${color}"/><rect x="-8" y="22" width="16" height="38" fill="#574743"/><rect x="-28" y="15" width="14" height="17" fill="#fff4c9"/><rect x="15" y="15" width="14" height="17" fill="#fff4c9"/><text y="78" text-anchor="middle" fill="#435b58" font-size="12" font-weight="bold">${name}</text></g>`).join('');
+  return `<div class="harbor-scene scene-${state.port.theme}"><div class="horizon"><span>DIT LILLE STYKKE ØHAV</span><span>${esc(weather())}</span></div><svg class="village" viewBox="0 0 640 260" role="img" aria-label="Havn med bygninger som får farve, når du bygger dem"><circle cx="550" cy="47" r="26" fill="#ffdc8b"/><path d="M0 124 Q90 50 190 121 Q280 47 385 120 Q485 68 640 120V260H0Z" fill="#83b5a0"/><path d="M0 155 Q150 122 320 153 Q480 116 640 155V260H0Z" fill="#c7d6a4"/>${buildings}<path d="M0 239H640V260H0Z" fill="#d6b992"/><path d="M30 239H600" stroke="#b19873" stroke-width="3"/></svg><div class="water"><div class="waterline a"></div><div class="waterline b"></div><div class="piers">${slips}</div></div><div class="quay"><span>⚓ ${state.port.collected.length}/8 bådtyper opdaget</span><span>${state.slips} pladser</span></div></div>`;
+ }
+ function lifePanel(){
+  const chapter=chapters.find((c,i)=>!state.port.chapters.includes(i));const v=state.port.voyage;
+  return `<section class="panel life-panel"><span class="eyebrow">ANLØBSBROEN · DAG ${state.day}</span><h2>Hvem sejler ind i dag?</h2><p>Tag imod dagens 3 gæster. Velkomsthandel giver 80 kr.; deres ønskede facilitet giver ekstra drikkepenge. Døgnpriser afregnes separat ved dagens afslutning.</p><div class="guest-grid">${[0,1,2].map(slot=>{const c=captains[visitorIndex(slot)],done=state.port.visits.includes(slot),u=upgrades.find(u=>u.id===c.need);return `<article class="guest-card">${boatArt(c.color)}<h3>${c.name} · ${c.boat}</h3><span class="soft-label">${c.type}</span><p>“${c.wish}”</p><small>${state.upgrades[c.need]?'✓ Ønsket er opfyldt':'Ønsker: '+u.name}</small><button class="btn ${done?'subtle':'primary'}" data-act="welcome" data-val="${slot}" ${done||state.pending?'disabled':''}>${done?'✓ Budt velkommen':'Tag imod · '+money(80+(state.upgrades[c.need]?c.tip:0))}</button></article>`;}).join('')}</div></section><section class="panel chapter"><span class="eyebrow">${state.port.chapters.length}/4 KAPITLER FULDFØRT</span><h2>${chapter?chapter.name:'Øhavets yndlingshavn'}</h2><p>${chapter?chapter.desc:'Du har samlet øhavets både. Din havn kan stadig vokse med de langsigtede milepæle.'}</p>${chapter?'<span class="goldlabel">Belønning '+money(chapter.reward)+'</span>':''}</section><section class="panel"><span class="eyebrow">FORSYNINGSBÅDEN</span><h2>Små rejser, nye muligheder</h2>${v?`<p>${routes[v.route].name} · ${state.day>=v.arrival?'Båden er hjemme!':'Hjemme om '+(v.arrival-state.day)+' spildage.'}</p><button class="btn primary" data-act="claim" ${state.day<v.arrival||state.pending?'disabled':''}>Hent last · ${money(routes[v.route].reward)}</button>`:`<div class="route-grid">${routes.map((r,i)=>`<article><h3>${r.name}</h3><p>${r.desc} ${r.days} spildage; ingen ventetid i virkeligheden.</p><button class="btn subtle" data-act="voyage" data-val="${i}" ${state.cash<r.cost||state.pending?'disabled':''}>Sejl · ${money(r.cost)}</button></article>`).join('')}</div>`}</section>`;
+ }
+ function collectionPanel(){return `<section class="panel"><span class="eyebrow">ØHAVETS ALBUM</span><h2>${state.port.collected.length} af 8 både opdaget</h2><div class="collection-grid">${captains.map((c,i)=>`<div class="collection-item ${state.port.collected.includes(i)?'found':'undiscovered'}">${boatArt(c.color)}<strong>${state.port.collected.includes(i)?c.boat:'???'}</strong><small>${state.port.collected.includes(i)?c.type:'Mød flere gæster'}</small></div>`).join('')}</div><p>${state.port.served} gæster budt velkommen · ${state.port.trips} sejlture fuldført.</p></section>`;}
+ function stylePanel(){return `<section class="panel"><span class="eyebrow">GØR HAVNEN TIL DIN</span><h2>Vælg dit lys</h2><div class="split-buttons">${['Sommermorgen','Solnedgang','Blå time'].map((t,i)=>`<button class="btn ${state.port.theme===i?'primary':'subtle'}" data-act="theme" data-val="${i}">${t}</button>`).join('')}</div><p>Alle udtryk er frie. Dit valg gemmes sammen med havnen.</p></section>`;}
  function eventPanel(){
   if(!state.pending)return '';
   const e=events[state.pending.event];
@@ -233,7 +292,7 @@
  function harbortab(){
   const next=occupancy(state.day+1);const expectedIncome=next*state.price;
   return `<div class="cols"><div class="maincol">
-    ${harborMap()}
+    ${harborMap()}<div class="quick-day"><span>Tag imod gæster eller sejl videre.</span><button class="btn primary" data-act="day" ${state.pending?'disabled':''}>Næste dag →</button></div>${lifePanel()}
     <div class="panel"><div class="section-line"><div><span class="eyebrow">DAGLIG DRIFT</span><h2>Havnekontoret</h2></div><span class="tag">⚓ Åben</span></div>
       <p>Du bestemmer, hvordan havnen udvikler sig. Døgnprisen påvirker efterspørgslen, og flere faciliteter giver glade gæster.</p>
       <div class="control-block"><div><span class="muted-label">Pris pr. båd / døgn</span><strong>${money(state.price)}</strong></div><div class="inline-buttons"><button data-act="price" data-val="less" ${state.price<=100?'disabled':''} aria-label="Sænk prisen med 25 kroner">−</button><button data-act="price" data-val="more" ${state.price>=400?'disabled':''} aria-label="Hæv prisen med 25 kroner">+</button></div></div>
@@ -250,7 +309,7 @@
     const level=state.upgrades[u.id],unlocked=state.day>=u.unlock,done=level>=u.max,cost=priceFor(u);
     return `<div class="upgrade-card ${!unlocked?'locked':''}"><div class="upgrade-icon" aria-hidden="true">${u.icon}</div><div class="upgrade-body"><div class="upgrade-heading"><h3>${esc(u.name)}</h3>${level?`<span class="tag">${level}/${u.max}</span>`:''}</div><p>${esc(u.desc)}</p><div class="upgrade-footer"><span class="goldlabel">${done?'Færdigbygget':!unlocked?'Åbner på dag '+u.unlock:money(cost)}</span><span class="soft-label">${esc(u.income)}</span></div></div><button data-act="upgrade" data-val="${u.id}" class="btn subtle" ${state.pending||!unlocked||done||state.cash<cost?'disabled':''}>${done?'Bygget':unlocked?'Byg':'Låst'}</button></div>`;
   }).join('');
-  return `<div class="tabintro"><span class="eyebrow">BYG HAVNEN OP</span><h2>Hver ny bro åbner muligheder.</h2><p>Byg, når økonomien tillader det. Nye projekter bliver tilgængelige i takt med, at du driver havnen.</p></div><div class="build-grid">${items}</div>`;
+  return `<div class="tabintro"><span class="eyebrow">BYG HAVNEN OP</span><h2>Hver ny bro åbner muligheder.</h2><p>Byg, når økonomien tillader det. Nye projekter bliver tilgængelige i takt med, at du driver havnen.</p></div>${stylePanel()}<div class="build-grid">${items}</div>`;
  }
  function chart(){
   if(!state.history.length)return '<p class="muted">Når du har afsluttet din første driftsdag, vises overskuddet her.</p>';
@@ -264,7 +323,7 @@
   return `<div class="tabintro"><span class="eyebrow">PENGENE I HAVNEN</span><h2>Et sundt budget holder bølgerne ude.</h2><p>Følg overskud og udgifter. Bygninger betales af kassen og er ikke med i de daglige driftsresultater.</p></div><div class="ledger-stats"><div class="metric"><span>Samlet drift</span><strong class="${state.totalProfit>=0?'gain':'loss'}">${money(state.totalProfit)}</strong></div><div class="metric"><span>Seneste 7 dage</span><strong class="${weekly>=0?'gain':'loss'}">${money(weekly)}</strong></div><div class="metric"><span>Bedste dag i historikken</span><strong>${money(best)}</strong></div></div><section class="panel"><span class="eyebrow">RESULTAT PR. DAG</span><h2>Din økonomi</h2>${chart()}<p class="legend"><span><i class="legend-green"></i> Overskud</span><span><i class="legend-coral"></i> Underskud</span></p><p class="smallprint">${Math.min(days,32)} driftsdage vises i grafen. ${days} dage gemmes i historikken (op til 120).</p></section><section class="panel"><h2>Dine faste rammer</h2><div class="simple-row"><span>Antal gæstepladser</span><b>${state.slips}</b></div><div class="simple-row"><span>Pris pr. døgn</span><b>${money(state.price)}</b></div><div class="simple-row"><span>Personale</span><b>${state.staff} person(er)</b></div><div class="simple-row"><span>Omdømme</span><b>${Math.round(state.reputation)}/100</b></div><div class="simple-row"><span>Antal investeringer</span><b>${Object.values(state.upgrades).reduce((a,b)=>a+b,0)}</b></div></section>`;
  }
  function logbogtab(){
-  return `<div class="tabintro"><span class="eyebrow">DIN HISTORIE</span><h2>Havnens logbog</h2><p>Hver dag efterlader spor. Her kan du se beslutninger, begivenheder og dine største milepæle.</p></div><section class="panel"><div class="section-line"><h2>Din udvikling</h2><span class="tag">${state.checkedGoals.length}/${goals.length}</span></div><div class="milestone-list">${goals.map((g,i)=>`<div class="milestone ${state.checkedGoals.includes(i)?'done':''}"><span>${state.checkedGoals.includes(i)?'✓':i+1}</span><div><strong>${esc(g.name)}</strong><small>${esc(g.desc)}</small></div></div>`).join('')}</div></section><section class="panel"><h2>Seneste hændelser</h2><ol class="journal">${state.log.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section><section class="panel"><span class="eyebrow">GEMMELSE OG SIKKERHED</span><h2>Din spilfremgang</h2><p>Fremgangen gemmes automatisk på enheden. Ved ny telefon eller browser kan du flytte din havn med en gemmefil.</p><div class="split-buttons"><button class="btn subtle" data-act="export">⬇ Eksportér gemning</button><button class="btn subtle" data-act="import">⬆ Indlæs gemning</button></div><p class="smallprint">${canSave?'Automatisk lokal gemning er aktiv.':'Automatisk gemning er ikke tilgængelig; eksportér ofte.'} Dette spil har endnu ikke synkronisering mellem enheder.</p><div class="dangerzone"><button class="btn danger" data-act="reset">Start helt forfra</button></div></section>`;
+  return `<div class="tabintro"><span class="eyebrow">DIN HISTORIE</span><h2>Havnens logbog</h2><p>Hver dag efterlader spor. Her kan du se beslutninger, begivenheder og dine største milepæle.</p></div>${collectionPanel()}<section class="panel"><div class="section-line"><h2>Din udvikling</h2><span class="tag">${state.checkedGoals.length}/${goals.length}</span></div><div class="milestone-list">${goals.map((g,i)=>`<div class="milestone ${state.checkedGoals.includes(i)?'done':''}"><span>${state.checkedGoals.includes(i)?'✓':i+1}</span><div><strong>${esc(g.name)}</strong><small>${esc(g.desc)}</small></div></div>`).join('')}</div></section><section class="panel"><h2>Seneste hændelser</h2><ol class="journal">${state.log.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section><section class="panel"><span class="eyebrow">GEMMELSE OG SIKKERHED</span><h2>Din spilfremgang</h2><p>Fremgangen gemmes automatisk på enheden. Ved ny telefon eller browser kan du flytte din havn med en gemmefil.</p><div class="split-buttons"><button class="btn subtle" data-act="export">⬇ Eksportér gemning</button><button class="btn subtle" data-act="import">⬆ Indlæs gemning</button></div><p class="smallprint">${canSave?'Automatisk lokal gemning er aktiv.':'Automatisk gemning er ikke tilgængelig; eksportér ofte.'} Dette spil har endnu ikke synkronisering mellem enheder.</p><div class="dangerzone"><button class="btn danger" data-act="reset">Start helt forfra</button></div></section>`;
  }
  function render(){
   const root=byId('app');if(!root)return;
