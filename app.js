@@ -82,6 +82,7 @@
   if(Array.isArray(data.history))v.history=data.history.slice(-120).filter(r=>r&&typeof r==='object'&&Number.isFinite(r.profit)&&Number.isFinite(r.cash)&&Number.isInteger(r.day)).map(r=>({day:clamp(r.day,1,v.day),profit:clamp(r.profit,-1000000,1000000),cash:clamp(r.cash,-1000000,1e12),guests:clamp(Math.round(r.guests)||0,0,36)}));
   if(data.pending&&typeof data.pending==='object'&&Number.isInteger(data.pending.event)&&data.pending.event>=0&&data.pending.event<events.length)v.pending={event:data.pending.event};
   // Version 1 event indices 0..4 correspond to the same events, so prior saves migrate unchanged.
+  v.port.visitDay=v.day;
   if(data.port&&typeof data.port==='object'){
    const p=data.port;v.port.collected=Array.isArray(p.collected)?[...new Set(p.collected.filter(n=>Number.isInteger(n)&&n>=0&&n<8))]:[];
    v.port.served=Number.isInteger(p.served)?clamp(p.served,0,1000000):0;
