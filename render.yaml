@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: havnekaptajnen
+    runtime: static
+    buildCommand: echo "Static game ready"
+    staticPublishPath: .
+    headers:
+      - path: /sw.js
+        name: Cache-Control
+        value: no-cache
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache

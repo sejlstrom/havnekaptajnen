@@ -1,0 +1,21 @@
+HAVNEKAPTAJNEN – selvstændigt gratis mobilspil, version 1.0
+8. oktober 2026
+
+Åbn spillets HTTPS-adresse. På iPhone: Safari > Del > Føj til hjemmeskærm.
+På Android: Chrome > Installer app eller Føj til startskærm.
+Installation er valgfri. Offline virker efter offline-cachen er hentet.
+Udvid "Om spillet, offlinefunktion og gemning" for at se offline-status.
+
+Fremgangen gemmes lokalt i samme browser. Eksportér via Logbog før du
+skifter enhed eller rydder browserdata. Der er ingen konti eller cloudsynkronisering.
+Spillet bruger ingen annoncer, betalingskode eller analyseværktøjer.
+Butiksudgivelse og betalinger er ikke aktiveret.
+
+Rettelser: beskadiget primær gemning blokerer ikke længere overførsel af en
+valid ældre gemning; gemningsstatus bliver korrekt efter genoprettet lageradgang;
+købte markedsføringsdage bevares; bedste negative dag og grafens dagantal vises korrekt.
+Offline-status vises i spillet, og offline-cacheversionen er opdateret.
+
+Tests: node tests/logic_test.js og node tests/offline_cache_test.js.
+Den oprindelige Python-browsertest har en Linux-specifik browsersti.
+Testresultater fra den aktuelle gennemgang findes i TESTSTATUS.txt.

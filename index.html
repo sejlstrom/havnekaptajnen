@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071b2a">
+  <meta name="description" content="Havnekaptajnen: Byg en lystbådehavn, styr økonomien, tag imod sejlere og bliv havnens helt. Et gratis spil til mobilen.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Havnekaptajnen">
+  <meta name="application-name" content="Havnekaptajnen">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Havnekaptajnen – byg din egen lystbådehavn</title>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="mast">
+    <div class="mast-inner">
+      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>DIT HAVNEEVENTYR</span></div></div>
+      <button class="install-button" id="install-button" hidden>Installer spillet ↓</button>
+    </div>
+    <div class="mast-content"><span class="eyebrow">⚓ DIN HAVN · DIN HISTORIE</span><h1>Fra slidt havn<br>til <em>havets perle.</em></h1><p>Tag imod gæstesejlere, byg nye broer, styr priserne og lad havnen vokse. Én dag ad gangen.</p></div>
+    <div class="mast-wave" aria-hidden="true"></div>
+  </header>
+  <main class="app-container">
+    <div id="app" aria-label="Spillet Havnekaptajnen"></div>
+    <section class="howto" aria-labelledby="info-title"><details><summary id="info-title">Om spillet, offlinefunktion og gemning <span>⌄</span></summary><p>Havnekaptajnen er et strategispil, ikke et virkeligt driftsbudget. Gemningen gemmes automatisk på den telefon eller computer, du spiller på. Eksportér en sikkerhedskopi fra fanen <strong>Logbog</strong>, hvis du skifter enhed eller rydder browserdata.</p><p>Spillet virker offline, når denne browser har hentet offlineversionen. Installation på hjemmeskærmen er valgfri. På iPhone: åbn siden i Safari, tryk <strong>Del</strong> og vælg <strong>Føj til hjemmeskærm</strong>. På Android: brug browserens <strong>Installer app</strong> eller <strong>Føj til startskærm</strong>.</p><p id="offline-status" role="status">Offlineversionen klargøres, når spillet åbnes med internet via HTTPS.</p><p>Dette er en gratis, fuldt spilbar mobil-webapp. Betaling, annoncer og køb af ekstra indhold er endnu ikke aktiveret. Den er ikke udgivet i App Store eller Google Play.</p></details></section>
+  </main>
+  <nav class="dock-nav" aria-label="Spilmenu">
+    <button data-tab="havn" class="active" aria-current="page"><span aria-hidden="true">⚓</span><small>Havnen</small></button>
+    <button data-tab="byg"><span aria-hidden="true">🛠️</span><small>Udbyg</small></button>
+    <button data-tab="regnskab"><span aria-hidden="true">📊</span><small>Regnskab</small></button>
+    <button data-tab="logbog"><span aria-hidden="true">📖</span><small>Logbog</small></button>
+  </nav>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <input id="import-file" type="file" accept=".json,application/json" hidden>
+</body>
+</html>
