@@ -49,3 +49,9 @@ Ingen dokumentation for salg, spillerfastholdelse eller fysisk realisme i
 skibenes fiktive længder, kapaciteter og økonomi.
 Offentlig deploy og kontrol dokumenteres efter udgivelse i den separate
 Havnekaptajnen-version-11.0-teststatus.txt.
+
+OFFLINEOPDATERING RETTET VED OFFENTLIG KONTROL
+En gammel HTTP-cache havde leveret det tidligere flådelayout. Installationen
+af en ny offlinepakke genhenter nu alle filer med cache: reload. Versionerede
+filadresser er fornyet til 11.0.5 og offlinepakken til v42. En regressionstest
+kræver genhentning af hver fil. Ingen spillerdata ryddes ved opdateringen.
