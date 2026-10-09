@@ -7,10 +7,10 @@
   {id:'sail',name:'Sejlmagerøen',chapter:22,cash:95000,needs:{plank:100,wood:60},seconds:1800,x:4000,y:520,description:'Et nyt værftsområde, hvor du fremstiller sejldug og færdige sejl.'}
  ];
  const sites=[
-  {id:'greenhouse',name:'Idas drivhus',plot:'meadow',chapter:4,cash:6000,needs:{plank:14,wood:10},seconds:180,x:2010,y:555,width:255,file:'land-greenhouse.png',icon:'🌾',description:'Dyrk korn, æbler og plantefibre til resten af havnen.'},
-  {id:'bakery',name:'Havnebageriet',plot:'meadow',chapter:8,cash:18000,needs:{plank:28,wood:16},seconds:480,x:2360,y:610,width:260,file:'land-bakery.png',icon:'🍞',description:'Bag brød og æbletærter af drivhusets høst.'},
-  {id:'ropeworks',name:'Rebslageriet',plot:'craft',chapter:14,cash:42000,needs:{plank:44,wood:30},seconds:900,x:3080,y:575,width:285,file:'land-ropeworks.png',icon:'🪢',description:'Sno plantefibre til stærke fortøjningsreb.'},
-  {id:'sailmaker',name:'Sejlmageriet',plot:'sail',chapter:24,cash:85000,needs:{plank:70,wood:45,rope:6},seconds:1800,x:3980,y:575,width:290,file:'land-sailmaker.png',icon:'⛵',description:'Væv sejldug og sy nye sejl med reb og dug.'}
+  {id:'greenhouse',name:'Idas drivhus',plot:'meadow',chapter:4,cash:6000,needs:{plank:14,wood:10},seconds:180,x:2010,y:555,width:255,file:'land-greenhouse.png?v=12.0.6',icon:'🌾',description:'Dyrk korn, æbler og plantefibre til resten af havnen.'},
+  {id:'bakery',name:'Havnebageriet',plot:'meadow',chapter:8,cash:18000,needs:{plank:28,wood:16},seconds:480,x:2360,y:610,width:260,file:'land-bakery.png?v=12.0.6',icon:'🍞',description:'Bag brød og æbletærter af drivhusets høst.'},
+  {id:'ropeworks',name:'Rebslageriet',plot:'craft',chapter:14,cash:42000,needs:{plank:44,wood:30},seconds:900,x:3080,y:575,width:285,file:'land-ropeworks.png?v=12.0.6',icon:'🪢',description:'Sno plantefibre til stærke fortøjningsreb.'},
+  {id:'sailmaker',name:'Sejlmageriet',plot:'sail',chapter:24,cash:85000,needs:{plank:70,wood:45,rope:6},seconds:1800,x:3980,y:575,width:290,file:'land-sailmaker.png?v=12.0.6',icon:'⛵',description:'Væv sejldug og sy nye sejl med reb og dug.'}
  ];
  const goods={grain:{name:'Korn',icon:'🌾'},apple:{name:'Æbler',icon:'🍎'},fiber:{name:'Plantefibre',icon:'🌿'},bread:{name:'Brød',icon:'🍞'},pie:{name:'Æbletærte',icon:'🥧'},rope:{name:'Reb',icon:'🪢'},cloth:{name:'Sejldug',icon:'🧵'},sail:{name:'Sejl',icon:'⛵'}};
  const recipes=[
