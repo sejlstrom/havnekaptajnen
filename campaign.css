@@ -11,3 +11,7 @@
 
 .steered-boat{width:93px;height:142px;transform:translate(-50%,-50%);filter:drop-shadow(3px 7px 4px #06344499)}.steered-boat>img{height:100%;width:100%;object-fit:contain}.steered-boat::after{content:"";position:absolute;top:97%;left:27%;width:46%;height:55px;background:linear-gradient(#ddfff099,transparent);clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);z-index:-1}.sailing-solar{position:absolute;left:36%;top:37%;width:29%;height:19%;background:repeating-linear-gradient(90deg,#124975 0 28%,#b3c9cf 29% 32%);border:1px solid #d4ded0;border-radius:2px}.sail-object.buoy{font-size:0;width:25px;height:37px;background:linear-gradient(#e6a848 0 30%,#fff2be 30% 55%,#d68b30 55%);border-radius:50% 50% 35% 35%;border:2px solid #ffd985;box-shadow:3px 5px 0 #103d5344}.sail-object.rock{font-size:0;width:45px;height:40px;background:linear-gradient(145deg,#c7c4ad,#697e7c);clip-path:polygon(17% 18%,53% 0,88% 16%,100% 60%,71% 96%,30% 100%,0 60%)}
 @media(max-width:600px){.steered-boat{width:72px;height:110px}.sail-object.buoy{width:20px;height:30px}.sail-object.rock{width:37px;height:32px}}
+/* Keep body copy legible on the light activity panels. */
+.expedition-panel p,.sailing-result p,.journal-grid p{color:#4b635b}
+.expedition-panel .smallprint,.journal-grid .smallprint{color:#63766a}
+.expedition-reward p{color:#365b4d}
