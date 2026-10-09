@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN — VIDERE UDVIKLING I VERSION 10.0
+HAVNEKAPTAJNEN — VIDERE UDVIKLING I VERSION 11.0
 
 Under Udvikling findes tre nye kvarterer med vedvarende niveauer. Klik på Butik
 for at se hjælpebilletter, planlagte pakker og den gratis prøve af aftenhavnen.
@@ -37,10 +37,20 @@ Spillets gemmefil indeholder ikke købte saldi eller købsrettigheder.
 Rigtige køb kræver færdig konto-, sælger-, vilkårs- og driftsopsætning samt test.
 
 BÅDE OG TID
-fleet.js er det stabile katalog over fem både og fem gentagelige storlastopgaver.
+fleet.js er det stabile katalog over syv skibe og syv gentagelige storlastopgaver.
 Større både åbner på etape 3, 7, 12 og 20; de betales med spilpenge og materialer.
 Byggetid, materialeforbrug og kapacitet vises før bestilling. Gamle både bevares.
 Alle funktionelle opgraderinger har byggetid, også genmontering fra udstyrshylden.
 Højere niveauer giver længere byggetider. Produktionshold og sejlture tager længere
 tid med fremgangen; både og udstyr kan forkorte deres grundtid. Igangværende arbejde
 beholder sin allerede fastlagte tidsfrist ved opdatering og genindlæsning.
+
+CONTAINERHAVNEN
+Havbro: etape 35, kajniveau 1, 240 kasser, 480.000 havnekroner, 220 planker og
+160 drivtømmer. Byggetid 1 time. Horisont: etape 60, kajniveau 2, 600 kasser,
+1.500.000 havnekroner, 500 planker og 320 drivtømmer. Byggetid 3 timer.
+Kajniveau 1: etape 30, 120.000 havnekroner, 120 planker/80 træ, 30 minutter.
+Kajniveau 2: etape 55, 360.000 havnekroner, 260 planker/180 træ, 2 timer.
+Containeropgaverne er gentagelige og bruger almindelige lagervarer. Tider og
+belønninger beregnes ved afgang; de afhænger af etape, båd og monteret udstyr.
+Alle beløb er spilvaluta, og alle kapaciteter/længder er fiktive spilværdier.

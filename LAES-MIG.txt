@@ -1,8 +1,11 @@
-HAVNEKAPTAJNEN – VERSION 10.0
+HAVNEKAPTAJNEN – VERSION 11.0
 https://havnekaptajnen.onrender.com/
 
-NYT I VERSION 10.0
-Fem både med stigende lastekapacitet, egne illustrationer og fem gentagelige fragtopgaver. 10 startbilletter gives én gang; derefter skal billetter købes, når betaling bliver åbnet. Opgaver og opgraderinger giver ingen nye billetter. Alle opgraderinger har byggetid; større udbygninger og opgaver tager længere tid. Betaling er stadig lukket. Se UDVIDELSER-OG-BUTIK.txt og TESTSTATUS-VERSION-10.0.txt.
+NYT I VERSION 11.0
+To store containerskibe er føjet til flåden. Byg Containerkaj niveau 1 fra etape 30 (30 minutter) og bestil Havbro fra etape 35 (1 time). Byg niveau 2 fra etape 55 (2 timer) og bestil Horisont fra etape 60 (3 timer). Kapaciteten er 240 og 600 kasser. Alle priser og materialer vises før bestilling. Containerkajen er et separat udendørs område med kran, skibe og udstyrsarbejde; de store skibe sættes ikke i det lille bådehus. Se TESTSTATUS-VERSION-11.0.txt.
+
+BEVARET FRA VERSION 10.0
+De første fem både med stigende lastekapacitet, egne illustrationer og fem gentagelige fragtopgaver. 10 startbilletter gives én gang; derefter skal billetter købes, når betaling bliver åbnet. Opgaver og opgraderinger giver ingen nye billetter. Alle opgraderinger har byggetid; større udbygninger og opgaver tager længere tid. Betaling er stadig lukket. Se UDVIDELSER-OG-BUTIK.txt og TESTSTATUS-VERSION-10.0.txt.
 
 BEVARET FRA VERSION 8.8
 Zoom holdes fast, også når skærmhøjden ændres. Nye figurer bevæger arme, knæ og støvler løbende mellem stillingerne. Se TESTSTATUS-VERSION-8.8.txt og GANGGRAFIK-V8.8.txt for kontrol og grafik.

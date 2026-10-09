@@ -64,3 +64,9 @@ fleet-cruiser.png: lang motorkrydser med cremefarvet kahyt, bordeaux stribe og a
 fleet-catamaran.png: to turkise skrog, bred kahyt og åbent arbejdsdæk.
 fleet-expedition.png: grøn ekspeditionsbåd med højere styrehus, messingdetaljer og mast.
 Alle er vist isometrisk med stævnen nederst til venstre. Udstyrsdele er SVG-overlays, indpasset separat til de enkelte tage og dæk. Manuel sejlads bruger egne SVG-illustrationer set oppefra for de fire nye bådtyper.
+
+VERSION 11.0 – CONTAINERSKIBE
+fleet-feeder.png og fleet-ocean.png er originale transparente 1536 × 1024 PNG-billeder, genereret 9. oktober 2026 med det indbyggede billedværktøj. Egen fleet-expedition.png var stilreference. Ingen eksterne skibsnavne, rederilogoer eller spilaktiver blev brugt. PNG-filerne er uændrede.
+Feeder-brief: stort kystcontainerskib, mørkeblåt stålskrog/rød vandlinje, cremefarvet bro agter, gule/teal/terracotta containere, foldet lille gul kran; isometrisk set oppefra, stævn nederst til venstre, hele skibet fritlagt.
+Ocean-brief: langt oceangående containerskib, dybt teal skrog/rød vandlinje, høj bro agter, flere rækker og tre lag farvede containere, isometrisk samme vinkel, fritlagt uden vand, UI eller tekst.
+Den udendørs kaj, kranen, containerstakkene og manuel sejlads er egne SVG/CSS-elementer. Udstyret er justeret til hvert skibs bro/tag og agterdæk.
