@@ -46,3 +46,7 @@ Træer og personer er frilagte billedobjekter. Blomster, bænk, lampe, springvan
 
 VERSION 8.5 – MONTEREDE BÅDDELE
 Solpanel, kortplotter, batterikasse, varm vinduesfarve, dæksluge, lastkasser og skrogforstærkning er SVG-tegninger i samme 1536 × 1024 koordinatsystem som island-boat.png. De erstatter de tidligere separate CSS-former. Bådbilledet og de øvrige rasterbilleder er uændrede. Ingen produktbilleder eller mærkelogoer er tilføjet.
+
+VERSION 8.6 – NY GANGILLUSTRATION
+island-walk-cycle.png: original AI-genereret transparent illustration, 1448 × 1086, skabt 9. oktober 2026 med det indbyggede billedværktøj. Egen island-worker.png og island-alma.png blev brugt som figurreferencer. Ingen Hay Day-figurer eller andre spilaktiver er anvendt som billedreference.
+Brief: 8 kolonner × 4 rækker; havnearbejder i orange trøje/teal overalls og kvindelig havnearbejder i gul trøje/orange overalls; en forfra- og en bagfra-række pr. figur; gang på stedet med skiftende ben, bøjede knæ, løftede støvler og modsatrettede armsving; gennemsigtig baggrund. CSS beskærer kun cellernes smalle øverste/nederste margin ved visning; PNG-filen er uændret fra billedværktøjets output.

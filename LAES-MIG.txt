@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN – VERSION 8.5
+HAVNEKAPTAJNEN – VERSION 8.6
 https://havnekaptajnen.onrender.com/
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
@@ -49,3 +49,6 @@ Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. 
 
 VERSION 8.5 – BÅDENS UDSTYR
 Udstyrets tegninger deler nu bådens koordinater, så de følger billedet ved størrelse, zoom og animation. Solpanelet er placeret inden for taget, batteri og kasser står på dækket, og motoren vises med en dæksluge. Se TESTSTATUS-VERSION-8.5.txt for den målrettede grafiske kontrol.
+
+VERSION 8.6 – FIGURERNE GÅR
+Ben og arme skifter nu gangstilling efter den tilbagelagte afstand. Figurerne vender i gangretningen, holder pauser og finder ruter omkring bygninger og udsmykning. Gang sættes på pause under indretning og ved reduceret bevægelse. Se TESTSTATUS-VERSION-8.6.txt.
