@@ -7,7 +7,7 @@ player-boat.png – Frilagt nordisk kabinebåd med cremefarvet skrog, blågrøn 
 
 Illustrationerne er spilkunst. Udstyrsmarkeringer og spilbonusser er forenklede, ikke tekniske installationstegninger eller produktbilleder.
 
-Offentlige produktsider brugt til navne og links:
+Offentlige produktsider som separate webshoplinks (generiske udstyrsnavne i spillet fra version 8.4):
 https://sejlstroem.dk/collections/garmin-kortplottere-navigation/products/garmin-echomap-uhd2-62sv-touch?variant=56914504221047
 https://sejlstroem.dk/products/sejlstroem-lithium-complete-100?variant=57415545127287
 https://sejlstroem.dk/products/sunbeam-tough-111-w-solpanel-flush-111-w-semi-fleksibeltt-1060-x-540-x-3-mm?variant=56981327151479

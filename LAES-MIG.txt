@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN – VERSION 8
+HAVNEKAPTAJNEN – VERSION 8.4
 https://havnekaptajnen.onrender.com/
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
@@ -6,7 +6,7 @@ Version 8 har et nyt isometrisk økort med separate bygninger, figurer, både og
 
 Vælg Indret for at flytte fiskeriet, værftet eller caféen. Træk huset eller brug pilene, og tryk Gem placering. Blomster, bænke, træer, lamper og springvand koster kun optjente havnekroner. Prisen trækkes først ved en gyldig placering. Fortryd er gratis. Vand og overlappende placeringer afvises. Der kan være op til 60 udsmykninger. Indretningen følger med i lokal gemning og sikkerhedskopier.
 
-Værkstedet er et selvstændigt rum med båden i tørdok. Tryk på et udstyrssted for at vælge udstyr, og afslut monteringen, når uret er færdigt. Monteret udstyr vises på båden både i rummet og på havnekortet. De nye hovedillustrationer er originale, genererede spilbilleder; små udsmykninger og udstyrsdele bruger også vektorgrafik.
+Værkstedet er et selvstændigt rum med båden i tørdok. Under sejlads er dokken tom; hent lasten ved kajen, før båden igen kan komme i værkstedet. Tryk på et udstyrssted for at vælge udstyr, og afslut monteringen, når uret er færdigt. Monteret udstyr vises på båden både i rummet og på havnekortet. De nye hovedillustrationer er originale, genererede spilbilleder; små udsmykninger og udstyrsdele bruger også vektorgrafik.
 
 EN HAVN UDEN EN SIDSTE ETAPE
 Tolv introduktionsopgaver fører fra Almas første fangst til fyrfesten. Festen er den første milepæl. Under Udvikling fortsætter spillet gennem fortløbende etaper, som åbnes efter den første restaurering. Der er ingen designet slutetape eller samlet 100%-afslutning.
@@ -23,11 +23,11 @@ Tryk på fiskeriet, værkstedet og caféen for at producere seks slags varer. He
 DIN EGEN BÅD
 Vælg blandt tre farvestile. Byg motor, lastdæk og skrog op gennem henholdsvis tre, tre og to niveauer. Opgraderinger ændrer spillets leveringstid, belønninger og adgang til øer. Montering og ombygning har ventetider. Båden kan kun bruges til én opgave ad gangen.
 
-Fire udstyrsvalg er knyttet til offentlige produkter hos SejlStrøm:
-- Garmin ECHOMAP UHD2 62sv Touch: 20% kortere leveringstid i spillet.
-- SejlStrøm Lithium Complete 100: ét ekstra havnemærke pr. levering.
-- SUNBEAM Tough 111: 10% flere havnekroner pr. levering.
-- AUTOTERM Air 2D: 15% ekstra havnekroner på kaffeordrer.
+Fire fiktive udstyrsvalg har separate links til relevante varer hos SejlStrøm:
+- Kortplotter: 20% kortere leveringstid i spillet.
+- Lithium-batteripakke: ét ekstra havnemærke pr. levering.
+- Solpanel til kahyttaget: 10% flere havnekroner pr. levering.
+- Kahytvarmer: 15% ekstra havnekroner på kaffeordrer.
 
 Udstyret købes alene for optjente spilpenge. Montering tager 18–24 sekunder. Afmontering og genmontering af ejet udstyr er gratis. Leveringsbelønningen fastlægges ved afgang, så den ikke ændres undervejs.
 
@@ -45,4 +45,4 @@ SEJLSTRØM
 De fire produktsider har direkte links fra udstyrspanelet. Webshoppen viser aktuelle priser og installationskrav. Spilbonusserne er fiktive og beskriver ikke teknisk kompatibilitet eller reel produktydelse. Et fysisk køb giver ikke automatisk spiludstyr. Der er ikke ændret noget i webshoppen.
 
 AFGRÆNSNING
-Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-8.txt for konkret kontrol.
+Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-8.4.txt for den seneste kontrol og TESTSTATUS-VERSION-8.txt for grundversionen.
