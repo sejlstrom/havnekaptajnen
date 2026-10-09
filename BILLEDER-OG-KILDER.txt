@@ -80,3 +80,15 @@ land-ropeworks.png: Fritlagt maritimt rebslageri med træbeklædning, mørkt tag
 land-sailmaker.png: Fritlagt sejlværksted med sejldug, træarbejdsplads, ruller og maritime detaljer; samme stil og kameravinkel, ingen tekst eller logoer.
 land-meadow.png: Fritlagt grøn ø med sten og sandkant, åbne græsbyggepladser, vandrette stier og små træbroender ved venstre/højre kant; ingen bygninger eller UI; samme håndmalede øhavsstil.
 Det nye tilpassede bådstativ er egen SVG-grafik med støttepunkter pr. bådtype. Broer, byggepladser og lagerskilte er SVG/CSS/HTML. Ingen eksterne mærker eller spilaktiver er brugt.
+
+
+VERSION 12.1.1 — OFFICIELT SEJLSTRØM-LOGO
+SejlStrøms eksisterende logo med sejlbåd og lyn erstatter den tidligere typografiske
+erstatning i spillets reklamer. Identisk billedfil hentet fra webshoppens sidehoved
+9. oktober 2026 via browserens viste billedressource:
+https://sejlstroem.dk/cdn/shop/files/Logo_gennemsigtig_baggrund.png?height=200&v=1767968292
+Webshoppen leverede billedet som image/avif (200 x 200). Filen er derfor gemt med
+.avif-endelse. Motivet er ikke gentegnet, omfarvet eller beskåret. CSS skalerer det
+proportionalt. Brugeren har bedt om annoncer for sin egen SejlStrøm-webshop.
+Spilfil: sejlstroem-logo.avif
+SHA-256: f4f80485752c7d52577465eb6501a8b330cc1d0165422e0d6ccf4213056a5d2d

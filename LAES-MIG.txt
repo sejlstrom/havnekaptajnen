@@ -1,5 +1,8 @@
-HAVNEKAPTAJNEN – VERSION 12.1
+HAVNEKAPTAJNEN – VERSION 12.1.1
 https://havnekaptajnen.sejlstroem.dk/
+
+LOGORETTELSE I VERSION 12.1.1
+Reklamerne bruger nu SejlStrøms originale sejlbåd-og-lyn-logo fra webshoppens sidehoved. Den tidligere typografiske erstatning er fjernet. Logoet er kopieret uændret til spillets filer og offlinecache v50; det hentes ikke fra webshoppen under spil. Se BILLEDER-OG-KILDER.txt for kilde og filhash.
 
 NYT I VERSION 12.1 – REKLAMER OG SPILINFO
 Tydeligt mærkede reklamer for udgiverens egen webshop, SejlStrøm. Banneret ligger over spillefladen; værksted og logbog har særskilte reklamefelter. Der bruges ingen annoncesporing, tredjepartsannoncer eller belønning for klik eller webshopkøb.
