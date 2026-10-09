@@ -43,3 +43,6 @@ island-alma.png: Voksen fiskerkvinde med turkis kasket, gul striktrøje, orange 
 island-water.png: Gentagelig turkis havtekstur set oppefra, små solbelyste krusninger, ingen horisont, land, genstande eller tekst. Opaque.
 
 Træer og personer er frilagte billedobjekter. Blomster, bænk, lampe, springvand, udstyrsmarkeringer og den lille gæstebåd er vektorgrafik/CSS. Bevægelser udføres i spillet, ikke i billedfilerne. Alle nye billedfiler er inkluderet i offlinecachen.
+
+VERSION 8.5 – MONTEREDE BÅDDELE
+Solpanel, kortplotter, batterikasse, varm vinduesfarve, dæksluge, lastkasser og skrogforstærkning er SVG-tegninger i samme 1536 × 1024 koordinatsystem som island-boat.png. De erstatter de tidligere separate CSS-former. Bådbilledet og de øvrige rasterbilleder er uændrede. Ingen produktbilleder eller mærkelogoer er tilføjet.

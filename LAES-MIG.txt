@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN – VERSION 8.4
+HAVNEKAPTAJNEN – VERSION 8.5
 https://havnekaptajnen.onrender.com/
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
@@ -46,3 +46,6 @@ De fire produktsider har direkte links fra udstyrspanelet. Webshoppen viser aktu
 
 AFGRÆNSNING
 Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-8.4.txt for den seneste kontrol og TESTSTATUS-VERSION-8.txt for grundversionen.
+
+VERSION 8.5 – BÅDENS UDSTYR
+Udstyrets tegninger deler nu bådens koordinater, så de følger billedet ved størrelse, zoom og animation. Solpanelet er placeret inden for taget, batteri og kasser står på dækket, og motoren vises med en dæksluge. Se TESTSTATUS-VERSION-8.5.txt for den målrettede grafiske kontrol.
