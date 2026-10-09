@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN 13.0.0 · 9. oktober 2026
+HAVNEKAPTAJNEN 13.0.1 · 9. oktober 2026
 
 AUTOMATISKE KONTROLLER BESTÅET
 - 1000 havnefester, 4000 forberedelser: kun tilgængelige varer, stigende og afgrænsede ventetider, vedvarende minder og venskaber.

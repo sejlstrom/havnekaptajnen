@@ -2,7 +2,7 @@
 (function(root){
  'use strict';
  const people=[
-  {id:'anna',name:'Anna',role:'Fiskeriet',icon:'🐟',goods:['fish','smoked','rope'],lines:['Vi dækker op til folk fra hele øhavet.','Fangsten skal gøres klar til gæsterne.','Lad os samle havnen om et godt måltid.','Den sidste kurv skal ned til kajen.']},
+  {id:'anna',name:'Alma',role:'Fiskeriet',icon:'🐟',goods:['fish','smoked','rope'],lines:['Vi dækker op til folk fra hele øhavet.','Fangsten skal gøres klar til gæsterne.','Lad os samle havnen om et godt måltid.','Den sidste kurv skal ned til kajen.']},
   {id:'otto',name:'Otto',role:'Værftet',icon:'⚒',goods:['wood','plank','cloth','sail'],lines:['Vi bygger boder, som kan holde til havvinden.','Scenen skal være klar, før musikken begynder.','Det gamle træ kan få et nyt liv.','Nu gør vi plads til næste besøg.']},
   {id:'sofie',name:'Sofie',role:'Havnecaféen',icon:'☕',goods:['fish','beans','coffee','apple','bread','pie'],lines:['Der skal være noget godt på bordene.','Jeg glæder mig til at fylde terrassen igen.','Vi pakker kurve til gæsterne på broen.','En rolig stund ved vandet er også en fest.']}
  ];

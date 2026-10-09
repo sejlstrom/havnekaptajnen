@@ -1,3 +1,15 @@
+HAVNEKAPTAJNEN – VERSION 13.0.1
+https://havnekaptajnen.sejlstroem.dk/
+
+NYT I VERSION 13 – HAVNELIV
+Tryk Havneliv på kortet eller find det under Udvikling/Logbog. Seks tilbagevendende havnefester, tre havnefolk, fire opgaver pr. fest, minder, fem vimpelfarver og fortsættende håndværksniveauer.
+Planlæg ét eller tre produktionshold samlet. Råvarer/pris, tid og output skalerer ens. Fragtkasser er en lille huskeaktivitet med seks par, som kan spilles under ventetid og genoptages efter genindlæsning.
+Butikken viser planlagt reklamefri adgang som engangskøb og en mærket prøve uden betaling. Alle annonceplaceringer skjules under prøven; de kommer tilbage ved afslutning eller genindlæsning.
+sponsor.html beskriver muligheder for annonceforespørgsler. Kun SejlStrøm er aktiv annoncør, med originalt logo. Ingen betalende eksterne sponsorer eller annonce-SDK er aktiveret. Betalingsløsningen forbliver lukket.
+Gamle gemninger, de 10 startbilletter og tidligere progression bevares. Nye opgaver giver ikke hjælpebilletter. Se TESTSTATUS-VERSION-13.txt.
+Offlinecache v52 indeholder også Havneliv og sponsorsiden. Ingen analyse- eller annoncesporing.
+
+TIDLIGERE UDGIVELSER
 HAVNEKAPTAJNEN – VERSION 12.1.1
 https://havnekaptajnen.sejlstroem.dk/
 
