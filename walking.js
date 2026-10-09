@@ -81,12 +81,15 @@
   else if(t<duration+route.pause){travel=route.length;idle=true;}
   else if(t<2*duration+route.pause){backward=true;travel=route.length-travelled(route,t-duration-route.pause);}
   else{travel=0;backward=true;idle=true;}
-  if(route.points.length<2){const p=route.points[0]||{x:900,y:740};return{...p,frame:1,nextFrame:1,blend:0,row:route.kind==='alma'?2:0,facing:1,idle:true,distance:0};}
+  if(route.points.length<2){const p=route.points[0]||{x:900,y:740};return{...p,phase:0,weight:0,vx:1,vy:0,row:route.kind==='alma'?2:0,facing:1,idle:true,distance:0};}
   let index=0,remainder=Math.max(0,Math.min(route.length,travel));
   while(index<route.lengths.length-1&&remainder>route.lengths[index])remainder-=route.lengths[index++];
   const a=route.points[index],b=route.points[index+1],ratio=remainder/route.lengths[index],sign=backward?-1:1,dx=(b.x-a.x)*sign,dy=(b.y-a.y)*sign;
-  const phase=idle?1:(backward?route.length-travel:travel)/2.8,frame=Math.floor(phase)%8;
-  return {x:a.x+(b.x-a.x)*ratio,y:a.y+(b.y-a.y)*ratio,frame,nextFrame:idle?frame:(frame+1)%8,blend:phase-Math.floor(phase),row:(route.kind==='alma'?2:0)+(dy<-Math.abs(dx)*.15?1:0),facing:dx<0?-1:1,idle,distance:travel};
+  const phase=(backward?2*route.length-travel:travel)/(route.id==='visitor'?34.125:37.9166666667);
+  const legTime=backward?t-duration-route.pause:t,ease=Math.min(.45,route.length/route.speed);
+  const weight=idle?0:Math.max(0,Math.min(1,legTime/ease,(duration-legTime)/ease));
+  const heading=Math.hypot(dx,dy);
+  return {x:a.x+(b.x-a.x)*ratio,y:a.y+(b.y-a.y)*ratio,phase,weight,vx:Math.abs(dx)/heading,vy:dy/heading,row:(route.kind==='alma'?2:0)+(dy<-Math.abs(dx)*.15?1:0),facing:dx<0?-1:1,idle,distance:travel};
  }
  const api=Object.freeze({navigation,createRoutes,pose,onGround,travelDuration});
  if(typeof module==='object'&&module.exports)module.exports=api;else root.HarborWalking=api;

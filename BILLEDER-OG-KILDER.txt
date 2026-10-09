@@ -53,3 +53,6 @@ Brief: 8 kolonner × 4 rækker; havnearbejder i orange trøje/teal overalls og k
 
 VERSION 8.7
 Gangillustrationen fra 8.6 er genbrugt uændret. Den vises med løbende blanding og positionsjustering i browseren. Træbunken ved stranden er ny vektorgrafik tegnet direkte i spillet. Ingen nye eksterne billedaktiver.
+
+VERSION 8.8
+De nye originale island-worker-rig.png og island-alma-rig.png (1983 x 793) er lavet med indbygget image_gen. Figurdele samles og animeres af walking-rig.js. PNG-filerne er uændrede. Se GANGGRAFIK-V8.8.txt for de fulde prompts og referencer. Den gamle gangillustration er ikke længere aktiv.

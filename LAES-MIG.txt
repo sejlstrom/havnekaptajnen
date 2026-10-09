@@ -1,5 +1,8 @@
-HAVNEKAPTAJNEN – VERSION 8.7
+HAVNEKAPTAJNEN – VERSION 8.8
 https://havnekaptajnen.onrender.com/
+
+NYT I VERSION 8.8
+Zoom holdes fast, også når skærmhøjden ændres. Nye figurer bevæger arme, knæ og støvler løbende mellem stillingerne. Se TESTSTATUS-VERSION-8.8.txt og GANGGRAFIK-V8.8.txt for kontrol og grafik.
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
 Version 8 har et nyt isometrisk økort med separate bygninger, figurer, både og udsmykning. Træk kortet, zoom med plus/minus eller to fingre, og brug Overblik til at vende tilbage. Tryk på et hus for at sætte produktion i gang; en boble over huset viser, hvornår varerne kan hentes. Båden sejler ud og vender tilbage ved leveringer. Bevægelse og animation er visuelle; gemte tidsfrister afgør altid belønningen.

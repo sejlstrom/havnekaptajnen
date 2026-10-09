@@ -26,32 +26,3 @@ Ingen registrerede JavaScript-fejl/advarsler på selve spilfanen.
 BEGRÆNSNINGER
 Grafikken er stadig stiliseret 2D. Der er to tegnede synsvinkler pr. figur, som spejles til venstre/højre. Figurer undviger ikke hinanden. Realistisk tredimensionel gang og test på fysisk telefon er ikke udført.
 Den offentlige udgivelse og offline-genåbning kontrolleres separat; resultatet registreres sammen med udgivelsespakken.
-
-
-TIDLIGERE KONTROL
-HAVNEKAPTAJNEN VERSION 8.7 – DRIVTØMMER, PLANKER OG BLØDERE GANG
-9. oktober 2026
-
-DET SPILLEREN FÅR
-Stranden har nu et synligt sted til drivtømmer. Hent træ og Sav planker er også altid tilgængelige ved lagerets to nye tællere. Indsamling er gratis, tager 16 sekunder i en ny havn og lægger først træ på lager, når spilleren henter det færdige hold.
-Savværket viser hele kæden og lageret før/efter: 2 drivtømmer bliver som udgangspunkt til 2 planker. De 2 stykker træ trækkes straks, når savningen begynder. Savningen koster 20 havnekroner og tager 24 sekunder i en ny havn. Eksisterende restaureringer og udbygninger kan give kortere tid eller større hold.
-Uden 2 drivtømmer er savning blokeret, og der er en knap til at hente mere. Indsamling på stranden og savning kan køre samtidig. Tidligere beholdninger bevares; igangværende indsamling fra det gamle værksted flyttes til stranden med samme slutdato og udbytte.
-
-GANG
-De otte eksisterende gangbilleder blandes løbende med hinanden frem for at skifte brat. Figurernes hovedposition er justeret mellem billederne, så kroppen ikke hopper sidelæns. Sikre rutehjørner afrundes, og farten øges/sænkes gradvist ved start og stop. Føddernes bevægelse følger stadig den tilbagelagte afstand. Reduceret bevægelse og pause under indretning er bevaret.
-
-AUTOMATISKE TESTS – BESTÅET
-- tests/logic_test.js: blokeret savning uden træ, gratis indsamling, ingen for tidlig afhentning, præcis én afhentning, straksforbrug af 2 træ, ingen ekstra betaling ved dobbeltklik, parallel indsamling/savning, genåbning med bevarede tider og lager, migration af gammel træindsamling samt eksport/import.
-- Eksisterende samlet logiktest består fortsat: alle 12 introduktionsopgaver, 365 driftsdage, bådudstyr, sejlads, indretning og 100 fortsættende etaper.
-- tests/walking_test.js: kontinuerlig bevægelse uden positionsspring, kontrollerede ruter uden vand/forhindringer, afrundede hjørner, acceleration/bremsning og brøkdele mellem gangbilleder.
-- tests/offline_cache_test.js: grundaktiver findes og offlinefallback virker.
-
-LOKAL BROWSERKONTROL – BESTÅET
-- Faktisk savning: træ 4 → 2 → 0, planker 10 → 12 → 14. Ved 0 træ var ny savning blokeret. Et nyt indsamlet hold gav 2 træ og åbnede savningen igen. Alt skete i den separate lokale testgemning.
-- Genåbning midt i savning bevarede de brugte materialer og sluttiden. Indsamling blev kørt samtidig med savningen.
-- 1280 × 720, 390 × 844 og 320 × 568. Ingen vandret side-overflow på mobil. Panelet kan rulles på den mindste skærm.
-- 55 målte browserbilleder over cirka 0,9 sekund: alle fire figurer flyttede sig, alle billeder indeholdt løbende blanding mellem gangstillinger, og de to billedlags vægte summerede til 1. Dette er en observation i testbrowseren, ikke en garanti om ydelse på alle telefoner.
-- Ingen registrerede JavaScript-fejl eller advarsler under kontrollen.
-
-AFGRÆNSNING
-Gang er fortsat stiliseret 2D-animation med otte grundstillinger. Der er ikke indført et 3D-skelet eller personkollisioner. Der er ikke testet på en fysisk telefon. Offentlig udgivelse og gemningskontrol dokumenteres separat.
