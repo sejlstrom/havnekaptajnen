@@ -22,3 +22,24 @@ boat-top.png – Den eksisterende cremefarvede og blågrønne kabinebåd set dir
 Fremstillet med det indbyggede image_gen-værktøj. Billederne og deres transparens er bevaret i spilpakken.
 Endelig prompt til boat-top.png:
 Create a gameplay sprite of THIS exact cream and teal Nordic wooden cabin motorboat, but viewed from directly overhead in orthographic top-down perspective, long axis vertical, pointed BOW facing the TOP of the image, stern at the bottom. Single isolated boat centered, fills 90% of image height, generous transparent margins on left and right, no water or floor or horizon, truly transparent background. Keep cream cabin roof, teak deck, brass rails and teal edging recognizable. Same warm detailed miniature game art, readable silhouette at small sizes. No text, UI, people, wakes or cast shadow around it. Supporting reference is the boat design; target result is a NEW camera-angle sprite for our existing game.
+
+
+VERSION 8 – NY ISOMETRISK HAVN
+Fremstillet med det indbyggede image_gen-værktøj. Mode: nygenerering, uden eksisterende spilbilleder som reference. Ingen eksterne billeddownloads. Filerne er kopieret uændret til spilpakken. Ingen Hay Day-figurer, bygninger, logoer eller billedfiler er anvendt.
+
+Fælles promptretning: "Original cozy Nordic harbor management mobile game, high-quality hand-painted 3D cartoon game art, chunky rounded shapes, warm sunny light from upper left, cheerful saturated palette, orthographic isometric camera looking down at 45 degrees. Premium casual management game art. No words, logos, UI or watermark."
+
+Motiver og leverede filer:
+island-terrain.png: Grøn ø med stier, strand og træbroer; ingen indbagte produktionshuse. Opaque.
+island-fishery.png: Fritstående koralrødt fiskerhus med blåt tag. Transparent.
+island-workshop.png: Blåt bådværft med orange tag. Transparent.
+island-cafe.png: Gul café med rødt tag og turkise havemøbler. Transparent.
+island-lighthouse.png: Elfenbensfarvet fyr med røde striber, varm lanterne og lille hus. Transparent.
+island-boat.png: Cremefarvet kabinebåd med turkis stribe, tomt orange kahyttag og trædæk, stævn mod nederste venstre. Transparent.
+island-interior.png: Lyst bådværksted i træ, arbejdsborde, tom tørdok og to bukke. Opaque.
+island-tree.png: Lille æbletræ med tre afrundede løvmasser, røde æbler, varm brun stamme og en lille græstue. Transparent.
+island-worker.png: Voksen havnearbejder med marineblå kasket, orange striktrøje, turkise arbejdsbukser og brune støvler, gående i trekvartperspektiv. Transparent.
+island-alma.png: Voksen fiskerkvinde med turkis kasket, gul striktrøje, orange arbejdsbukser, brune støvler og brun fletning. Transparent.
+island-water.png: Gentagelig turkis havtekstur set oppefra, små solbelyste krusninger, ingen horisont, land, genstande eller tekst. Opaque.
+
+Træer og personer er frilagte billedobjekter. Blomster, bænk, lampe, springvand, udstyrsmarkeringer og den lille gæstebåd er vektorgrafik/CSS. Bevægelser udføres i spillet, ikke i billedfilerne. Alle nye billedfiler er inkluderet i offlinecachen.

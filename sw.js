@@ -1,6 +1,6 @@
 /* Havnekaptajnen - offline cache. No analytics, no remote assets. */
-const CACHE='havnekaptajnen-static-v17';
-const STATIC=['./','./index.html','./styles.css?v=7.0','./app.js?v=7.0','./world.css?v=7.0','./campaign.css?v=7.0','./growth.css?v=7.0','./harbor-start.png','./harbor-world.png','./workshop-world.png','./player-boat.png','./boat-top.png','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
+const CACHE='havnekaptajnen-static-v21';
+const STATIC=['./','./index.html','./styles.css?v=8.3','./app.js?v=8.3','./world.css?v=8.3','./campaign.css?v=8.3','./growth.css?v=8.3','./island.css?v=8.3','./island-terrain.png','./island-fishery.png','./island-workshop.png','./island-cafe.png','./island-lighthouse.png','./island-boat.png','./island-interior.png','./island-tree.png','./island-worker.png','./island-alma.png','./island-water.png','./harbor-start.png','./harbor-world.png','./workshop-world.png','./player-boat.png','./boat-top.png','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('havnekaptajnen-static-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

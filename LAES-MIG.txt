@@ -1,5 +1,12 @@
-HAVNEKAPTAJNEN – VERSION 7
+HAVNEKAPTAJNEN – VERSION 8
 https://havnekaptajnen.onrender.com/
+
+EN HAVN DU KAN BEVÆGE DIG RUNDT I
+Version 8 har et nyt isometrisk økort med separate bygninger, figurer, både og udsmykning. Træk kortet, zoom med plus/minus eller to fingre, og brug Overblik til at vende tilbage. Tryk på et hus for at sætte produktion i gang; en boble over huset viser, hvornår varerne kan hentes. Båden sejler ud og vender tilbage ved leveringer. Bevægelse og animation er visuelle; gemte tidsfrister afgør altid belønningen.
+
+Vælg Indret for at flytte fiskeriet, værftet eller caféen. Træk huset eller brug pilene, og tryk Gem placering. Blomster, bænke, træer, lamper og springvand koster kun optjente havnekroner. Prisen trækkes først ved en gyldig placering. Fortryd er gratis. Vand og overlappende placeringer afvises. Der kan være op til 60 udsmykninger. Indretningen følger med i lokal gemning og sikkerhedskopier.
+
+Værkstedet er et selvstændigt rum med båden i tørdok. Tryk på et udstyrssted for at vælge udstyr, og afslut monteringen, når uret er færdigt. Monteret udstyr vises på båden både i rummet og på havnekortet. De nye hovedillustrationer er originale, genererede spilbilleder; små udsmykninger og udstyrsdele bruger også vektorgrafik.
 
 EN HAVN UDEN EN SIDSTE ETAPE
 Tolv introduktionsopgaver fører fra Almas første fangst til fyrfesten. Festen er den første milepæl. Under Udvikling fortsætter spillet gennem fortløbende etaper, som åbnes efter den første restaurering. Der er ingen designet slutetape eller samlet 100%-afslutning.
@@ -38,4 +45,4 @@ SEJLSTRØM
 De fire produktsider har direkte links fra udstyrspanelet. Webshoppen viser aktuelle priser og installationskrav. Spilbonusserne er fiktive og beskriver ikke teknisk kompatibilitet eller reel produktydelse. Et fysisk køb giver ikke automatisk spiludstyr. Der er ikke ændret noget i webshoppen.
 
 AFGRÆNSNING
-Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-7.txt for konkret kontrol.
+Dette er en spilbar webudgave med introduktion og fortsættende havneudvikling. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-8.txt for konkret kontrol.
