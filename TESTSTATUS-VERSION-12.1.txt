@@ -1,0 +1,61 @@
+HAVNEKAPTAJNEN 12.1 — REKLAMER OG SPILOPLYSNINGER
+Kontrolleret 9. oktober 2026
+Offentlig adresse: https://havnekaptajnen.sejlstroem.dk/
+Informationsside: https://havnekaptajnen.sejlstroem.dk/om-spillet.html
+Spilændring: 45b28edb80fad71b7edc0bcc24439d71b510b368
+Render: dep-db4jmd7avr4c73fgo21g — Deploy succeeded / Live
+
+BESTÅET I AUTOMATISKE KONTROLLER
+- Hele logic_test.js: gemning, import/eksport, produktion, materialeforbrug,
+  startbilletter, både, containerskibe, ventetider og fortsættende udvikling.
+- 100 simulerede kapitler, 200 kontrakter og gentagne genindlæsninger.
+- camera_test.js: zoom, størrelseændringer og gemning af kamera.
+- billing_client_test.js: selv med en indsat serveradresse er køb, købskonto,
+  betalte billetter og netværkskald blokeret. Ingen betalingsdata læses.
+- offline_cache_test.js: alle 56 cachefiler findes. Offline-navigation til
+  informationssiden viser informationssiden, også med querystring.
+- Syntakskontrol af ændrede JavaScript-filer.
+Den første fulde spiltest stoppede ved en gammel forventning til teksten
+"Køb åbner senere". Testen blev opdateret til "Ikke til salg" og fravær af
+betalingssamtykke; hele suiten blev derefter kørt igen og bestod.
+
+KONTROLLERET I DEN OFFENTLIGE BROWSER
+- Ny version 12.1 er synlig efter opdatering af browserens cache.
+- Spillerens saldo 3.328.519, Svalen, etape 1 og 10 startbilletter er bevaret.
+- Banner over spillefladen og separate reklamefelter i værksted og logbog.
+- Tydelig mærkning: Reklame · SejlStrøm. Ingen bonus ved annonceklik eller køb.
+- Dialog forklarer skiftet fra spil til webshop; annullering virker.
+- Bannerets link åbner SejlStrøms forside i en ny fane.
+- Solpanelets reklame peger på den relevante udstyrskategori, uden trackingparametre.
+- Alle tre betalingspakker vises som Ikke til salg; ingen betalingsformular.
+- Kontakt & privatliv åbner den offentlige informationsside; retur til spil virker.
+- Skrivebordsvisning ved 1280 x 720 er visuelt kontrolleret, inklusive udstyrsreklamen.
+
+AFGRÆNSNINGER
+Mobilvisning blev forsøgt via browserens størrelsesværktøj, men browseren forblev
+1280 x 720. Den nye mobilvisning er derfor IKKE visuelt verificeret på mobil eller
+fysisk telefon. Responsive regler findes i spilinfo.css.
+Offlinefunktionen er testet i service-worker-testmiljøet. Der er IKKE foretaget
+en ny afbrudt-netforbindelse-test af version 12.1 på det offentlige domæne.
+Den lokale forhåndsvisning kunne ikke nås; visuel kontrol er udført på den
+offentlige udgivelse. Ingen køb, abonnementer eller App Store-udgivelse er aktiveret.
+
+JURIDISK AFGRÆNSNING
+Der er rettet konkrete oplysnings- og reklameproblemer, ikke udstedt en juridisk
+godkendelse. Der er ikke foretaget fuld varemærkeundersøgelse eller ekstern
+ophavsrets- og databeskyttelsesvurdering. Fremtidige betalinger kræver et nyt
+gennemgået købsforløb, herunder regler for mindreårige og virtuel valuta.
+Render’s offentlige DPA, privatlivspolitik og underleverandørliste er gennemgået.
+Det dokumenterer udbyderens offentliggjorte vilkår, ikke en fuld revision af
+virksomhedens konkrete aftaler og interne procedurer.
+
+KILDER
+https://forbrugerombudsmanden.dk/alle-emner/forbud-mod-skjult-reklame
+https://forbrugerombudsmanden.dk/alle-emner/anden-lovgivning/e-handelsloven
+https://forbrugerombudsmanden.dk/alle-emner/boern-og-unge/markedsfoering-rettet-mod-boern-og-unge
+https://digst.dk/tilsyn/sporingsteknologiomraadet/cookievejledningen/
+https://www.datatilsynet.dk/regler-og-vejledning/gdpr-univers-for-smaa-virksomheder/faq
+https://render.com/dpa
+https://render.com/privacy
+https://render.com/trust
+https://sejlstroem.dk/pages/handelsbetingelser-1
