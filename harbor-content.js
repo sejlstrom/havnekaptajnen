@@ -14,18 +14,20 @@
  ];
  const errands=[{name:'Planker til fællesbroen',needs:{plank:2,wood:2}},{name:'Mad til de frivillige',needs:{fish:4,smoked:2}},{name:'Kaffe til havnedagen',needs:{coffee:2,beans:2}}];
  const whole=(n,fallback=0)=>Number.isSafeInteger(n)&&n>=0?Math.min(n,1000000000):fallback;
- function fresh(){return {schema:1,tickets:3,earned:3,errands:0,levels:Object.fromEntries(districts.map(d=>[d.id,0])),project:null,style:'classic'};}
+ function fresh(){return {schema:2,tickets:10,starterGranted:10,earned:0,errands:0,levels:Object.fromEntries(districts.map(d=>[d.id,0])),project:null,style:'classic'};}
  function normalize(raw,now=Date.now()){
   const s=fresh();if(!raw||typeof raw!=='object')return s;
-  s.tickets=whole(raw.tickets);s.earned=whole(raw.earned);s.errands=whole(raw.errands);
+  // Version 9 gave three starter tickets. Add only the missing seven once;
+  // preserve spent tickets and any tickets earned before this policy changed.
+  s.tickets=whole(whole(raw.tickets)+(raw.schema===1?7:0));s.earned=whole(raw.earned);s.errands=whole(raw.errands);
   // Retain valid unknown district IDs for rolling releases/offline clients.
   for(const [id,level] of Object.entries(raw.levels||{}).slice(0,100))if(/^[a-z][a-z0-9_]{0,39}$/.test(id))s.levels[id]=whole(level);
   if(raw.style==='evening')s.style='evening';
   const j=raw.project;if(j&&districts.some(d=>d.id===j.id)&&j.level===s.levels[j.id]+1&&Number.isFinite(j.readyAt)&&j.readyAt>0&&j.readyAt<=now+86400000)s.project={id:j.id,level:j.level,readyAt:j.readyAt};
   return s;
  }
- function project(s,id){const d=districts.find(x=>x.id===id);if(!d)return null;const level=s.levels[id]+1,step=Math.floor(Math.log2(level+1));return{id,level,cash:700+step*300,needs:Object.fromEntries(Object.entries(d.needs).map(([g,n])=>[g,n+step*2])),seconds:120+step*45};}
- function errand(s){const e=errands[s.errands%errands.length],n=1+Math.floor(Math.log2(1+s.errands)/3);return{...e,sequence:s.errands,needs:Object.fromEntries(Object.entries(e.needs).map(([g,v])=>[g,v*n])),cash:300*n,tickets:1};}
+ function project(s,id){const d=districts.find(x=>x.id===id);if(!d)return null;const level=s.levels[id]+1,step=Math.floor(Math.log2(level+1));return{id,level,cash:700+step*300,needs:Object.fromEntries(Object.entries(d.needs).map(([g,n])=>[g,n+step*2])),seconds:Math.min(28800,120+level*90)};}
+ function errand(s){const e=errands[s.errands%errands.length],n=1+Math.floor(Math.log2(1+s.errands)/3);return{...e,sequence:s.errands,needs:Object.fromEntries(Object.entries(e.needs).map(([g,v])=>[g,v*n])),cash:300*n,tickets:0};}
  function multiplier(s,station){const d=districts.find(d=>d.station===(station==='shore'?'workshop':station));return d?1-Math.min(.2,Math.log2((s.levels[d.id]||0)+1)*.025):1;}
  function skipQuote(job,now){if(!job||!Number.isFinite(job.readyAt)||job.readyAt<=now)return null;return{before:job.readyAt,after:Math.max(now,job.readyAt-300000),seconds:Math.min(300,Math.ceil((job.readyAt-now)/1000)),cost:1};}
  function skip(s,job,expectedReadyAt,now){const q=skipQuote(job,now);if(!q||q.before!==expectedReadyAt||s.tickets<q.cost)return false;s.tickets--;job.readyAt=q.after;return true;}

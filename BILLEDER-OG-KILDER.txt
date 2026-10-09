@@ -56,3 +56,11 @@ Gangillustrationen fra 8.6 er genbrugt uændret. Den vises med løbende blanding
 
 VERSION 8.8
 De nye originale island-worker-rig.png og island-alma-rig.png (1983 x 793) er lavet med indbygget image_gen. Figurdele samles og animeres af walking-rig.js. PNG-filerne er uændrede. Se GANGGRAFIK-V8.8.txt for de fulde prompts og referencer. Den gamle gangillustration er ikke længere aktiv.
+
+VERSION 10.0 – FLÅDEN
+Fire originale transparente 1536 × 1024 PNG-billeder er skabt med det indbyggede billedværktøj den 9. oktober 2026. Egen island-boat.png blev brugt som stilreference. Ingen mærkelogoer eller aktiver fra andre spil blev brugt. Filerne er kopieret uændret fra billedværktøjets resultat.
+fleet-cutter.png: arbejdskutter, marineblåt skrog, rød kahyt, lyst tag, åbent trædæk.
+fleet-cruiser.png: lang motorkrydser med cremefarvet kahyt, bordeaux stribe og agterdæk.
+fleet-catamaran.png: to turkise skrog, bred kahyt og åbent arbejdsdæk.
+fleet-expedition.png: grøn ekspeditionsbåd med højere styrehus, messingdetaljer og mast.
+Alle er vist isometrisk med stævnen nederst til venstre. Udstyrsdele er SVG-overlays, indpasset separat til de enkelte tage og dæk. Manuel sejlads bruger egne SVG-illustrationer set oppefra for de fire nye bådtyper.

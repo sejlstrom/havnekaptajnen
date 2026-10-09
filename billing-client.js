@@ -8,7 +8,7 @@
   const read=k=>{try{return JSON.parse(storage.getItem(k)||'null');}catch{return null;}};
   const write=(k,v)=>{storage.setItem(k,JSON.stringify(v));};
   let account=read(key),busy=false;
-  let state={enabled:false,products:[],tickets:0,entitlements:[],message:'Køb åbner senere. Spil videre og optjen hjælpebilletter gratis.'};
+  let state={enabled:false,products:[],tickets:0,entitlements:[],message:'Køb åbner senere. Dine startbilletter kan bruges imens. Der trækkes ingen penge.'};
   async function api(path,body){
    if(!endpoint)throw new Error('Betalinger er ikke åbnet.');
    const headers={'Content-Type':'application/json'};if(account?.token)headers.Authorization='Bearer '+account.token;

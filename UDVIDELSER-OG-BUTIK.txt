@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN — VIDERE UDVIKLING FRA VERSION 9.0
+HAVNEKAPTAJNEN — VIDERE UDVIKLING I VERSION 10.0
 
 Under Udvikling findes tre nye kvarterer med vedvarende niveauer. Klik på Butik
 for at se hjælpebilletter, planlagte pakker og den gratis prøve af aftenhavnen.
@@ -23,8 +23,10 @@ Lygtehavnen: valgfrit permanent aftenudseende, der kan slås til og fra.
 Der er ingen salgspris fastsat endnu. Alle tre køb står lukket på den offentlige side.
 
 SPILLERENS GRATIS VEJ
-3 startbilletter, gentagne havnelaugsbestillinger, afsluttede etaper og hvert femte
-kvarterniveau giver billetter. Kvarterer åbner gratis på etape 2, 3 og 5.
+10 startbilletter gives én gang pr. ny havn. Ingen opgave, etape eller opgradering
+giver flere billetter. Flere billetter kræver køb, når butikken åbner.
+Ældre gemninger fra version 9 får de manglende 7 startbilletter én gang; allerede
+brugte billetter og tidligere optjente saldi bevares. En genindlæsning giver ingen nye billetter. Kvarterer åbner gratis på etape 2, 3 og 5.
 Ingen lootbokse, abonnementer, kunstige tidsbegrænsede tilbud eller tvungne køb.
 
 BETALING
@@ -33,3 +35,12 @@ på en særskilt betalingsside. Serverkoden ligger i en separat, endnu ikke udgi
 pakke. Kun serverbekræftede betalinger giver købte billetter og permanente pakker.
 Spillets gemmefil indeholder ikke købte saldi eller købsrettigheder.
 Rigtige køb kræver færdig konto-, sælger-, vilkårs- og driftsopsætning samt test.
+
+BÅDE OG TID
+fleet.js er det stabile katalog over fem både og fem gentagelige storlastopgaver.
+Større både åbner på etape 3, 7, 12 og 20; de betales med spilpenge og materialer.
+Byggetid, materialeforbrug og kapacitet vises før bestilling. Gamle både bevares.
+Alle funktionelle opgraderinger har byggetid, også genmontering fra udstyrshylden.
+Højere niveauer giver længere byggetider. Produktionshold og sejlture tager længere
+tid med fremgangen; både og udstyr kan forkorte deres grundtid. Igangværende arbejde
+beholder sin allerede fastlagte tidsfrist ved opdatering og genindlæsning.

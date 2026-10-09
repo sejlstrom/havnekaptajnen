@@ -1,8 +1,8 @@
-HAVNEKAPTAJNEN – VERSION 9.0
+HAVNEKAPTAJNEN – VERSION 10.0
 https://havnekaptajnen.onrender.com/
 
-NYT I VERSION 9.0
-Nye kvarterer med fortsættende niveauer, havnelaugsbestillinger og hjælpebilletter. Butik med forberedte pakker; betalinger er stadig lukket. Se UDVIDELSER-OG-BUTIK.txt og TESTSTATUS-VERSION-9.0.txt.
+NYT I VERSION 10.0
+Fem både med stigende lastekapacitet, egne illustrationer og fem gentagelige fragtopgaver. 10 startbilletter gives én gang; derefter skal billetter købes, når betaling bliver åbnet. Opgaver og opgraderinger giver ingen nye billetter. Alle opgraderinger har byggetid; større udbygninger og opgaver tager længere tid. Betaling er stadig lukket. Se UDVIDELSER-OG-BUTIK.txt og TESTSTATUS-VERSION-10.0.txt.
 
 BEVARET FRA VERSION 8.8
 Zoom holdes fast, også når skærmhøjden ændres. Nye figurer bevæger arme, knæ og støvler løbende mellem stillingerne. Se TESTSTATUS-VERSION-8.8.txt og GANGGRAFIK-V8.8.txt for kontrol og grafik.
@@ -19,12 +19,15 @@ Tolv introduktionsopgaver fører fra Almas første fangst til fyrfesten. Festen 
 
 Hver etape har tre kontrakter: vælg mindst to og udbyg fiskerikajen, værftskvarteret eller caféens torv én gang. Åbn derefter næste etape. Havnekroner, lager, båd, udstyr og bygningsniveauer bliver hos dig. Havnestjerner registrerer etaperne. Handel giver bedre kontraktbetaling, håndværk giver en ekstra vare pr. nyt hold, og sejlads forkorter kontraktturene og øger bøje-bonussen.
 
-Udbygninger forbedrer produktionens kapacitet i trin og dens hastighed. Behov, omkostninger og rejsetid skalerer langsomt, mens otte farvandsnavne, seks sejltemaer og tolv bestillinger kombineres. Der er ingen designet niveaugrænse for havneudbygningerne. Bådens oprindelige opgraderinger og de fire introduktionsøer har fortsat deres egne grænser.
+Udbygninger forbedrer produktionens kapacitet i trin. Større hold tager længere tid, og kvarterernes effektivitetsbonus modregnes i den nye grundtid. Behov, omkostninger og rejsetid skalerer med fremgangen, mens otte farvandsnavne, seks sejltemaer og tolv bestillinger kombineres. Der er ingen designet niveaugrænse for havneudbygningerne. Bådens oprindelige opgraderinger og de fire introduktionsøer har fortsat deres egne grænser.
 
 Dette er gentagelig systembaseret progression, ikke uendeligt mange håndskrevne historier, nye økort eller illustrationer. Det er endnu ikke dokumenteret, hvor længe rigtige spillere finder forløbet underholdende.
 
 SÅDAN SPILLER DU
 Tryk på fiskeriet, værkstedet og caféen for at producere seks slags varer. Hent færdige varer, og vælg blandt ordrerne på kajen. Leveringer giver havnekroner og mærker til restaureringer. Følg opgavebjælken, og hent belønningen, når en opgave er løst.
+
+DIN FLÅDE
+Værksted > Mine både viser Svalen fra etape 1 (12 kasser), Havkat fra etape 3 (24), Fjordly fra etape 7 (40), Tvilling fra etape 12 (64) og Nordlys fra etape 20 (96). Bådene købes for havnekroner og materialer; byggetiderne er 3, 6, 10 og 15 minutter. Betal én gang ved bestilling, og søsæt når uret er færdigt. Du beholder alle tidligere både. Udstyr og ombygninger følger med; bådskifte er gratis, når båden er hjemme og værkstedsarbejdet er færdigt. Storlaster har en kapacitetsgrænse, mens de almindelige ordrer og etaper fortsat kan spilles med startbåden.
 
 DIN EGEN BÅD
 Vælg blandt tre farvestile. Byg motor, lastdæk og skrog op gennem henholdsvis tre, tre og to niveauer. Opgraderinger ændrer spillets leveringstid, belønninger og adgang til øer. Montering og ombygning har ventetider. Båden kan kun bruges til én opgave ad gangen.
@@ -35,7 +38,7 @@ Fire fiktive udstyrsvalg har separate links til relevante varer hos SejlStrøm:
 - Solpanel til kahyttaget: 10% flere havnekroner pr. levering.
 - Kahytvarmer: 15% ekstra havnekroner på kaffeordrer.
 
-Udstyret købes alene for optjente spilpenge. Montering tager 18–24 sekunder. Afmontering og genmontering af ejet udstyr er gratis. Leveringsbelønningen fastlægges ved afgang, så den ikke ændres undervejs.
+Udstyret købes alene for optjente spilpenge. Montering tager 18–24 sekunder. Afmontering og genmontering af ejet udstyr er gratis; genmontering tager stadig 18–24 sekunder. Motor, lastdæk og skrog tager længere tid på hvert nyt niveau. Ingen fordel gælder før afslutning. Byggetider for fortsættende udbygninger vokser op til otte timer. Leveringsbelønningen fastlægges ved afgang, så den ikke ændres undervejs.
 
 SEJL SELV ELLER SEND BÅDEN AFSTED
 Ved en almindelig levering eller en etape-kontrakt kan du vælge at styre båden gennem 12 bølger af bøjer og klipper. Styr med de tre knapper eller piletasterne. Samlede bøjer giver en ekstra belønning. Den almindelige levering går ikke tabt ved en kollision. Minispillet sættes på pause, når du går væk; leveringsuret fortsætter. Introduktionen beder dig gennemføre én manuel tur. Kontrakterne har skiftende bøjemønstre; manuel sejlads er valgfri og giver 35 havnekroner pr. bøje, eller 50 med sejladsretningen.
