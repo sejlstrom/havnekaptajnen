@@ -35,6 +35,10 @@
  }
  const load=route=>Object.values(route.needs).reduce((n,v)=>n+v,0);
  function quote(routeId,active){const r=routes.find(r=>r.id===routeId);if(!r)return null;const boat=ship(active);return {...r,load:load(r),cash:Math.round(r.cash*(1+boat.bonus)),seconds:Math.round(r.seconds*boat.time),tokens:2+Math.floor(load(r)/12)};}
- const api=Object.freeze({ships,routes,ship,fresh,normalize,load,quote,terminalQuote});
+ function expeditionQuote(destination,active,chapter=1,engine=0,navigation=false){
+  const boat=ship(active),factor=boat.capacity/ships[0].capacity;
+  return {ship:boat.id,capacity:boat.capacity,needs:Object.fromEntries(Object.entries(destination.needs).map(([id,n])=>[id,Math.ceil(n*factor)])),reward:Object.fromEntries(Object.entries(destination.reward).map(([id,n])=>[id,Math.floor(n*factor)])),cash:Math.round(destination.cash*factor*(1+boat.bonus)),seconds:Math.min(28800,Math.max(3,Math.round(destination.seconds*(1+(Math.max(1,chapter)-1)*.08)*boat.time*(navigation?.8:1)*(1-Math.min(3,Math.max(0,engine))*.05))))};
+ }
+ const api=Object.freeze({ships,routes,ship,fresh,normalize,load,quote,terminalQuote,expeditionQuote});
  if(typeof module==='object'&&module.exports)module.exports=api;else root.HarborFleet=api;
 })(typeof window==='undefined'?globalThis:window);

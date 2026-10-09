@@ -21,3 +21,5 @@ body[data-harbor-palette=lights]{--pennant-a:#b7a4e0;--pennant-b:#f0c86c;--penna
 
 /* A preview is an information bar outside the playable scene, so map controls never overlap it. */
 .adfree-preview-mode{--sponsor-height:60px}.adfree-preview{position:relative;left:auto;top:auto;transform:none;box-sizing:border-box;width:100%;max-width:none;min-width:0;height:60px;justify-content:center;border-radius:0;margin:0;box-shadow:none}.adfree-preview button{min-height:40px}
+
+.expedition-ship-summary{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:16px 0;padding:18px 22px;border-radius:16px;background:#e2ecdc;border:1px solid #b5cbb8;color:#234e53}.expedition-ship-summary p{font-size:13px;margin:8px 0 0;line-height:1.5}.expedition-ship-summary .btn{flex-shrink:0}.expedition-reward small{display:block;line-height:1.6;color:inherit}@media(max-width:600px){.expedition-ship-summary{display:block}.expedition-ship-summary .btn{margin-top:12px}}

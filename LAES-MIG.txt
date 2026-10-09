@@ -1,5 +1,11 @@
-HAVNEKAPTAJNEN – VERSION 13.0.1
+HAVNEKAPTAJNEN – VERSION 13.1.0
 https://havnekaptajnen.sejlstroem.dk/
+
+NYT I VERSION 13.1 – BÅDEN TAGER MERE MED HJEM
+Øhavets hjemlast bruger nu den valgte båds kapacitet. Mågeø: Svalen 4, Havkat 8, Fjordly 13, Tvilling 21, Nordlys 32, Havbro 80 og Horisont 200 drivtømmer pr. ny tur.
+Større ture kræver tilsvarende flere forsyninger. Økortet viser båd, forsyninger, tid og hjemlast før afgang. Flåden sammenligner konkret Mågeø-lasten for alle både. Belønningen er fastlagt ved afgang og bevares gennem genindlæsning og brug af startbillet.
+Ture startet før opdateringen beholder deres oprindelige last og sluttid. Almindelige leveringer har fortsat højere betaling med større både; storfragter åbner efter kapacitet.
+Rettelsen er testet med alle syv både og alle fire øer, materialeforbrug, afvist bådskift undervejs, gammel gemning, genindlæsning og eksport/import. Offlinecache v53.
 
 NYT I VERSION 13 – HAVNELIV
 Tryk Havneliv på kortet eller find det under Udvikling/Logbog. Seks tilbagevendende havnefester, tre havnefolk, fire opgaver pr. fest, minder, fem vimpelfarver og fortsættende håndværksniveauer.

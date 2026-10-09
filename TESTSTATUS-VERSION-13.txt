@@ -1,6 +1,7 @@
-HAVNEKAPTAJNEN 13.0.1 · 9. oktober 2026
+HAVNEKAPTAJNEN 13.1.0 · 10. oktober 2026
 
 AUTOMATISKE KONTROLLER BESTÅET
+- Bådenes hjemlast: alle syv både på alle fire øer, viste mængder før afgang, kapacitet, større forsyningskrav, fratræk og belønning én gang, bådskift låst på søen, uændret last efter genindlæsning/startbillet/eksport/import. Gamle igangværende ture bevarer deres oprindelige belønning.
 - 1000 havnefester, 4000 forberedelser: kun tilgængelige varer, stigende og afgrænsede ventetider, vedvarende minder og venskaber.
 - Nye opgaver: øjeblikkeligt og enkelt materialeforbrug, gemte sluttider, genindlæsning, ingen dobbeltbelønninger, ingen optjente hjælpebilletter.
 - Tre produktionshold: 3x råvarer/pris/tid/output, optaget station afviser ny ordre, gemning/genindlæsning og afhentning én gang.
