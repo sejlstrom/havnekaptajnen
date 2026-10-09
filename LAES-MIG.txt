@@ -1,21 +1,11 @@
-HAVNEKAPTAJNEN – selvstændigt gratis mobilspil, version 1.0
-8. oktober 2026
+HAVNEKAPTAJNEN – VERSION 4
 
-Åbn spillets HTTPS-adresse. På iPhone: Safari > Del > Føj til hjemmeskærm.
-På Android: Chrome > Installer app eller Føj til startskærm.
-Installation er valgfri. Offline virker efter offline-cachen er hentet.
-Udvid "Om spillet, offlinefunktion og gemning" for at se offline-status.
+Spil: https://havnekaptajnen.onrender.com/
 
-Fremgangen gemmes lokalt i samme browser. Eksportér via Logbog før du
-skifter enhed eller rydder browserdata. Der er ingen konti eller cloudsynkronisering.
-Spillet bruger ingen annoncer, betalingskode eller analyseværktøjer.
-Butiksudgivelse og betalinger er ikke aktiveret.
+Start fiskeri og bjærg drivtømmer samtidig. Hent varerne, sav planker og last en båd med en ordre. Kystruten tager 20 sekunder; øruten tager 60 og giver 25% flere kroner samt ét ekstra havnemærke. Restaurér havnefronten med planker og mærker for at åbne caféen og røgeriet. Fire restaureringer åbner resten af kampagnen og ti ordretyper.
 
-Rettelser: beskadiget primær gemning blokerer ikke længere overførsel af en
-valid ældre gemning; gemningsstatus bliver korrekt efter genoprettet lageradgang;
-købte markedsføringsdage bevares; bedste negative dag og grafens dagantal vises korrekt.
-Offline-status vises i spillet, og offline-cacheversionen er opdateret.
+Produktion, sejlads og restaurering tæller virkelig tid, også mens spillet er lukket. Varerne og belønningerne skal hentes ved næste besøg. Fremgang gemmes lokalt på enheden; eksport/import findes i Logbog. Den tidligere havns økonomi og investeringer er bevaret.
 
-Tests: node tests/logic_test.js og node tests/offline_cache_test.js.
-Den oprindelige Python-browsertest har en Linux-specifik browsersti.
-Testresultater fra den aktuelle gennemgang findes i TESTSTATUS.txt.
+Tests: Hele kampagnens fire områder gennemført i automatiseret test; parallel produktion, ressourceforbrug, tid efter genåbning, ruteafhængige belønninger og beskyttelse mod dobbelte belønninger bestået. Eksisterende gemning, import/eksport og 365 dages tidligere havnedrift bestået. Offline-cache og manifest bestået. Browser: produktion og levering gennemført, ventetider bevaret efter genåbning, mobilbredde 390 px uden vandret overløb.
+
+Betalinger, annoncer og App Store/Google Play er ikke aktiveret. Denne version gør spillets produktions- og restaureringssløjfe spilbar. Fastholdelse og betalingsvillighed er endnu ikke målt hos rigtige spillere, og salg er ikke dokumenteret.

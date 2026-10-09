@@ -18,7 +18,7 @@
    version:2,day:1,cash:9800,reputation:36,satisfaction:60,slips:12,occupied:5,
    price:175,staff:1,upgrades:{bro:0,bad:0,power:0,cafe:0,workshop:0,clean:0,sauna:0,rental:0,office:0,fuel:0},
    marketing:0,boost:0,checkedGoals:[],history:[],lastIncome:0,lastCost:0,lastProfit:0,totalProfit:0,
-   port:{collected:[],served:0,visits:[],visitDay:1,chapters:[],voyage:null,trips:0,theme:0,building:null,haulReady:0},pending:null,eventCount:0,log:['Dag 1: Du har fået nøglerne til en forsømt havn med 12 pladser. Gæsterne er skeptiske, men mulighederne er store.']
+   port:{collected:[],served:0,visits:[],visitDay:1,chapters:[],voyage:null,trips:0,theme:0,building:null,haulReady:0},factory:freshFactory(),pending:null,eventCount:0,log:['Dag 1: Du har fået nøglerne til en forsømt havn med 12 pladser. Gæsterne er skeptiske, men mulighederne er store.']
  });
  const upgrades=[
   {id:'bro',icon:'🛶',name:'Ny flydebro',cost:4100,max:6,unlock:1,desc:'Fire ekstra gæstepladser og plads til større indtægter.',income:'4 nye pladser'},
@@ -96,6 +96,7 @@
    if(p.voyage&&[0,1,2].includes(p.voyage.route)&&Number.isFinite(p.voyage.readyAt)&&p.voyage.readyAt>0&&p.voyage.readyAt<=Date.now()+86400000)v.port.voyage={route:p.voyage.route,readyAt:p.voyage.readyAt};
    if(p.building&&upgrades.some(u=>u.id===p.building.id)&&Number.isFinite(p.building.readyAt)&&p.building.readyAt>0&&p.building.readyAt<=Date.now()+86400000)v.port.building={id:p.building.id,readyAt:p.building.readyAt};
   }
+  v.factory=normalizeFactory(data.factory);
   return v;
  }
  function load(){
@@ -206,7 +207,7 @@
  }
  function updateClocks(){
   document.querySelectorAll('[data-countdown]').forEach(n=>{n.textContent=timeLeft(Number(n.dataset.countdown));});
-  document.querySelectorAll('button[data-ready]').forEach(n=>{n.disabled=Date.now()<Number(n.dataset.ready)||!!state.pending;});
+  document.querySelectorAll('button[data-ready]').forEach(n=>{n.disabled=Date.now()<Number(n.dataset.ready)||(n.dataset.act?.startsWith('factory-')?false:!!state.pending);});
  }
  function action(kind,value){
   if(kind==='tab'){activeTab=value;render();window.scrollTo({top:0,behavior:'smooth'});return;}
@@ -223,6 +224,7 @@
    }
    return;
   }
+  if(kind.startsWith('factory-')){factoryAction(kind,value);return;}
   if(state.pending&&kind!=='event'){toast('Vælg først, hvad der skal ske med dagens hændelse.');return;}
   if(kind==='event'){eventChoice(value);return;}
   if(portAction(kind,value))return;
@@ -295,10 +297,84 @@
   if(type==='Kajak')top='<ellipse cx="50" cy="68" rx="9" ry="13" fill="#634c46"/><path d="M16 51L84 84" stroke="#eacaa0" stroke-width="5"/>';
   return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="86" rx="36" ry="7" fill="#137c8c" opacity=".25"/><path d="M18 72 Q50 88 83 70 L75 86 H28Z" fill="${color}"/>${top}</svg>`;
  }
+ const goods={fish:{name:'Fisk',icon:'🐟'},smoked:{name:'Røget fisk',icon:'🥫'},wood:{name:'Drivtømmer',icon:'🪵'},plank:{name:'Planker',icon:'📦'},beans:{name:'Kaffebønner',icon:'🫘'},coffee:{name:'Kaffe',icon:'☕'}};
+ const recipes=[
+  {id:'fish',station:'fishing',name:'Sæt garn',seconds:12,out:2,cost:30,inputs:{},unlock:0},
+  {id:'smoked',station:'fishing',name:'Røg fangsten',seconds:25,out:2,cost:20,inputs:{fish:2},unlock:1},
+  {id:'wood',station:'workshop',name:'Bjærg drivtømmer',seconds:16,out:2,cost:40,inputs:{},unlock:0},
+  {id:'plank',station:'workshop',name:'Sav planker',seconds:24,out:2,cost:20,inputs:{wood:2},unlock:0},
+  {id:'beans',station:'cafe',name:'Hent kaffebønner',seconds:20,out:2,cost:35,inputs:{},unlock:1},
+  {id:'coffee',station:'cafe',name:'Bryg kaffe',seconds:22,out:2,cost:20,inputs:{beans:2},unlock:1}
+ ];
+ const requests=[
+  {name:'Almas første fangst',person:'Alma',boat:'Svalen',text:'Mågeø mangler frisk fisk til aftensmaden.',needs:{fish:2},cash:420,tokens:2,tier:0},
+  {name:'Ottos bådehus',person:'Otto',boat:'Morgenfangst',text:'Vinteren tog mit bådehus. Kan du skaffe nyt træ?',needs:{wood:2},cash:480,tokens:2,tier:0},
+  {name:'En ny anløbsbro',person:'Liv',boat:'Nordlys',text:'Vi mangler planker til en sikker bro på Mågeø.',needs:{plank:2},cash:650,tokens:3,tier:0},
+  {name:'Morgenkaffe på Fyrø',person:'Nora',boat:'Solstrejf',text:'Fyrpasseren har haft nattevagt. En varm kop gør underværker.',needs:{coffee:2},cash:720,tokens:3,tier:1},
+  {name:'Øens lille marked',person:'Sofie',boat:'Lille My',text:'Folk glæder sig til røget fisk og kaffe på torvet.',needs:{smoked:2,coffee:2},cash:1150,tokens:5,tier:1},
+  {name:'Frejas kystprojekt',person:'Freja',boat:'Tangloppen',text:'Vi bygger redekasser og får en snack efter arbejdet.',needs:{plank:2,fish:2},cash:880,tokens:4,tier:0},
+  {name:'Veteranbådens dæk',person:'Viggo',boat:'Ravnen',text:'Ravnen skal kunne sejle igen. Jeg har brug for et nyt dæk.',needs:{plank:4},cash:1050,tokens:5,tier:1},
+  {name:'Varmt lys i fyret',person:'Malik',boat:'Horisont',text:'Materialer og kaffe til holdet, der redder det gamle fyr.',needs:{plank:2,coffee:4},cash:1450,tokens:6,tier:2},
+  {name:'Øhavets frokost',person:'Alma',boat:'Svalen',text:'Vi samler hele øen til frokost ved den nye kaj.',needs:{smoked:4,coffee:2},cash:1500,tokens:6,tier:2},
+  {name:'Fyrfestens sidste last',person:'Liv',boat:'Nordlys',text:'Lys, varm kaffe og god mad. Hele øhavet kommer!',needs:{plank:4,smoked:4,coffee:4},cash:2300,tokens:9,tier:4}
+ ];
+ const restorations=[
+  {name:'Åbn den gamle havnefront',story:'Alma: Min bedstefar fortøjede Svalen lige her. Lad os få liv på kajen igen.',needs:{plank:2},tokens:2,seconds:20},
+  {name:'Restaurér værkstedet',story:'Otto: Med et ordentligt værksted kan vi arbejde hurtigere og hjælpe flere både.',needs:{plank:4,smoked:2},tokens:5,seconds:40},
+  {name:'Åbn caféens terrasse',story:'Sofie: Jeg har gemt de gamle borde. Nu skal vi bare have et sted at stille dem.',needs:{plank:4,coffee:4},tokens:8,seconds:60},
+  {name:'Tænd lyset på Fyrø',story:'Nora: Fyret har været mørkt i årevis. Nu kan vi få hele øhavet hjem i sikkerhed.',needs:{plank:6,smoked:4,coffee:4},tokens:12,seconds:90}
+ ];
+ function freshFactory(){return {stock:{fish:0,smoked:0,wood:0,plank:0,beans:0,coffee:0},jobs:{fishing:null,workshop:null,cafe:null},delivery:null,project:null,restored:0,tokens:0,completed:0,route:0,seen:[]};}
+ function normalizeFactory(raw){
+  const f=freshFactory();if(!raw||typeof raw!=='object')return f;
+  for(const g of Object.keys(goods))if(Number.isInteger(raw.stock?.[g]))f.stock[g]=clamp(raw.stock[g],0,100000);
+  for(const k of ['restored','tokens','completed'])if(Number.isInteger(raw[k]))f[k]=clamp(raw[k],0,k==='restored'?4:100000);
+  f.route=raw.route===1?1:0;f.seen=Array.isArray(raw.seen)?[...new Set(raw.seen.filter(n=>Number.isInteger(n)&&n>=0&&n<requests.length))]:[];
+  const validTime=t=>Number.isFinite(t)&&t>0&&t<=Date.now()+86400000;
+  for(const station of Object.keys(f.jobs)){const j=raw.jobs?.[station];if(j&&recipes.some(r=>r.id===j.recipe&&r.station===station)&&validTime(j.readyAt))f.jobs[station]={recipe:j.recipe,readyAt:j.readyAt};}
+  const d=raw.delivery;if(d&&Number.isInteger(d.order)&&requests[d.order]&&[0,1].includes(d.route)&&validTime(d.readyAt))f.delivery={order:d.order,route:d.route,readyAt:d.readyAt};
+  const p=raw.project;if(p&&p.level===f.restored&&p.level<4&&validTime(p.readyAt))f.project={level:p.level,readyAt:p.readyAt};return f;
+ }
+ function hasGoods(needs){return Object.entries(needs).every(([g,n])=>state.factory.stock[g]>=n);}
+ function spendGoods(needs){Object.entries(needs).forEach(([g,n])=>state.factory.stock[g]-=n);}
+ function goodsLine(needs){return Object.entries(needs).map(([g,n])=>`${goods[g].icon} ${n} ${goods[g].name}`).join(' · ');}
+ function availableOrders(){const pool=requests.map((r,i)=>i).filter(i=>requests[i].tier<=state.factory.restored);return [0,1,2].map(n=>pool[(state.factory.completed+n)%pool.length]);}
+ function factoryAction(kind,value){
+  const f=state.factory;
+  if(kind==='factory-produce'){
+   const r=recipes.find(r=>r.id===value);if(!r||f.jobs[r.station]||f.restored<r.unlock||!hasGoods(r.inputs)||state.cash<r.cost)return;
+   spendGoods(r.inputs);state.cash-=r.cost;f.jobs[r.station]={recipe:r.id,readyAt:Date.now()+Math.round(r.seconds*(f.restored>=2?.8:1))*1000};commit();return;
+  }
+  if(kind==='factory-collect'){
+   const j=f.jobs[value];if(!j||!ready(j))return;const r=recipes.find(r=>r.id===j.recipe);f.stock[r.id]=Math.min(100000,f.stock[r.id]+r.out);f.jobs[value]=null;commit();toast('+'+r.out+' '+goods[r.id].name+' på lager');return;
+  }
+  if(kind==='factory-route'){if([0,1].includes(Number(value))){f.route=Number(value);commit();}return;}
+  if(kind==='factory-send'){
+   const n=Number(value),r=requests[n];if(!Number.isInteger(n)||!r||!availableOrders().includes(n)||f.delivery||!hasGoods(r.needs))return;
+   spendGoods(r.needs);f.delivery={order:n,route:f.route,readyAt:Date.now()+(f.route?60:20)*1000};log(r.boat+' afsejlede med '+goodsLine(r.needs)+'.');commit();arrivalAnimation('#78cad0');return;
+  }
+  if(kind==='factory-return'){
+   const d=f.delivery;if(!d||!ready(d))return;const r=requests[d.order],reward=Math.round(r.cash*(d.route?1.25:1)),tokens=r.tokens+(d.route?1:0);
+   state.cash+=reward;f.tokens=Math.min(100000,f.tokens+tokens);f.completed++;if(!f.seen.includes(d.order))f.seen.push(d.order);f.delivery=null;log('Levering fuldført: '+r.name+'. '+money(reward)+' og '+tokens+' havnemærker.');commit();toast('Leveret! +'+money(reward)+' · +'+tokens+' havnemærker');return;
+  }
+  if(kind==='factory-restore'){
+   const r=restorations[f.restored];if(!r||f.project||f.tokens<r.tokens||!hasGoods(r.needs))return;spendGoods(r.needs);f.tokens-=r.tokens;f.project={level:f.restored,readyAt:Date.now()+r.seconds*1000};commit();return;
+  }
+  if(kind==='factory-open'){
+   if(!f.project||!ready(f.project))return;const r=restorations[f.restored];f.project=null;f.restored++;log('Restaureret: '+r.name+'.');commit();toast('Nyt område åbnet! '+['Café og røgeri er klar','Produktion går nu 20% hurtigere','Nye ordrer fra øhavet','Fyrø lyser igen'][f.restored-1]);return;
+  }
+ }
+ function factoryStats(){const f=state.factory;return `<div class="factory-top"><div><span class="eyebrow">ØHAVETS HAVN · KAPITEL ${Math.min(4,f.restored+1)}</span><h1>${['Den glemte kaj','Liv på havnefronten','Et sted at samles','Lyset i øhavet','Hjem til din havn'][f.restored]}</h1></div><div class="factory-wallet"><strong>${money(state.cash)}</strong><span>⚓ ${f.tokens} havnemærker · ${f.completed} leveringer</span></div></div><div class="stock-strip" aria-label="Dit lager">${Object.entries(goods).map(([g,v])=>`<div><span>${v.icon}</span><b>${f.stock[g]}</b><small>${v.name}</small></div>`).join('')}</div>`;}
+ function productionPanel(){const f=state.factory;return `<section class="panel"><span class="eyebrow">FREMSTIL · HENT · LEVÉR</span><h2>Der er liv på kajen</h2><p>Vælg, hvad hvert hold skal lave. Råvarer bliver til bedre varer. Arbejdet fortsætter, når du lukker spillet.</p><div class="production-grid">${[['fishing','Fiskeriet','🐟'],['workshop','Værkstedet','🪚'],['cafe','Havnecaféen','☕']].map(([station,name,icon])=>{const j=f.jobs[station],locked=station==='cafe'&&f.restored===0;return `<article class="station ${j?'working':''}"><span class="station-icon">${icon}</span><h3>${name}</h3>${locked?'<p>Åbn havnefronten for at invitere Sofie og hendes café.</p>':j?`<p>${goods[j.recipe].name} · ${countdown(j.readyAt)}</p><div class="work-animation" aria-hidden="true"><i></i><i></i><i></i></div><button class="btn primary" data-act="factory-collect" data-val="${station}" data-ready="${j.readyAt}" ${ready(j)?'':'disabled'}>Hent ${recipes.find(r=>r.id===j.recipe).out} ${goods[j.recipe].name}</button>`:recipes.filter(r=>r.station===station).map(r=>`<div class="recipe"><strong>${r.name} → ${r.out} ${goods[r.id].name}</strong><small>${Object.keys(r.inputs).length?goodsLine(r.inputs):'Ingen råvarer kræves'} · ${money(r.cost)} · ${Math.round(r.seconds*(f.restored>=2?.8:1))} sek.</small><button class="btn subtle" data-act="factory-produce" data-val="${r.id}" ${f.restored<r.unlock||!hasGoods(r.inputs)||state.cash<r.cost?'disabled':''}>${f.restored<r.unlock?'Åbner efter restaurering':'Start produktion'}</button></div>`).join('')}</article>`;}).join('')}</div></section>`;}
+ function orderPanel(){const f=state.factory,d=f.delivery;return `<section class="panel order-panel"><span class="eyebrow">BÅDE MED ET ÆRINDE</span><h2>${d?'En last på vej gennem øhavet':'Hvem vil du hjælpe først?'}</h2>${d?`<div class="sailing-card">${boatArt('#78cad0')}<div><h3>${requests[d.order].name}</h3><p>${d.route?'Øruten':'Kystruten'} · hjemme om ${countdown(d.readyAt)}</p><button class="btn primary" data-act="factory-return" data-ready="${d.readyAt}" ${ready(d)?'':'disabled'}>Hent ${Math.round(requests[d.order].cash*(d.route?1.25:1))} kr. og ${requests[d.order].tokens+(d.route?1:0)} havnemærker</button></div></div>`:`<div class="route-choice"><button class="btn ${f.route===0?'primary':'subtle'}" data-act="factory-route" data-val="0">Kystruten · 20 sek.</button><button class="btn ${f.route===1?'primary':'subtle'}" data-act="factory-route" data-val="1">Øruten · 60 sek. · +25% kr. og +1 mærke</button></div><div class="orders-grid">${availableOrders().map(n=>{const r=requests[n];return `<article class="order-card"><span class="soft-label">${r.person} · ${r.boat}</span><h3>${r.name}</h3><p>“${r.text}”</p><div class="order-needs">${Object.entries(r.needs).map(([g,num])=>`<span class="${f.stock[g]>=num?'stock-enough':'stock-missing'}">${goods[g].icon} ${f.stock[g]}/${num} ${goods[g].name}</span>`).join('')}</div><small>Belønning: ${Math.round(r.cash*(f.route?1.25:1))} kr. · ${r.tokens+(f.route?1:0)} havnemærker</small><button class="btn primary" data-act="factory-send" data-val="${n}" ${hasGoods(r.needs)?'':'disabled'}>Last båden og sejl</button></article>`;}).join('')}</div>`}</section>`;}
+ function restorationPanel(){const f=state.factory,r=restorations[f.restored],p=f.project;return `<section class="panel restoration"><span class="eyebrow">${f.restored}/4 OMRÅDER RESTAURERET</span><h2>${r?r.name:'Fyret lyser. Havnen er hjemme.'}</h2>${r?`<p>${r.story}</p>${p?`<div class="construction-art" aria-hidden="true">🏗️ <span>🔨</span> 🧱</div><p>Holdet arbejder · ${countdown(p.readyAt)}</p><button class="btn primary" data-act="factory-open" data-ready="${p.readyAt}" ${ready(p)?'':'disabled'}>Åbn det restaurerede område</button>`:`<p class="restore-needs">${goodsLine(r.needs)} · ⚓ ${r.tokens} havnemærker · ${r.seconds} sek.</p><button class="btn gold" data-act="factory-restore" ${!hasGoods(r.needs)||f.tokens<r.tokens?'disabled':''}>Start restaureringen</button><p class="smallprint">${['Åbner café, kaffe og røget fisk.','Alle nye produktioner bliver 20% hurtigere.','Nye ordrer og større leveringer åbner.','Øhavets fyr og den sidste store fest åbner.'][f.restored]}</p>`}`:'<p>Fortsæt med at levere til øhavet, samle historier og forme din havn. Alle ti ordretyper er nu tilgængelige.</p>'}<div class="restoration-progress">${restorations.map((r,i)=>`<span class="${i<f.restored?'done':''}">${i<f.restored?'✓':i+1} ${r.name}</span>`).join('')}</div></section>`;}
+ function productionTab(){return `<div class="production-layout"><div class="production-main"><div class="production-guide">Start med fisk og træ. Hent varerne, send en båd, og brug havnemærker og planker til at åbne havnefronten.</div>${harborMap()}${productionPanel()}${orderPanel()}</div><aside>${restorationPanel()}<section class="panel"><h3>Havnefogedens første råd</h3><p>${state.factory.restored===0?'Start med at sætte garn. Hent de 2 fisk, last Almas båd, og vælg en rute. Bjærg samtidig træ og sav planker til havnefronten.':'Fremstil forskellige varer samtidig. En lang rute giver mere, men optager din leveringsbåd længere.'}</p><p>Du har oplevet ${state.factory.seen.length} af 10 ordretyper.</p></section></aside></div>`;}
+ function restorationTab(){return `${restorationPanel()}${stylePanel()}<details class="panel legacy-management"><summary>Tidligere havnedrift og investeringer</summary><p>Din tidligere havn er bevaret. Her findes de oprindelige investeringer.</p>${buildtab()}</details>`;}
+
  function harborMap(){
   const slips=Array.from({length:state.slips},(_,i)=>{const taken=i<state.occupied;return `<button type="button" class="berth ${taken?'taken':'free'}" data-act="berth" data-val="${i+1}" aria-label="Plads ${i+1}: ${taken?'optaget':'ledig'}">${taken?boatArt(captains[(i+state.day)%8].color):'<span class="empty-slip">+</span>'}<small>${i+1}</small></button>`;}).join('');
-  const buildings=[['office','HAVNEKONTOR','#dc7254'],['bad','BADEHUS','#f0d588'],['cafe','CAFÉ','#87b8a2'],['workshop','VÆRKSTED','#91a4bf']].map(([id,name,color],i)=>`<g transform="translate(${75+i*160} 150)" opacity="${id==='office'||state.upgrades[id]?1:.35}"><path d="M-45 0 L0 -38 L45 0" fill="#76534c"/><rect x="-38" width="76" height="60" rx="3" fill="${color}"/><rect x="-8" y="22" width="16" height="38" fill="#574743"/><rect x="-28" y="15" width="14" height="17" fill="#fff4c9"/><rect x="15" y="15" width="14" height="17" fill="#fff4c9"/><text y="78" text-anchor="middle" fill="#435b58" font-size="12" font-weight="bold">${name}</text></g>`).join('');
-  return `<div class="harbor-scene scene-${state.port.theme}"><div class="horizon"><span>DIT LILLE STYKKE ØHAV</span><span>${esc(weather())}</span></div><svg class="village" viewBox="0 0 640 260" role="img" aria-label="Havn med bygninger som får farve, når du bygger dem"><circle cx="550" cy="47" r="26" fill="#ffdc8b"/><path d="M0 124 Q90 50 190 121 Q280 47 385 120 Q485 68 640 120V260H0Z" fill="#83b5a0"/><path d="M0 155 Q150 122 320 153 Q480 116 640 155V260H0Z" fill="#c7d6a4"/>${buildings}<path d="M0 239H640V260H0Z" fill="#d6b992"/><path d="M30 239H600" stroke="#b19873" stroke-width="3"/></svg><div class="water"><div class="sea-life" aria-hidden="true"><div class="passing-boat">${boatArt('#f4c95d')}</div><span class="gull gull-one">⌁</span><span class="gull gull-two">⌁</span></div>${state.port.voyage?'<div class="voyage-marker" aria-hidden="true">⛵ På søen</div>':''}<div class="waterline a"></div><div class="waterline b"></div><div class="piers">${slips}</div></div><div class="quay"><span>⚓ ${state.port.collected.length}/8 bådtyper opdaget</span><span>${state.slips} pladser</span></div></div>`;
+  const buildings=[['office','FISKERI','#dc7254'],['bad','VÆRKSTED','#f0d588'],['cafe','CAFÉ','#87b8a2'],['workshop','FYRØ','#91a4bf']].map(([id,name,color],i)=>`<g transform="translate(${75+i*160} 150)" opacity="${state.factory.restored>i?1:.22}"><path d="M-45 0 L0 -38 L45 0" fill="#76534c"/><rect x="-38" width="76" height="60" rx="3" fill="${color}"/><rect x="-8" y="22" width="16" height="38" fill="#574743"/><rect x="-28" y="15" width="14" height="17" fill="#fff4c9"/><rect x="15" y="15" width="14" height="17" fill="#fff4c9"/><text y="78" text-anchor="middle" fill="#435b58" font-size="12" font-weight="bold">${name}</text></g>`).join('');
+  return `<div class="harbor-scene scene-${state.port.theme}"><div class="horizon"><span>DIT LILLE STYKKE ØHAV</span><span>${esc(weather())}</span></div><svg class="village" viewBox="0 0 640 260" role="img" aria-label="Havn med bygninger som får farve, når du bygger dem"><circle cx="550" cy="47" r="26" fill="#ffdc8b"/><path d="M0 124 Q90 50 190 121 Q280 47 385 120 Q485 68 640 120V260H0Z" fill="#83b5a0"/><path d="M0 155 Q150 122 320 153 Q480 116 640 155V260H0Z" fill="#c7d6a4"/>${buildings}<path d="M0 239H640V260H0Z" fill="#d6b992"/><path d="M30 239H600" stroke="#b19873" stroke-width="3"/></svg><div class="water"><div class="sea-life" aria-hidden="true"><div class="passing-boat">${boatArt('#f4c95d')}</div><span class="gull gull-one">⌁</span><span class="gull gull-two">⌁</span></div>${(state.port.voyage||state.factory.delivery)?'<div class="voyage-marker" aria-hidden="true">⛵ På søen</div>':''}<div class="waterline a"></div><div class="waterline b"></div><div class="piers">${slips}</div></div><div class="quay"><span>⚓ ${state.port.collected.length}/8 bådtyper opdaget</span><span>${state.slips} pladser</span></div></div>`;
  }
  function lifePanel(){
   const chapter=chapters.find((c,i)=>!state.port.chapters.includes(i));const v=state.port.voyage;
@@ -361,8 +437,8 @@
  }
  function render(){
   const root=byId('app');if(!root)return;
-  const content={havn:harbortab,byg:buildtab,regnskab:regnskabtab,logbog:logbogtab}[activeTab]();
-  root.innerHTML=`${heroStats()}${eventPanel()}<section id="tab-content" aria-live="off">${content}</section>`;
+  const content={havn:productionTab,byg:restorationTab,regnskab:regnskabtab,logbog:logbogtab}[activeTab]();
+  root.innerHTML=`${factoryStats()}${activeTab==='regnskab'?eventPanel():''}<section id="tab-content" aria-live="off">${content}</section>`;
   document.querySelectorAll('.dock-nav button').forEach(b=>{const selected=b.dataset.tab===activeTab;b.classList.toggle('active',selected);if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
  }
  function downloadFile(filename,content){const blob=new Blob([JSON.stringify(content,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('Sikkerhedskopien er hentet. Opbevar den et sikkert sted.');}
