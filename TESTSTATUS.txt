@@ -16,4 +16,7 @@ Ingen test på fysisk telefon eller ny installation i iOS/Android. Ingen dokumen
 
 Tidligere testnoter ligger i TESTSTATUS-VERSION-*.txt.
 
-Udgivelseskontrollen opdagede et ældre cachet øbillede. Alle seks nye billeder har nu versionsbestemte adresser og indgår med disse adresser i offlinepakken. Kildebillederne er uændrede.
+Udgivelseskontrollen fandt forskellig PNG-pakning mellem kildefiler og cachede svar. En efterfølgende sammenligning af alle afkodede RGBA-pixels bekræftede identisk billedindhold for alle seks nye billeder. Det var derfor ikke en ældre illustration. Alle seks billeder bruger nu versionsbestemte adresser i siden og offlinepakken. Kildebillederne er uændrede.
+
+OFFENTLIG KONTROL BESTÅET
+Render-udgivelse af 9abda58306991ccd85697e29d1698c2fe81711b1. Offentlig genåbning med netværket afbrudt viser v12.0 og indlæser alle seks nye billeder. Offlinecache v48 har 53 grundfiler. Ingen eksisterende gemte felter ændret ved migrationen. App, landmodul og layout svarer til de testede kildefiler.
