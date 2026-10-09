@@ -11,7 +11,7 @@ Kommandoer: node tests/logic_test.js og node tests/offline_cache_test.js.
 - Alle fire udstyrstyper, køb én gang, gratis genmontering, farvestil og bonusser bevaret efter genåbning.
 - Eksport/import af gennemført kampagne med øer, udstyr og skrogopgradering.
 - Bevarelse af tidligere gemninger, gendannelse fra gammel gemning og 365 dages oprindelig havnedrift.
-- Manifest, ikoner og alle nye billeder inkluderet i offlinepakken. Offlinecache v14, filer v6.2.
+- Manifest, ikoner og alle nye billeder inkluderet i offlinepakken. Offlinecache v15, filer v6.3.
 
 BROWSERKONTROL – LOKAL UDGAVE
 - Mobilbredde 390 x 844: intro, fiskeri, værksted, økort, sejlads og logbog kontrolleret. Ingen vandret sideoverløb observeret.

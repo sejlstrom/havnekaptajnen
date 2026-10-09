@@ -449,10 +449,10 @@
  function currentQuest(){return storyQuests[state.campaign.claimed];}
  function playTone(kind='tap'){if(!state.campaign.sound)return;try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;audioEngine=audioEngine||new Audio();audioEngine.resume();const t=audioEngine.currentTime;[0,.11,.22].slice(0,kind==='reward'?3:1).forEach((delay,i)=>{const o=audioEngine.createOscillator(),g=audioEngine.createGain();o.type='sine';o.frequency.value=(kind==='reward'?440:320)*[1,1.25,1.5][i];g.gain.setValueAtTime(.0001,t+delay);g.gain.exponentialRampToValueAtTime(.06,t+delay+.015);g.gain.exponentialRampToValueAtTime(.0001,t+delay+.18);o.connect(g);g.connect(audioEngine.destination);o.start(t+delay);o.stop(t+delay+.2);});}catch{}}
  function campaignAction(kind,value){const c=state.campaign;
-  if(kind==='story-start'){c.intro=true;worldPanel='fishing';commit();playTone();return;}
+  if(kind==='story-start'){c.intro=true;activeTab='havn';worldPanel='fishing';commit();playTone();return;}
   if(kind==='story-claim'){if(!storyReady())return;const q=currentQuest();state.cash+=q.cash;state.factory.tokens+=q.tokens;c.claimed++;if(c.claimed===12){activeTab='havn';worldPanel='story';log('Fyrfesten er begyndt. Kampagnen er fuldført!');}else log(q.person+': '+q.title+' – opgaven er fuldført.');commit();playTone('reward');return;}
   if(kind==='story-go'){const q=currentQuest();if(!q){activeTab='havn';worldPanel='story';render();return;}if(q.target==='map'){activeTab='oehav';worldPanel='';}else if(['equipment','refit'].includes(q.target)){activeTab='vaerksted';worldPanel=q.target;if(q.target==='equipment')selectedFitting=c.claimed===9?(!fitted('battery')?'battery':'solar'):'navigation';}else {activeTab='havn';worldPanel=q.target;}render();return;}
-  if(kind==='story-finish'){c.finished=true;worldPanel='';commit();return;}
+  if(kind==='story-finish'){c.finished=true;activeTab='havn';worldPanel='';commit();return;}
   if(kind==='story-sound'){c.sound=!c.sound;save();render();playTone();return;}
   if(kind==='story-help'){if(state.cash>=100)return;state.cash=200;state.factory.stock.fish+=2;log('Havnelauget hjalp med 200 havnekroner og to fisk, så arbejdet kan fortsætte.');commit();return;}
   if(kind==='refit-start'){const u=shipRefits.find(u=>u.id===value);if(!u||boatUnavailable()||c.upgrades[u.id]>=u.max)return;const level=c.upgrades[u.id]+1;if(state.cash<u.cost*level||!hasGoods({plank:u.wood*level}))return;state.cash-=u.cost*level;spendGoods({plank:u.wood*level});c.refit={id:u.id,level,readyAt:Date.now()+u.seconds*1000};commit();return;}
@@ -556,7 +556,7 @@
    const migrated=normalize(original);
    if(!migrated){toast('Dette er ikke en gyldig Havnekaptajnen-gemning.');return;}
    if(!window.confirm('Indlæs den valgte gemning? Det vil erstatte fremgangen på denne enhed.'))return;
-   state=migrated;activeTab='havn';commit();toast('Havnen er gendannet fra din gemmefil.');
+   state=migrated;activeTab='havn';worldPanel='';commit();toast('Havnen er gendannet fra din gemmefil.');
   }catch{toast('Gemmefilen kunne ikke læses.');}
   byId('import-file').value='';
  }
