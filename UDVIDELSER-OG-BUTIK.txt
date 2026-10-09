@@ -1,0 +1,35 @@
+HAVNEKAPTAJNEN — VIDERE UDVIKLING FRA VERSION 9.0
+
+Under Udvikling findes tre nye kvarterer med vedvarende niveauer. Klik på Butik
+for at se hjælpebilletter, planlagte pakker og den gratis prøve af aftenhavnen.
+Butikkens genvej går direkte til kvartererne og havnelaugets materialebestillinger.
+
+HVORDAN SPILLET KAN UDVIDES
+harbor-content.js er det fælles katalog over kvarterer, opgaver og butiksprodukter.
+Hvert kvarter og produkt har et stabilt ID. Nye udgivelser kan tilføje indhold uden
+at nulstille dag, penge, lager, båd eller eksisterende niveauer. Gemmeformatet
+migrerer ældre havne automatisk. Kendte job beholder deres tidsfrister og arbejds-ID.
+
+Nye katalogposter skal følges af passende illustrationer, økonomi og afprøvning.
+De tre nuværende kvarterer giver bonusser til eksisterende produktion og illustreres
+på udviklingssiden. Nye placérbare øer og bygninger kræver særskilt kortarbejde.
+Der er ikke en sidste designet etape; gentagne mønstre er ikke det samme som nye
+håndskrevne historier. Fortsat variation kræver nye indholdsopdateringer.
+
+BUTIKKENS KONKRETE PRODUKTER
+20 hjælpebilletter: op til fem minutters forkortelse af ét arbejde pr. billet.
+Øhavets kvarterpakke: tidlig adgang til alle tre kvarterer, stadig med materialekrav.
+Lygtehavnen: valgfrit permanent aftenudseende, der kan slås til og fra.
+Der er ingen salgspris fastsat endnu. Alle tre køb står lukket på den offentlige side.
+
+SPILLERENS GRATIS VEJ
+3 startbilletter, gentagne havnelaugsbestillinger, afsluttede etaper og hvert femte
+kvarterniveau giver billetter. Kvarterer åbner gratis på etape 2, 3 og 5.
+Ingen lootbokse, abonnementer, kunstige tidsbegrænsede tilbud eller tvungne køb.
+
+BETALING
+Klienten er forberedt til priser, købskonto, privat gendannelseskode og betaling
+på en særskilt betalingsside. Serverkoden ligger i en separat, endnu ikke udgivet
+pakke. Kun serverbekræftede betalinger giver købte billetter og permanente pakker.
+Spillets gemmefil indeholder ikke købte saldi eller købsrettigheder.
+Rigtige køb kræver færdig konto-, sælger-, vilkårs- og driftsopsætning samt test.

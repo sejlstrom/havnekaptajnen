@@ -1,57 +1,61 @@
-HAVNEKAPTAJNEN VERSION 8.8 – STABILT ZOOM OG LEDBASERET GANG
-9. oktober 2026
+HAVNEKAPTAJNEN 9.0 — KVARTERER, HJÆLPEBILLETTER OG FORBEREDT BUTIK
+9. oktober 2026. Offentlig betalingsfunktion er lukket.
 
-RETTELSER
-- Vandrette/zero wheel-hændelser og meget små restbevægelser ændrer ikke zoom. Musehjulet bruger bevægelsens størrelse frem for et fast spring for hver hændelse. Zoom bevarer punktet under markøren.
-- Kameraets valgte grundmålestok gemmes. Ændring af vinduesbredde/-højde, mobilens adresselinje, paneler og genåbning ændrer ikke længere automatisk forstørrelsen. Overblik nulstiller bevidst udsnittet.
-- Efter knibezoom kan den tilbageværende finger fortsætte med at flytte kortet uden spring. Afbrudte bevægelser gemmer det opnåede zoom. Små startafstande mellem fingrene giver ikke store zoomspring.
-- Gamle ottebilleders figurer er erstattet af to nye originale sæt tegnede figurdele. Skuldre, albuer, hofter, knæ og støvler animeres kontinuerligt. Der er derfor ikke et fast antal rasterbilleder pr. skridt; der beregnes en ny stilling ved hver skærmopdatering. Fødderne har støttefase og løftet fremføring, og armene svinger modsat benene.
-- Start/stop, pause ved indretning, reduceret bevægelse, afrundede ruter og hindringer er bevaret. Stride følger tilbagelagt afstand, også for den mindre gæstefigur. Stående figurer gentegnes ikke unødvendigt.
-- Drivtømmer/planker, tidsfrister, lager og økonomi er uændrede i denne udgave.
+NYT
+Tre kvarterer i Udvikling: Sejlklubben, Den grønne havn og Redningskajen.
+Gratis åbning på etape 2, 3 og 5. Materialer og havnekroner trækkes ved byggestart.
+Byggeri tager tid, niveauer gemmes og kan øges videre. Produktion får op til 20%
+kortere tid; yderligere kapacitet opnås i stadig højere niveautrin.
+Kvartererne vises som illustrationskort under Udvikling, ikke som tre nye flytbare
+bygninger på hovedøen. Hovedkortet er uændret i denne udgave.
 
-AUTOMATISKE TESTS – BESTÅET
-tests/camera_test.js: faktiske app-hændelser for musehjul, zoomknapper, paneler, resize, gemning/genåbning, knibezoom til panorering og pointercancel. Desuden proportionel zoom og fastholdt markørpunkt.
-tests/walking_test.js: fire ruter, ændret indretning og hindringer, ingen positionsspring, start/stop, 120 forskellige kontinuerlige stillinger gennem ét skridt, løftede fødder og støttefod som ophæver kroppens fremdrift på vandret strækning.
-tests/logic_test.js: hele den eksisterende regression, alle 12 introduktionsopgaver, 365 driftsdage, udstyr, import/eksport, 100 fortsættende etaper og kæden indsamling -> træforbrug -> planker.
-tests/offline_cache_test.js: alle 34 grundressourcer findes, og offline-navigation falder tilbage til spillet.
+Spilleren starter med 3 hjælpebilletter. En billet fjerner op til 5 minutter fra
+ét konkret igangværende arbejde efter bekræftelse. Eventuelle restminutter bortfalder.
+Varer og byggeri skal stadig hentes/åbnes, så forkortelse ikke dobbeltudbetaler noget.
+Nye billetter optjenes gennem gentagne havnelaugsbestillinger, hver afsluttet etape
+og hvert femte niveau i et kvarter. Materialer til bestillinger forbruges.
 
-BROWSERKONTROL
-Musehjulets vandrette rul ændrede hverken kamera eller målestok. Lodret rul gav en lille, målt zoomændring. Kameraet blev bevaret efter genåbning.
-De faktiske visningsmål 390 x 844 og 390 x 700 blev kontrolleret. Kortets målestok forblev 0,891667, og der var ikke vandret side-overflow. Desktopkontrol ved 1280 x 720.
-Knibezoom og fortsat panorering er prøvet med simulerede PointerEvents i browseren samt den automatiske hændelsestest. Browseren understøttede ikke direkte indsprøjtning af hardware-touch. En fysisk telefon er ikke prøvet.
-Alle fire figurretninger blev visuelt gennemgået på tests/rig-review.html. For bøjede knæ og stærkt vippende støvler blev rettet under gennemgangen.
-En måling med pixelaflæsning registrerede 33 skærmbilleder på cirka 1,2 sekunder og 33 forskellige billeder for en gående figur. Stående figurer skiftede færre gange. En anden måling uden pixelaflæsning registrerede 48 skærmbilleder på cirka 1,5 sekunder. Dette er lokale browserobservationer, ikke et løfte om 60 fps på alle enheder.
-Ingen registrerede JavaScript-fejl/advarsler på selve spilfanen.
+Butikken viser tre planlagte engangsprodukter: 20 billetter, tidlig kvarteradgang
+og Lygtehavnen. Aftenudseendet kan prøvevises gratis. Ingen priser eller rigtige
+betalinger er aktiveret. Ingen Stripe-konto, betalingsnøgle eller kortdata er brugt.
 
-BEGRÆNSNINGER
-Grafikken er stadig stiliseret 2D. Der er to tegnede synsvinkler pr. figur, som spejles til venstre/højre. Figurer undviger ikke hinanden. Realistisk tredimensionel gang og test på fysisk telefon er ikke udført.
-Den offentlige udgivelse og offline-genåbning kontrolleres separat; resultatet registreres sammen med udgivelsespakken.
+AUTOMATISKE KONTROLLER — BESTÅET
+logic_test.js: eksisterende kampagne, 365 driftsdage, 100 fortsættende etaper,
+indsamling og træforbrug, udstyr, gemning, import/eksport samt nye billet- og
+kvarterhandlinger. Kontrol af materialeforbrug én gang, annullering, forældede
+tidsfrister, afsluttet arbejde uden billettræk, vedvarende arbejds-ID, gratis
+adgangstrin, femte-niveau-belønning én gang, kvarterniveau 1001 og fremtidige ID'er.
+Produktionsvisningen bevarer både de gamle og nye kvarterbonusser.
+camera_test.js og walking_test.js: zoom, vinduesændring, berøringshændelser,
+bevægelsesruter, støttefod, afrundede hjørner og kontinuerlig ledanimation.
+offline_cache_test.js: alle 37 grundressourcer og navigation uden netværk.
+billing_client_test.js: 3 tests for lukket butik, serverpriser, købsgendannelse,
+samtykkekrav, intet varetilskud ved betalingsretur og genoptaget billetanmodning.
+Separat serverpakke billing.test.mjs: 6 tests for signaturer, gemte konti/køb,
+dubletter, adskilte konti, billetforbrug, refundering, HTTP- og prisvalidering.
+Betalingsprøverne bruger simuleret udbyder, IKKE Stripes virkelige testmiljø.
 
+BROWSERKONTROL — LOKAL
+Bygning af Sejlklubben, korrekt træk af 1.000 havnekroner, 6 planker og 6 fisk,
+forkortelse med 1 billet, manuel åbning til niveau 1 og genåbning af gemningen.
+Gratis aftenprøve kan afsluttes og giver ikke et permanent køb.
+Butikken har synligt lukkede køb. Tekstkontrast og navigation til bekræftelse rettet.
+390 x 844 CSS-visning: ingen vandret side-overflow; seks menuknapper passer.
+Desktoplayout er visuelt kontrolleret. En fysisk telefon er ikke afprøvet.
+Test af kontovisning brugte en lokal simulator: pris, gem-kode-krav og afvisning
+uden samtykke. Simulator, testkonto og midlertidig testhavn blev fjernet/gendannet.
 
-TIDLIGERE KONTROL
-HAVNEKAPTAJNEN VERSION 8.7 – DRIVTØMMER, PLANKER OG BLØDERE GANG
-9. oktober 2026
+HVAD DER MANGLER FOR RIGTIGE PENGE
+Separat betalingshosting med privat vedvarende database, Stripe-konto og opsætning,
+godkendte priser, sælgeroplysninger, vilkår, privatliv, aldersmålgruppe, driftskontrol
+og fuld prøve med Stripes testmiljø inklusive køb på ny enhed og refundering.
+Købskontoens kode og klient er forberedt; der er ikke åbnet for betaling.
+Betalte fordele er indrettet til at kræve internet; gratis spil virker offline.
+Se den separate betalingspakkes README for konkrete resterende driftsprøver.
 
-DET SPILLEREN FÅR
-Stranden har nu et synligt sted til drivtømmer. Hent træ og Sav planker er også altid tilgængelige ved lagerets to nye tællere. Indsamling er gratis, tager 16 sekunder i en ny havn og lægger først træ på lager, når spilleren henter det færdige hold.
-Savværket viser hele kæden og lageret før/efter: 2 drivtømmer bliver som udgangspunkt til 2 planker. De 2 stykker træ trækkes straks, når savningen begynder. Savningen koster 20 havnekroner og tager 24 sekunder i en ny havn. Eksisterende restaureringer og udbygninger kan give kortere tid eller større hold.
-Uden 2 drivtømmer er savning blokeret, og der er en knap til at hente mere. Indsamling på stranden og savning kan køre samtidig. Tidligere beholdninger bevares; igangværende indsamling fra det gamle værksted flyttes til stranden med samme slutdato og udbytte.
+Spillet har fortløbende niveauer og genbrugelige opgavemønstre. Nye øer, historier
+og grafik kræver stadig nye indholdsudgivelser. Der er ikke bygget en automatisk
+indholdsgenerator, og testene siger ikke noget om efterspørgsel eller indtjening.
 
-GANG
-De otte eksisterende gangbilleder blandes løbende med hinanden frem for at skifte brat. Figurernes hovedposition er justeret mellem billederne, så kroppen ikke hopper sidelæns. Sikre rutehjørner afrundes, og farten øges/sænkes gradvist ved start og stop. Føddernes bevægelse følger stadig den tilbagelagte afstand. Reduceret bevægelse og pause under indretning er bevaret.
-
-AUTOMATISKE TESTS – BESTÅET
-- tests/logic_test.js: blokeret savning uden træ, gratis indsamling, ingen for tidlig afhentning, præcis én afhentning, straksforbrug af 2 træ, ingen ekstra betaling ved dobbeltklik, parallel indsamling/savning, genåbning med bevarede tider og lager, migration af gammel træindsamling samt eksport/import.
-- Eksisterende samlet logiktest består fortsat: alle 12 introduktionsopgaver, 365 driftsdage, bådudstyr, sejlads, indretning og 100 fortsættende etaper.
-- tests/walking_test.js: kontinuerlig bevægelse uden positionsspring, kontrollerede ruter uden vand/forhindringer, afrundede hjørner, acceleration/bremsning og brøkdele mellem gangbilleder.
-- tests/offline_cache_test.js: grundaktiver findes og offlinefallback virker.
-
-LOKAL BROWSERKONTROL – BESTÅET
-- Faktisk savning: træ 4 → 2 → 0, planker 10 → 12 → 14. Ved 0 træ var ny savning blokeret. Et nyt indsamlet hold gav 2 træ og åbnede savningen igen. Alt skete i den separate lokale testgemning.
-- Genåbning midt i savning bevarede de brugte materialer og sluttiden. Indsamling blev kørt samtidig med savningen.
-- 1280 × 720, 390 × 844 og 320 × 568. Ingen vandret side-overflow på mobil. Panelet kan rulles på den mindste skærm.
-- 55 målte browserbilleder over cirka 0,9 sekund: alle fire figurer flyttede sig, alle billeder indeholdt løbende blanding mellem gangstillinger, og de to billedlags vægte summerede til 1. Dette er en observation i testbrowseren, ikke en garanti om ydelse på alle telefoner.
-- Ingen registrerede JavaScript-fejl eller advarsler under kontrollen.
-
-AFGRÆNSNING
-Gang er fortsat stiliseret 2D-animation med otte grundstillinger. Der er ikke indført et 3D-skelet eller personkollisioner. Der er ikke testet på en fysisk telefon. Offentlig udgivelse og gemningskontrol dokumenteres separat.
+Offentlig udgivelse, commit og efterfølgende offlinekontrol dokumenteres særskilt
+i Havnekaptajnen-version-9.0-teststatus.txt ved udgivelsespakken.

@@ -1,0 +1,61 @@
+HAVNEKAPTAJNEN 9.0 — KVARTERER, HJÆLPEBILLETTER OG FORBEREDT BUTIK
+9. oktober 2026. Offentlig betalingsfunktion er lukket.
+
+NYT
+Tre kvarterer i Udvikling: Sejlklubben, Den grønne havn og Redningskajen.
+Gratis åbning på etape 2, 3 og 5. Materialer og havnekroner trækkes ved byggestart.
+Byggeri tager tid, niveauer gemmes og kan øges videre. Produktion får op til 20%
+kortere tid; yderligere kapacitet opnås i stadig højere niveautrin.
+Kvartererne vises som illustrationskort under Udvikling, ikke som tre nye flytbare
+bygninger på hovedøen. Hovedkortet er uændret i denne udgave.
+
+Spilleren starter med 3 hjælpebilletter. En billet fjerner op til 5 minutter fra
+ét konkret igangværende arbejde efter bekræftelse. Eventuelle restminutter bortfalder.
+Varer og byggeri skal stadig hentes/åbnes, så forkortelse ikke dobbeltudbetaler noget.
+Nye billetter optjenes gennem gentagne havnelaugsbestillinger, hver afsluttet etape
+og hvert femte niveau i et kvarter. Materialer til bestillinger forbruges.
+
+Butikken viser tre planlagte engangsprodukter: 20 billetter, tidlig kvarteradgang
+og Lygtehavnen. Aftenudseendet kan prøvevises gratis. Ingen priser eller rigtige
+betalinger er aktiveret. Ingen Stripe-konto, betalingsnøgle eller kortdata er brugt.
+
+AUTOMATISKE KONTROLLER — BESTÅET
+logic_test.js: eksisterende kampagne, 365 driftsdage, 100 fortsættende etaper,
+indsamling og træforbrug, udstyr, gemning, import/eksport samt nye billet- og
+kvarterhandlinger. Kontrol af materialeforbrug én gang, annullering, forældede
+tidsfrister, afsluttet arbejde uden billettræk, vedvarende arbejds-ID, gratis
+adgangstrin, femte-niveau-belønning én gang, kvarterniveau 1001 og fremtidige ID'er.
+Produktionsvisningen bevarer både de gamle og nye kvarterbonusser.
+camera_test.js og walking_test.js: zoom, vinduesændring, berøringshændelser,
+bevægelsesruter, støttefod, afrundede hjørner og kontinuerlig ledanimation.
+offline_cache_test.js: alle 37 grundressourcer og navigation uden netværk.
+billing_client_test.js: 3 tests for lukket butik, serverpriser, købsgendannelse,
+samtykkekrav, intet varetilskud ved betalingsretur og genoptaget billetanmodning.
+Separat serverpakke billing.test.mjs: 6 tests for signaturer, gemte konti/køb,
+dubletter, adskilte konti, billetforbrug, refundering, HTTP- og prisvalidering.
+Betalingsprøverne bruger simuleret udbyder, IKKE Stripes virkelige testmiljø.
+
+BROWSERKONTROL — LOKAL
+Bygning af Sejlklubben, korrekt træk af 1.000 havnekroner, 6 planker og 6 fisk,
+forkortelse med 1 billet, manuel åbning til niveau 1 og genåbning af gemningen.
+Gratis aftenprøve kan afsluttes og giver ikke et permanent køb.
+Butikken har synligt lukkede køb. Tekstkontrast og navigation til bekræftelse rettet.
+390 x 844 CSS-visning: ingen vandret side-overflow; seks menuknapper passer.
+Desktoplayout er visuelt kontrolleret. En fysisk telefon er ikke afprøvet.
+Test af kontovisning brugte en lokal simulator: pris, gem-kode-krav og afvisning
+uden samtykke. Simulator, testkonto og midlertidig testhavn blev fjernet/gendannet.
+
+HVAD DER MANGLER FOR RIGTIGE PENGE
+Separat betalingshosting med privat vedvarende database, Stripe-konto og opsætning,
+godkendte priser, sælgeroplysninger, vilkår, privatliv, aldersmålgruppe, driftskontrol
+og fuld prøve med Stripes testmiljø inklusive køb på ny enhed og refundering.
+Købskontoens kode og klient er forberedt; der er ikke åbnet for betaling.
+Betalte fordele er indrettet til at kræve internet; gratis spil virker offline.
+Se den separate betalingspakkes README for konkrete resterende driftsprøver.
+
+Spillet har fortløbende niveauer og genbrugelige opgavemønstre. Nye øer, historier
+og grafik kræver stadig nye indholdsudgivelser. Der er ikke bygget en automatisk
+indholdsgenerator, og testene siger ikke noget om efterspørgsel eller indtjening.
+
+Offentlig udgivelse, commit og efterfølgende offlinekontrol dokumenteres særskilt
+i Havnekaptajnen-version-9.0-teststatus.txt ved udgivelsespakken.

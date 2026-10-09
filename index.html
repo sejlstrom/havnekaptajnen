@@ -12,21 +12,24 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <link rel="stylesheet" href="./styles.css?v=8.8.2">
+  <link rel="stylesheet" href="./styles.css?v=9.0.3">
   <title>Havnekaptajnen – byg din egen lystbådehavn</title>
-  <script src="./camera.js?v=8.8.2" defer></script>
-  <script src="./walking-rig.js?v=8.8.2" defer></script>
-  <script src="./walking.js?v=8.8.2" defer></script>
-  <script src="./app.js?v=8.8.2" defer></script>
-  <link rel="stylesheet" href="./world.css?v=8.8.2">
-  <link rel="stylesheet" href="./campaign.css?v=8.8.2">
-  <link rel="stylesheet" href="./growth.css?v=8.8.2">
-  <link rel="stylesheet" href="./island.css?v=8.8.2">
+  <script src="./harbor-content.js?v=9.0.3" defer></script>
+  <script src="./billing-client.js?v=9.0.3" defer></script>
+  <script src="./camera.js?v=9.0.3" defer></script>
+  <script src="./walking-rig.js?v=9.0.3" defer></script>
+  <script src="./walking.js?v=9.0.3" defer></script>
+  <script src="./app.js?v=9.0.3" defer></script>
+  <link rel="stylesheet" href="./world.css?v=9.0.3">
+  <link rel="stylesheet" href="./campaign.css?v=9.0.3">
+  <link rel="stylesheet" href="./growth.css?v=9.0.3">
+  <link rel="stylesheet" href="./island.css?v=9.0.3">
+  <link rel="stylesheet" href="./shop.css?v=9.0.3">
 </head>
 <body>
   <header class="mast">
     <div class="mast-inner">
-      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 8.8</span></div></div>
+      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 9.0</span></div></div>
       <button class="install-button" id="install-button" hidden>Installer spillet ↓</button>
     </div>
   </header>
@@ -39,6 +42,7 @@
     <button data-tab="vaerksted"><span aria-hidden="true">⚒</span><small>Værksted</small></button>
     <button data-tab="oehav"><span aria-hidden="true">✥</span><small>Øhavet</small></button>
     <button data-tab="udvikling"><span aria-hidden="true">✦</span><small>Udvikling</small></button>
+    <button data-tab="butik"><span aria-hidden="true">🎟</span><small>Butik</small></button>
     <button data-tab="logbog"><span aria-hidden="true">📖</span><small>Logbog</small></button>
   </nav>
   <div id="arrival-show" class="arrival-show" aria-hidden="true"></div>

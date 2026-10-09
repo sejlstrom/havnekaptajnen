@@ -1,7 +1,10 @@
-HAVNEKAPTAJNEN – VERSION 8.8
+HAVNEKAPTAJNEN – VERSION 9.0
 https://havnekaptajnen.onrender.com/
 
-NYT I VERSION 8.8
+NYT I VERSION 9.0
+Nye kvarterer med fortsættende niveauer, havnelaugsbestillinger og hjælpebilletter. Butik med forberedte pakker; betalinger er stadig lukket. Se UDVIDELSER-OG-BUTIK.txt og TESTSTATUS-VERSION-9.0.txt.
+
+BEVARET FRA VERSION 8.8
 Zoom holdes fast, også når skærmhøjden ændres. Nye figurer bevæger arme, knæ og støvler løbende mellem stillingerne. Se TESTSTATUS-VERSION-8.8.txt og GANGGRAFIK-V8.8.txt for kontrol og grafik.
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
