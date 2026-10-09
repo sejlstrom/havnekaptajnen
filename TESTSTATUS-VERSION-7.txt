@@ -1,0 +1,26 @@
+HAVNEKAPTAJNEN VERSION 7 – TESTSTATUS
+9. oktober 2026
+
+NYT SPILFORLØB
+De tolv opgaver er introduktion. Den fortsættende udvikling har ingen designet slutetape: mindst to af tre kontrakter og én havneudbygning åbner næste etape. Fremgang beholdes. Ingen betaling eller ændring af webshop/deployments for andre projekter.
+
+AUTOMATISKE TESTS – BESTÅET
+- Hele introduktionen fra ny havn: tolv opgaver, fire restaureringer, udstyr, bådombygning, fire øer og manuel sejlads.
+- 100 fortsættende etaper med 200 forskellige valg af kontrakter og 100 havneudbygninger. Varerne fremstilles gennem spillets handlinger; der tilføres ikke ekstra penge eller ressourcer under simuleringen. Gemning genindlæses løbende. Etape 101 har tre nye tilbud og næste udbygning klar.
+- Økonomien kunne finansiere produktion og udbygning gennem alle 100 etaper. Slutbeholdningen var 401.745 havnekroner. Dette er én simuleret strategi, ikke et bevis på komplet spilbalance eller fastholdelse.
+- Valg af retning, øget batchstørrelse, tidsfrister, frosne leveringsbelønninger, udstyrsbonusser og delt brug af båden.
+- Tidlige/dobbelte afhentninger og dobbelte udbygninger afvises. To kontrakter alene åbner ikke næste etape; udbygningen skal også være færdig.
+- Manuel sejlads på etape-kontrakt: 12 bøjer, 600 ekstra havnekroner med sejladsretningen, genåbning undervejs og belønning én gang.
+- Import/eksport, gammel version-6-gemning uden vækstdata, beskadigede vækstdata og opstart uden restaurering.
+- Beregninger i etape 1.000.000 er endelige og håndterbare. Dette beviser ikke ubegrænset runtime; tal repræsenteres med JavaScripts almindelige præcision.
+- Tidligere regressionstests: 365 driftsdage, investeringer, hændelser, lokale gemninger og udstyr.
+- Offlinecache: alle 17 pakkede poster findes og kan caches; navigation kan falde tilbage til spillets startside.
+
+BROWSER – AFPRØVET LOKALT
+Version 7 vises med ny menu. En gammel testgemning kan indlæses uden vækstdata. En simuleret gemning efter 100 etaper viser etape 101 og bygninger på niveau 34/33/33. Mobilvisning ved 390 × 844 viser fem menupunkter uden vandret overløb.
+Kontrakt og byggeri kan køre samtidig. Version 7 blev genåbnet med netværket slået fra i testfanen; begge tidsfrister og gemningen var bevaret, og færdige belønninger kunne hentes efter genåbning. Testfanens netværk blev gendannet bagefter. To kontrakter og en udbygning blev færdiggjort i browseren; etape 2 åbnede med ny kontraktliste, én havnestjerne og bevaret bygningsniveau.
+Browserafprøvningen bruger en separat lokal testhavn; en testgemning med lager blev brugt til at afprøve knapper og ure. Brugerens offentlige havn skal ikke erstattes af testdata.
+
+BEGRÆNSNINGER
+Ingen test på fysisk iPhone/Android, ny faktisk hjemmeskærmsinstallation, cloudgemning, betalingsflow, multiplayer eller eksterne spillertests. Ingen dokumenteret betalingsvillighed eller fastholdelse. Version 7 bruger eksisterende illustrationer; etaper kombinerer et begrænset antal temaer og kontraktskabeloner.
+Den offentlige udgivelse verificeres særskilt på GitHub og Render efter overførsel.

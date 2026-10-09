@@ -1,6 +1,6 @@
-/* Havnekaptajnen â€“ offline cache. No analytics, no remote assets. */
-const CACHE='havnekaptajnen-static-v16';
-const STATIC=['./','./index.html','./styles.css?v=6.4','./app.js?v=6.4','./world.css?v=6.4','./campaign.css?v=6.4','./harbor-start.png','./harbor-world.png','./workshop-world.png','./player-boat.png','./boat-top.png','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
+/* Havnekaptajnen - offline cache. No analytics, no remote assets. */
+const CACHE='havnekaptajnen-static-v17';
+const STATIC=['./','./index.html','./styles.css?v=7.0','./app.js?v=7.0','./world.css?v=7.0','./campaign.css?v=7.0','./growth.css?v=7.0','./harbor-start.png','./harbor-world.png','./workshop-world.png','./player-boat.png','./boat-top.png','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('havnekaptajnen-static-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
