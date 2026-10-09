@@ -12,15 +12,16 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <link rel="stylesheet" href="./styles.css?v=5.0">
+  <link rel="stylesheet" href="./styles.css?v=6.2">
   <title>Havnekaptajnen – byg din egen lystbådehavn</title>
-  <script src="./app.js?v=5.0" defer></script>
-  <link rel="stylesheet" href="./world.css?v=5.0">
+  <script src="./app.js?v=6.2" defer></script>
+  <link rel="stylesheet" href="./world.css?v=6.2">
+  <link rel="stylesheet" href="./campaign.css?v=6.2">
 </head>
 <body>
   <header class="mast">
     <div class="mast-inner">
-      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 5</span></div></div>
+      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 6</span></div></div>
       <button class="install-button" id="install-button" hidden>Installer spillet ↓</button>
     </div>
   </header>
@@ -31,8 +32,7 @@
   <nav class="dock-nav" aria-label="Spilmenu">
     <button data-tab="havn" class="active" aria-current="page"><span aria-hidden="true">⚓</span><small>Havnen</small></button>
     <button data-tab="vaerksted"><span aria-hidden="true">⚒</span><small>Værksted</small></button>
-    <button data-tab="byg"><span aria-hidden="true">🛠️</span><small>Restaurér</small></button>
-    <button data-tab="regnskab"><span aria-hidden="true">📊</span><small>Regnskab</small></button>
+    <button data-tab="oehav"><span aria-hidden="true">✥</span><small>Øhavet</small></button>
     <button data-tab="logbog"><span aria-hidden="true">📖</span><small>Logbog</small></button>
   </nav>
   <div id="arrival-show" class="arrival-show" aria-hidden="true"></div>

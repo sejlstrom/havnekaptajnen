@@ -1,25 +1,35 @@
-HAVNEKAPTAJNEN – VERSION 5
+HAVNEKAPTAJNEN – VERSION 6
 https://havnekaptajnen.onrender.com/
 
-EN HAVN, DU KAN GÅ PÅ OPDAGELSE I
-Tryk på fiskeriet, caféen eller det blå havneværksted. Din båd ligger ved kajen, og leveringer afgår gennem øhavet. Lager og aktiviteter åbnes som små paneler. Produktion og restaurering fra version 4 er bevaret.
+EN SAMMENHÆNGENDE KAMPAGNE
+Tolv opgaver fra Almas første fangst til fyrfestens sidste levering. Fire restaureringer ændrer havnens udseende og åbner nye aktiviteter. Efter afslutningen fortsætter du i frispil.
 
-DIT EGET VÆRKSTED
-Gå ind i værkstedet. Vælg bådens stil, og tryk på navigation, batterirum, kahyttag eller kahyt. Fire udstyrsvalg er knyttet til offentlige produkter hos SejlStrøm:
+SÅDAN SPILLER DU
+Tryk på fiskeriet, værkstedet og caféen for at producere seks slags varer. Hent færdige varer, og vælg blandt ordrerne på kajen. Leveringer giver havnekroner og mærker til restaureringer. Følg opgavebjælken, og hent belønningen, når en opgave er løst.
+
+DIN EGEN BÅD
+Vælg blandt tre farvestile. Byg motor, lastdæk og skrog op gennem henholdsvis tre, tre og to niveauer. Opgraderinger ændrer spillets leveringstid, belønninger og adgang til øer. Montering og ombygning har ventetider. Båden kan kun bruges til én opgave ad gangen.
+
+Fire udstyrsvalg er knyttet til offentlige produkter hos SejlStrøm:
 - Garmin ECHOMAP UHD2 62sv Touch: 20% kortere leveringstid i spillet.
-- SejlStrøm Lithium Complete 100: ét ekstra havnemærke pr. levering i spillet.
-- SUNBEAM Tough 111: 10% flere havnekroner pr. levering i spillet.
-- AUTOTERM Air 2D: 15% flere havnekroner ved kaffeordrer i spillet.
+- SejlStrøm Lithium Complete 100: ét ekstra havnemærke pr. levering.
+- SUNBEAM Tough 111: 10% flere havnekroner pr. levering.
+- AUTOTERM Air 2D: 15% ekstra havnekroner på kaffeordrer.
 
-Udstyret koster alene havnekroner, som optjenes ved spil. Monteringen tager 18–24 sekunder og fortsætter, mens spillet er lukket. Udstyr kan afmonteres og monteres igen gratis. Du kan ikke ændre udstyret under en levering. Belønningen fastlægges ved afgang og bliver bevaret efter genåbning.
+Udstyret købes alene for optjente spilpenge. Montering tager 18–24 sekunder. Afmontering og genmontering af ejet udstyr er gratis. Leveringsbelønningen fastlægges ved afgang, så den ikke ændres undervejs.
 
-WEB SHOP
-Hvert udstyr viser et link til den konkrete SejlStrøm-vare. De virkelige priser og installationskrav ses i webshoppen. Spilbonusser er fiktive regler og er ikke produktløfter eller en teknisk dimensionering. Et fysisk køb i webshoppen giver ikke automatisk spiludstyr. Produktnavne og links kontrolleret 9. oktober 2026. Ingen ændringer er foretaget i webshoppen.
+SEJL SELV ELLER SEND BÅDEN AFSTED
+Ved en almindelig levering kan du vælge at styre båden gennem 12 bølger af bøjer og klipper. Styr med de tre knapper eller piletasterne. Samlede bøjer giver en ekstra belønning. Den almindelige levering går ikke tabt ved en kollision. Minispillet sættes på pause, når du går væk; leveringsuret fortsætter. Kampagnen beder dig gennemføre én manuel tur.
 
-GEMNING OG OFFLINE
-Samme lokale gemning som tidligere. Logbog indeholder sikkerhedskopi og import. Installation er valgfri. Offlinecache omfatter også havnen, værkstedet og båden. Første åbning kræver internet.
+ØHAVET
+Fire øer har forskellige forsyninger og adgangskrav: Mågeø, De blå skær, Fyrø og Vinterholm. Udstyr og skrogopgradering åbner de længere ekspeditioner. Besøgte øer registreres i kaptajnsbogen.
 
-TESTS
-Automatiske tests dækker hele kampagnen, gamle gemninger, import/eksport, 365 dages gammel havnedrift, de fire udstyrspladser, enkeltbetaling, monteringstid, genåbning, afmontering/genmontering og leveringsbonusser. Browseren har gennemført solpanelmontering efter genåbning og vist panelet på båden. Mobilvisning kontrolleret ved 390 x 844 pixels uden vandret sideoverløb. Ingen browserfejl observeret.
+GEMNING, LYD OG OFFLINE
+Automatisk lokal gemning og eksport/import af sikkerhedskopi i Logbog. Tidligere gemninger og investeringer er bevaret. Gemningen følger ikke automatisk med mellem enheder. Produktion, montering, restaurering og rejsetider fortsætter, mens spillet er lukket; resultatet hentes én gang ved genåbning. Lyd kan slås til i Logbog og er som standard slået fra.
+Spillet kan åbnes uden internet efter første fulde download. Alle spilbilleder ligger i offlinepakken. Webshoplinks kræver internet. Installation er valgfri. iPhone: Safari > Del > Føj til hjemmeskærm. Android: browserens Installer app eller Føj til startskærm.
 
-Betalinger, annoncer og App Store/Google Play er ikke aktiveret. Fysisk mobilinstallation og betalingsvillighed hos rigtige spillere er endnu ikke testet.
+SEJLSTRØM
+De fire produktsider har direkte links fra udstyrspanelet. Webshoppen viser aktuelle priser og installationskrav. Spilbonusserne er fiktive og beskriver ikke teknisk kompatibilitet eller reel produktydelse. Et fysisk køb giver ikke automatisk spiludstyr. Der er ikke ændret noget i webshoppen.
+
+AFGRÆNSNING
+Dette er en spilbar webudgave med en afsluttet kampagne. Der er ingen serverkonto, cloudgemning, multiplayer, annoncer eller betalinger. Den er ikke udgivet i App Store/Google Play. Salg, fastholdelse og betalingsvillighed er endnu ikke dokumenteret med rigtige spillere. Se TESTSTATUS-VERSION-6.txt for konkret kontrol.

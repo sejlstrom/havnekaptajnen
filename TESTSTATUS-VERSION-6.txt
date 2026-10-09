@@ -1,0 +1,31 @@
+HAVNEKAPTAJNEN VERSION 6 – TESTSTATUS
+9. oktober 2026
+
+AUTOMATISK KONTROL – BESTÅET
+Kommandoer: node tests/logic_test.js og node tests/offline_cache_test.js.
+- Hele kampagnen på 12 opgaver gennemført fra ny gemning til sidste levering og frispil. Tiden rykkes frem i testen; det er ikke en måling af menneskers spilletid.
+- Alle fire restaureringer, parallel produktion, forbrug af materialer, låste varer og varierende ordrer.
+- Manuel sejlads: 12 bølger, korrekt score og kollisioner, pause, genoptagelse og genåbning. Bonus udbetales kun én gang.
+- Alle fire ekspeditioner med krav til udstyr og skrog, ventetider og engangsudbetaling.
+- Motor, lastdæk og skrogopgradering, udstyrsmontering og korrekt blokering af samtidig brug af båden.
+- Alle fire udstyrstyper, køb én gang, gratis genmontering, farvestil og bonusser bevaret efter genåbning.
+- Eksport/import af gennemført kampagne med øer, udstyr og skrogopgradering.
+- Bevarelse af tidligere gemninger, gendannelse fra gammel gemning og 365 dages oprindelig havnedrift.
+- Manifest, ikoner og alle nye billeder inkluderet i offlinepakken. Offlinecache v14, filer v6.2.
+
+BROWSERKONTROL – LOKAL UDGAVE
+- Mobilbredde 390 x 844: intro, fiskeri, værksted, økort, sejlads og logbog kontrolleret. Ingen vandret sideoverløb observeret.
+- Fangst gennemført med rigtig ventetid og indsamling via knapperne.
+- Ekspedition til Mågeø gennemført med rigtig ventetid, 220 havnekroner og træ modtaget.
+- Manuel levering gennemført med 4 bøjer og 3 klipper. 100 bonusmønter lagt til 528 i grundbelønning; 9.540 blev til 10.168, bevaret efter genåbning.
+- Slutgemning fra automatisk gennemspilning indlæst gennem spillets importknap; afslutning, øer og udstyr synlige.
+- Den nye båd set oppefra, styringsknapper og animation kontrolleret i anden manuel tur.
+- Internet slået fra for testfanen: genåbning, bevaret gemning og navigation til økort bestod. Internet gendannet bagefter.
+- Offlinearbejder aktiveret og styrende; alle viste billeder indlæst. Ingen advarsler eller fejl i browserloggen ved kontrollen.
+
+IKKE DOKUMENTERET ENDNU
+- Installation og længerevarende drift på en fysisk iPhone eller Android-telefon.
+- Fastholdelse, betalingsvillighed og salg blandt rigtige spillere.
+- Cloudgemning, serverøkonomi, multiplayer, betalinger og butiksgodkendelse. Disse funktioner er ikke aktiveret.
+
+Afgrænsning: en afsluttet, spilbar webkampagne. Den er ikke dokumentation for, at spillet vil sælge godt.

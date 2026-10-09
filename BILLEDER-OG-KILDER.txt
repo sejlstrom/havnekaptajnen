@@ -14,3 +14,11 @@ https://sejlstroem.dk/products/sunbeam-tough-111-w-solpanel-flush-111-w-semi-fle
 https://sejlstroem.dk/products/autoterm-air-2d-komplet?variant=57439834407287
 
 Kilderne er brugt læsende. Der er ikke ændret produkter, priser, kasse eller andre dele af SejlStrøms webshop.
+
+VERSION 6 – SUPPLERENDE GENEREREDE BILLEDER
+harbor-start.png – Samme kameravinkel og placeringer som den færdige havn, men slidte bygninger, beskadiget fiskeritag, lukket caféterrasse og mørkt fyr. Billedet bruges som starttilstand; den restaurerede havn lægges over i fire etaper.
+boat-top.png – Den eksisterende cremefarvede og blågrønne kabinebåd set direkte oppefra med stævnen opad, transparent baggrund. Bruges til manuel sejlads.
+
+Fremstillet med det indbyggede image_gen-værktøj. Billederne og deres transparens er bevaret i spilpakken.
+Endelig prompt til boat-top.png:
+Create a gameplay sprite of THIS exact cream and teal Nordic wooden cabin motorboat, but viewed from directly overhead in orthographic top-down perspective, long axis vertical, pointed BOW facing the TOP of the image, stern at the bottom. Single isolated boat centered, fills 90% of image height, generous transparent margins on left and right, no water or floor or horizon, truly transparent background. Keep cream cabin roof, teak deck, brass rails and teal edging recognizable. Same warm detailed miniature game art, readable silhouette at small sizes. No text, UI, people, wakes or cast shadow around it. Supporting reference is the boat design; target result is a NEW camera-angle sprite for our existing game.
