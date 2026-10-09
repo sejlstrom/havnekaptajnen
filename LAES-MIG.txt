@@ -1,4 +1,14 @@
-HAVNEKAPTAJNEN – VERSION 12.0
+HAVNEKAPTAJNEN – VERSION 12.1
+https://havnekaptajnen.sejlstroem.dk/
+
+NYT I VERSION 12.1 – REKLAMER OG SPILINFO
+Tydeligt mærkede reklamer for udgiverens egen webshop, SejlStrøm. Banneret ligger over spillefladen; værksted og logbog har særskilte reklamefelter. Der bruges ingen annoncesporing, tredjepartsannoncer eller belønning for klik eller webshopkøb.
+Kontakt, CVR, adresse, spilvilkår og privatliv findes på om-spillet.html med adgang fra banneret på alle spilfaner. Siden indgår i offlinepakken.
+Den offentlige betalingsadapter er helt lukket og kan ikke aktiveres ved at indsætte en adresse. Den tidligere fælles tekst om bortfald af fortrydelsesret er fjernet. Der er ingen købskonto eller betalingsforbindelse i denne udgivelse. Startbilletter og gemninger bevares.
+Oplysninger i ældre versionsnoter om fremtidig aktivering af betaling er historik, ikke en aktiveringsvejledning. Et fremtidigt købsforløb kræver ny implementering, relevante forbrugerrettigheder og særskilt godkendelse.
+Dette er konkrete forbedringer, ikke en juridisk certificering. Test og afgrænsninger er beskrevet i TESTSTATUS-VERSION-12.1.txt.
+
+TIDLIGERE VERSION 12.0
 https://havnekaptajnen.onrender.com/
 
 NYT I VERSION 12.0

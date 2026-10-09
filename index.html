@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#071b2a">
   <meta name="description" content="Havnekaptajnen: Byg en lystbådehavn, styr økonomien, tag imod sejlere og bliv havnens helt. Et gratis spil til mobilen.">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,34 +13,41 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <link rel="stylesheet" href="./styles.css?v=12.0.6">
+  <link rel="stylesheet" href="./styles.css?v=12.1.0">
   <title>Havnekaptajnen – byg din egen lystbådehavn</title>
-  <script src="./fleet.js?v=12.0.6" defer></script>
-  <script src="./harbor-content.js?v=12.0.6" defer></script>
-  <script src="./billing-client.js?v=12.0.6" defer></script>
-  <script src="./camera.js?v=12.0.6" defer></script>
-  <script src="./walking-rig.js?v=12.0.6" defer></script>
-  <script src="./walking.js?v=12.0.6" defer></script>
-  <script src="./land.js?v=12.0.6" defer></script>
-  <script src="./app.js?v=12.0.6" defer></script>
-  <link rel="stylesheet" href="./world.css?v=12.0.6">
-  <link rel="stylesheet" href="./campaign.css?v=12.0.6">
-  <link rel="stylesheet" href="./growth.css?v=12.0.6">
-  <link rel="stylesheet" href="./island.css?v=12.0.6">
-  <link rel="stylesheet" href="./shop.css?v=12.0.6">
-  <link rel="stylesheet" href="./fleet.css?v=12.0.6">
-  <link rel="stylesheet" href="./land.css?v=12.0.6">
+  <script src="./fleet.js?v=12.1.0" defer></script>
+  <script src="./harbor-content.js?v=12.1.0" defer></script>
+  <script src="./billing-client.js?v=12.1.0" defer></script>
+  <script src="./camera.js?v=12.1.0" defer></script>
+  <script src="./walking-rig.js?v=12.1.0" defer></script>
+  <script src="./walking.js?v=12.1.0" defer></script>
+  <script src="./land.js?v=12.1.0" defer></script>
+  <script src="./app.js?v=12.1.0" defer></script>
+  <link rel="stylesheet" href="./world.css?v=12.1.0">
+  <link rel="stylesheet" href="./campaign.css?v=12.1.0">
+  <link rel="stylesheet" href="./growth.css?v=12.1.0">
+  <link rel="stylesheet" href="./island.css?v=12.1.0">
+  <link rel="stylesheet" href="./shop.css?v=12.1.0">
+  <link rel="stylesheet" href="./fleet.css?v=12.1.0">
+  <link rel="stylesheet" href="./land.css?v=12.1.0">
+  <link rel="stylesheet" href="./spilinfo.css?v=12.1.0">
+  <script src="./spilinfo.js?v=12.1.0" defer></script>
 </head>
 <body>
+  <aside class="sponsor-strip" aria-label="Reklame for SejlStrøm">
+    <div class="sponsor-brand"><span class="ad-label">Reklame · SejlStrøm</span><strong>Sejl<span>Strøm</span> ≋</strong></div>
+    <p class="sponsor-copy">Udstyr til livet ombord</p>
+    <div class="sponsor-actions"><a class="sponsor-link" href="https://sejlstroem.dk/" target="_blank" rel="noopener noreferrer">Se webshop ↗</a><a class="spilinfo-link" href="./om-spillet.html">Kontakt & privatliv</a></div>
+  </aside>
   <header class="mast">
     <div class="mast-inner">
-      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 12.0</span></div></div>
+      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 12.1</span></div></div>
       <button class="install-button" id="install-button" hidden>Installer spillet ↓</button>
     </div>
   </header>
   <main class="app-container">
     <div id="app" aria-label="Spillet Havnekaptajnen"></div>
-    <section class="howto" aria-labelledby="info-title"><details><summary id="info-title">Om spillet, offlinefunktion og gemning <span>⌄</span></summary><p>Havnekaptajnen er et strategispil, ikke et virkeligt driftsbudget. Gemningen gemmes automatisk på den telefon eller computer, du spiller på. Eksportér en sikkerhedskopi fra fanen <strong>Logbog</strong>, hvis du skifter enhed eller rydder browserdata.</p><p>Spillet virker offline, når denne browser har hentet offlineversionen. Installation på hjemmeskærmen er valgfri. På iPhone: åbn siden i Safari, tryk <strong>Del</strong> og vælg <strong>Føj til hjemmeskærm</strong>. På Android: brug browserens <strong>Installer app</strong> eller <strong>Føj til startskærm</strong>.</p><p id="offline-status" role="status">Offlineversionen klargøres, når spillet åbnes med internet via HTTPS.</p><p>Dette er en gratis, fuldt spilbar mobil-webapp. Betaling, annoncer og køb af ekstra indhold er endnu ikke aktiveret. Den er ikke udgivet i App Store eller Google Play.</p></details></section>
+    <section class="howto" aria-labelledby="info-title"><details><summary id="info-title">Om spillet, offlinefunktion og gemning <span>⌄</span></summary><p>Havnekaptajnen er et strategispil, ikke et virkeligt driftsbudget. Gemningen gemmes automatisk på den telefon eller computer, du spiller på. Eksportér en sikkerhedskopi fra fanen <strong>Logbog</strong>, hvis du skifter enhed eller rydder browserdata.</p><p>Spillet virker offline, når denne browser har hentet offlineversionen. Installation på hjemmeskærmen er valgfri. På iPhone: åbn siden i Safari, tryk <strong>Del</strong> og vælg <strong>Føj til hjemmeskærm</strong>. På Android: brug browserens <strong>Installer app</strong> eller <strong>Føj til startskærm</strong>.</p><p id="offline-status" role="status">Offlineversionen klargøres, når spillet åbnes med internet via HTTPS.</p><p>Dette er en gratis, fuldt spilbar mobil-webapp. Spillet indeholder tydeligt mærkede reklamer for udgiverens egen webshop, SejlStrøm. Betaling og køb af ekstra indhold er ikke aktiveret. <a href="./om-spillet.html">Kontakt, spilvilkår og privatliv</a>. Den er ikke udgivet i App Store eller Google Play.</p></details></section>
   </main>
   <nav class="dock-nav" aria-label="Spilmenu">
     <button data-tab="havn" class="active" aria-current="page"><span aria-hidden="true">⚓</span><small>Havnen</small></button>
@@ -52,6 +60,12 @@
   <div id="arrival-show" class="arrival-show" aria-hidden="true"></div>
   <div id="island-feedback" aria-hidden="true"></div>
   <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="shop-exit" class="shop-exit" aria-labelledby="shop-exit-title" aria-describedby="shop-exit-description">
+    <span class="ad-label">Reklame · SejlStrøm</span><h2 id="shop-exit-title">Du forlader spillet</h2>
+    <p id="shop-exit-description">SejlStrøm er både spillets udgiver og webshoppen bag reklamen. Webshoppen åbner i en ny fane og har egne priser, vilkår og privatlivsoplysninger.</p>
+    <p>Varerne er virkeligt bådudstyr. <strong>Køb eller klik giver ingen fordel i spillet.</strong> Du kan blive her og fortsætte gratis.</p>
+    <div class="exit-actions"><button type="button" id="shop-stay" autofocus>Bliv i spillet</button><a id="shop-destination" class="sponsor-link" href="https://sejlstroem.dk/" target="_blank" rel="noopener noreferrer">Gå til sejlstroem.dk ↗</a></div>
+  </dialog>
   <input id="import-file" type="file" accept=".json,application/json" hidden>
 </body>
 </html>
