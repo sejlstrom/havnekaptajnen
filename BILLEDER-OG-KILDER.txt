@@ -1,0 +1,16 @@
+BILLEDER OG PRODUKTKILDER – 9. oktober 2026
+
+Billeder genereret med det indbyggede image_gen-værktøj og kopieret til spilpakken:
+harbor-world.png – En detaljeret dansk kysthavn i varm miniaturestil med et rødt fiskeri til venstre, blåt værksted i midten, café til højre og fyr i baggrunden. Ingen brugerflade eller tekst; åbent vand i forgrunden til en separat animeret båd.
+workshop-world.png – Interiør i et varmt træværksted med arbejdsborde, værktøj og havneudsigt. Tomt gulv i midten til en interaktiv båd. Ingen personer eller tekst.
+player-boat.png – Frilagt nordisk kabinebåd med cremefarvet skrog, blågrøn stribe og trædetaljer, set skråt oppefra, med frit kahyttag til monterbart udstyr. Transparent baggrund.
+
+Illustrationerne er spilkunst. Udstyrsmarkeringer og spilbonusser er forenklede, ikke tekniske installationstegninger eller produktbilleder.
+
+Offentlige produktsider brugt til navne og links:
+https://sejlstroem.dk/collections/garmin-kortplottere-navigation/products/garmin-echomap-uhd2-62sv-touch?variant=56914504221047
+https://sejlstroem.dk/products/sejlstroem-lithium-complete-100?variant=57415545127287
+https://sejlstroem.dk/products/sunbeam-tough-111-w-solpanel-flush-111-w-semi-fleksibeltt-1060-x-540-x-3-mm?variant=56981327151479
+https://sejlstroem.dk/products/autoterm-air-2d-komplet?variant=57439834407287
+
+Kilderne er brugt læsende. Der er ikke ændret produkter, priser, kasse eller andre dele af SejlStrøms webshop.

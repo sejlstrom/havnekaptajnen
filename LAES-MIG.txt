@@ -1,11 +1,25 @@
-HAVNEKAPTAJNEN – VERSION 4
+HAVNEKAPTAJNEN – VERSION 5
+https://havnekaptajnen.onrender.com/
 
-Spil: https://havnekaptajnen.onrender.com/
+EN HAVN, DU KAN GÅ PÅ OPDAGELSE I
+Tryk på fiskeriet, caféen eller det blå havneværksted. Din båd ligger ved kajen, og leveringer afgår gennem øhavet. Lager og aktiviteter åbnes som små paneler. Produktion og restaurering fra version 4 er bevaret.
 
-Start fiskeri og bjærg drivtømmer samtidig. Hent varerne, sav planker og last en båd med en ordre. Kystruten tager 20 sekunder; øruten tager 60 og giver 25% flere kroner samt ét ekstra havnemærke. Restaurér havnefronten med planker og mærker for at åbne caféen og røgeriet. Fire restaureringer åbner resten af kampagnen og ti ordretyper.
+DIT EGET VÆRKSTED
+Gå ind i værkstedet. Vælg bådens stil, og tryk på navigation, batterirum, kahyttag eller kahyt. Fire udstyrsvalg er knyttet til offentlige produkter hos SejlStrøm:
+- Garmin ECHOMAP UHD2 62sv Touch: 20% kortere leveringstid i spillet.
+- SejlStrøm Lithium Complete 100: ét ekstra havnemærke pr. levering i spillet.
+- SUNBEAM Tough 111: 10% flere havnekroner pr. levering i spillet.
+- AUTOTERM Air 2D: 15% flere havnekroner ved kaffeordrer i spillet.
 
-Produktion, sejlads og restaurering tæller virkelig tid, også mens spillet er lukket. Varerne og belønningerne skal hentes ved næste besøg. Fremgang gemmes lokalt på enheden; eksport/import findes i Logbog. Den tidligere havns økonomi og investeringer er bevaret.
+Udstyret koster alene havnekroner, som optjenes ved spil. Monteringen tager 18–24 sekunder og fortsætter, mens spillet er lukket. Udstyr kan afmonteres og monteres igen gratis. Du kan ikke ændre udstyret under en levering. Belønningen fastlægges ved afgang og bliver bevaret efter genåbning.
 
-Tests: Hele kampagnens fire områder gennemført i automatiseret test; parallel produktion, ressourceforbrug, tid efter genåbning, ruteafhængige belønninger og beskyttelse mod dobbelte belønninger bestået. Eksisterende gemning, import/eksport og 365 dages tidligere havnedrift bestået. Offline-cache og manifest bestået. Browser: produktion og levering gennemført, ventetider bevaret efter genåbning, mobilbredde 390 px uden vandret overløb.
+WEB SHOP
+Hvert udstyr viser et link til den konkrete SejlStrøm-vare. De virkelige priser og installationskrav ses i webshoppen. Spilbonusser er fiktive regler og er ikke produktløfter eller en teknisk dimensionering. Et fysisk køb i webshoppen giver ikke automatisk spiludstyr. Produktnavne og links kontrolleret 9. oktober 2026. Ingen ændringer er foretaget i webshoppen.
 
-Betalinger, annoncer og App Store/Google Play er ikke aktiveret. Denne version gør spillets produktions- og restaureringssløjfe spilbar. Fastholdelse og betalingsvillighed er endnu ikke målt hos rigtige spillere, og salg er ikke dokumenteret.
+GEMNING OG OFFLINE
+Samme lokale gemning som tidligere. Logbog indeholder sikkerhedskopi og import. Installation er valgfri. Offlinecache omfatter også havnen, værkstedet og båden. Første åbning kræver internet.
+
+TESTS
+Automatiske tests dækker hele kampagnen, gamle gemninger, import/eksport, 365 dages gammel havnedrift, de fire udstyrspladser, enkeltbetaling, monteringstid, genåbning, afmontering/genmontering og leveringsbonusser. Browseren har gennemført solpanelmontering efter genåbning og vist panelet på båden. Mobilvisning kontrolleret ved 390 x 844 pixels uden vandret sideoverløb. Ingen browserfejl observeret.
+
+Betalinger, annoncer og App Store/Google Play er ikke aktiveret. Fysisk mobilinstallation og betalingsvillighed hos rigtige spillere er endnu ikke testet.
