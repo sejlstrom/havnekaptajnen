@@ -70,3 +70,13 @@ fleet-feeder.png og fleet-ocean.png er originale transparente 1536 × 1024 PNG-b
 Feeder-brief: stort kystcontainerskib, mørkeblåt stålskrog/rød vandlinje, cremefarvet bro agter, gule/teal/terracotta containere, foldet lille gul kran; isometrisk set oppefra, stævn nederst til venstre, hele skibet fritlagt.
 Ocean-brief: langt oceangående containerskib, dybt teal skrog/rød vandlinje, høj bro agter, flere rækker og tre lag farvede containere, isometrisk samme vinkel, fritlagt uden vand, UI eller tekst.
 Den udendørs kaj, kranen, containerstakkene og manuel sejlads er egne SVG/CSS-elementer. Udstyret er justeret til hvert skibs bro/tag og agterdæk.
+
+VERSION 12.0 – VÆRKSTED OG NYE ØER
+Seks originale PNG-filer genereret med det indbyggede billedværktøj, 9. oktober 2026. PNG-resultaterne er kopieret uændret. Billedbriefene nedenfor beskriver de anvendte prompts. Bygningerne brugte det eksisterende island-fishery.png som stilreference; værkstedsrettelsen brugte island-interior.png.
+workshop-floor-v12.png: Fjern begge eksisterende træstativer på gulvet. Bevar rummets vinkel, belysning, inventar og åbning til vandet; udfyld gulvet naturligt med træplanker. Ingen ny båd eller stativ i baggrunden.
+land-greenhouse.png: Fritlagt hyggeligt isometrisk drivhus, træramme og glas, grøntsager, korn, æbler og plantefibre; varm håndmalet miniaturespil-stil og samme vinkel som fiskeriet; ingen tekst, vand eller UI.
+land-bakery.png: Fritlagt lille havnebageri med cremefarvede vægge, rødt tegltag, skorsten, brød og æbletærter, træterrasse; samme spilunivers og isometriske vinkel, ingen tekst eller logoer.
+land-ropeworks.png: Fritlagt maritimt rebslageri med træbeklædning, mørkt tag, store rebspoler og ruller; samme varme miniaturestil og isometriske vinkel, ingen tekst eller logoer.
+land-sailmaker.png: Fritlagt sejlværksted med sejldug, træarbejdsplads, ruller og maritime detaljer; samme stil og kameravinkel, ingen tekst eller logoer.
+land-meadow.png: Fritlagt grøn ø med sten og sandkant, åbne græsbyggepladser, vandrette stier og små træbroender ved venstre/højre kant; ingen bygninger eller UI; samme håndmalede øhavsstil.
+Det nye tilpassede bådstativ er egen SVG-grafik med støttepunkter pr. bådtype. Broer, byggepladser og lagerskilte er SVG/CSS/HTML. Ingen eksterne mærker eller spilaktiver er brugt.

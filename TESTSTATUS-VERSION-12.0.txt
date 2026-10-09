@@ -13,5 +13,3 @@ Den separate rapport Havnekaptajnen-version-12.0-teststatus.txt dokumenterer den
 
 BEGRÆNSNINGER
 Ingen test på fysisk telefon eller ny installation i iOS/Android. Ingen dokumenteret salgseffekt. Gemning er lokal og tiden følger enhedens ur. De tre nye øer har faste byggepladser; figurers gåture er fortsat på den oprindelige ø. Rigtige betalinger er ikke aktiveret. Frekvens 17, Shopify og ParcelMerge er ikke ændret.
-
-Tidligere testnoter ligger i TESTSTATUS-VERSION-*.txt.

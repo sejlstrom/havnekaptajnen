@@ -1,3 +1,22 @@
+VERSION 12.0 – LAND OG BYGNINGER
+Alle køb her bruger optjente havnekroner og materialer. Rigtige betalinger er fortsat lukkede.
+
+Jordstykker købes i rækkefølge:
+Solengen: etape 3, 8.000 havnekroner, 20 planker, 10 drivtømmer, 2 minutter.
+Håndværkerøen: etape 12, 36.000 havnekroner, 50 planker, 30 drivtømmer, 10 minutter.
+Sejlmagerøen: etape 22, 95.000 havnekroner, 100 planker, 60 drivtømmer, 30 minutter.
+
+Idas drivhus: etape 4, Solengen, 6.000, 14 planker, 10 drivtømmer, 3 minutter.
+Havnebageriet: etape 8, Solengen + drivhus, 18.000, 28 planker, 16 drivtømmer, 8 minutter.
+Rebslageriet: etape 14, Håndværkerøen + drivhus, 42.000, 44 planker, 30 drivtømmer, 15 minutter.
+Sejlmageriet: etape 24, Sejlmagerøen + rebslageri, 85.000, 70 planker, 45 drivtømmer, 6 reb, 30 minutter.
+
+Drivhuset dyrker korn og æbler; plantefibre åbner på etape 12. Bageriet bruger korn til brød og korn/æbler til tærter. Rebslageriet bruger fibre til reb. Sejlmageriet bruger fibre til dug og dug/reb til sejl. Otte nye varer i alt. Seks nye leveringsordrer åbner efter de nødvendige bygninger og roterer i en ekstra ordreplads. De oprindelige ordrer er bevaret.
+Gentagelige bygningsopgraderinger øger holdstørrelsen i trin. Krav, pris og varighed vokser. Igangværende produktion beholder sin lovede tid og mængde. Ét land-/bygningsprojekt ad gangen; produktion andre steder kan fortsætte.
+Nye øer vises fysisk på kortet med broer og byggepladser. Udsmykning kan placeres på købt land. De fire nye bygninger har faste pladser. Første øs tre huse kan fortsat flyttes.
+Tre nye håndlavede jordstykker og fire bygninger er det konkrete indhold i denne version. Yderligere typer kræver en ny udgivelse. Havneetaper og bygningsopgraderinger kan fortsætte.
+
+
 HAVNEKAPTAJNEN — VIDERE UDVIKLING I VERSION 11.0
 
 Under Udvikling findes tre nye kvarterer med vedvarende niveauer. Klik på Butik

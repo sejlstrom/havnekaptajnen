@@ -1,4 +1,12 @@
-HAVNEKAPTAJNEN – VERSION 11.0
+HAVNEKAPTAJNEN – VERSION 12.0
+https://havnekaptajnen.onrender.com/
+
+NYT I VERSION 12.0
+Bådene i værkstedet står på støtter, som følger den valgte båds skrog og størrelse. Det gamle fastmalede stativ er fjernet fra baggrunden. Alle fem fritidsbåde er kontrolleret visuelt; containerskibene bruger fortsat deres egen kaj.
+Lager vises ved fiskeriet, caféen, værftet og de nye bygninger, både på kortet og inde i produktionspanelet. Råvarer trækkes fra ved start, færdige varer lægges til ved afhentning.
+Land & byg åbner tre nye jordstykker og fire produktionsbygninger med ventetid, materialeforbrug og gentagelige opgraderinger. Se TESTSTATUS-VERSION-12.0.txt.
+
+TIDLIGERE VERSION 11.0
 https://havnekaptajnen.onrender.com/
 
 NYT I VERSION 11.0
