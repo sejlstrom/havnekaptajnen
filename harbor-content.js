@@ -8,6 +8,7 @@
  ];
  // Real-money prices belong to the payment server. This client catalog never authorizes a payment or entitlement.
  const products=[
+  {id:'ad_free',name:'Reklamefri havn',kind:'entitlement',entitlement:'ad_free',description:'Planlagt engangskøb: fjerner alle reklamepladser i spillet, også SejlStrøms bannere. Ingen abonnementer. Pris og vilkår offentliggøres før salgsstart.'},
   {id:'time_20',name:'20 hjælpebilletter',kind:'tickets',quantity:20,description:'Hver billet fjerner op til fem minutters resterende ventetid fra ét arbejde. Ubrugte minutter overføres ikke.'},
   {id:'district_pass',name:'Øhavets kvarterpakke',kind:'entitlement',entitlement:'district_pass',description:'Åbner adgang til alle tre særlige kvarterer straks. Selve byggeriet bruger stadig havnens materialer. Kvartererne kan også åbnes gratis på etape 2, 3 og 5.'},
   {id:'evening_style',name:'Lygtehavnen',kind:'entitlement',entitlement:'evening_style',description:'Et permanent aftenudtryk med lygter på kajen og lys over vandet. Kan slås til og fra.'}

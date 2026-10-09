@@ -1,0 +1,19 @@
+HAVNEKAPTAJNEN 13.0.0 · 9. oktober 2026
+
+AUTOMATISKE KONTROLLER BESTÅET
+- 1000 havnefester, 4000 forberedelser: kun tilgængelige varer, stigende og afgrænsede ventetider, vedvarende minder og venskaber.
+- Nye opgaver: øjeblikkeligt og enkelt materialeforbrug, gemte sluttider, genindlæsning, ingen dobbeltbelønninger, ingen optjente hjælpebilletter.
+- Tre produktionshold: 3x råvarer/pris/tid/output, optaget station afviser ny ordre, gemning/genindlæsning og afhentning én gang.
+- Håndværksniveauer og farver: oplåsning, validering og gemning.
+- Fragtkasser: genoptagelse af åbne kasser, alle seks par, ny blanding, kontant spilbelønning én gang, ingen billetter.
+- Gamle gemninger bevarer penge, varer, billetter og eksisterende fremgang.
+- Annoncører: kun godkendte HTTPS-adresser, lokale logofiler, tydelig reklamemærkning, kategori-links bevaret.
+- Betalingslås afviser endpoints, købsforsøg, lokale købsrettigheder og netværkskontakt.
+- Offlinepakken indeholder alle nye sider, scripts og billeder; spil og juridisk side kan leveres fra simuleret offlinecache.
+- Tidligere regressioner: et helt driftsår, 12 introopgaver, 100 etaper, 200 kontrakter, 100 havneudbygninger, alle både og containerskibe, jord, produktion, eksport/import, zoom og glidende gang.
+
+BEGRÆNSNINGER
+Automatiske tests bruger en lokal simuleret browser og klokke. De er ikke et mål for faktisk spilletid eller indtjening.
+Test på fysisk telefon og faktisk afbrudt internet er ikke udført for denne version. Browserens visuelle kontrol dokumenteres separat ved udgivelsen.
+Ingen aktive kortbetalinger, spillerkonti, servergemning, eksterne betalende annoncører, annonce-SDK eller trafikmåling. Reklamefri adgang kan kun ses som en mærket visningsprøve.
+Ingen påstand om 100% juridisk godkendelse, dokumenteret spillerfastholdelse eller forventet omsætning.

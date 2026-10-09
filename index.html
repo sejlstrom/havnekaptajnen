@@ -16,13 +16,16 @@
   <link rel="stylesheet" href="./styles.css?v=12.1.0">
   <title>Havnekaptajnen – byg din egen lystbådehavn</title>
   <script src="./fleet.js?v=12.1.0" defer></script>
-  <script src="./harbor-content.js?v=12.1.0" defer></script>
+  <script src="./harbor-content.js?v=13.0.0" defer></script>
   <script src="./billing-client.js?v=12.1.0" defer></script>
   <script src="./camera.js?v=12.1.0" defer></script>
   <script src="./walking-rig.js?v=12.1.0" defer></script>
   <script src="./walking.js?v=12.1.0" defer></script>
   <script src="./land.js?v=12.1.0" defer></script>
-  <script src="./app.js?v=12.1.1" defer></script>
+  <script src="./harbor-life.js?v=13.0.0" defer></script>
+  <script src="./sponsors.js?v=13.0.0" defer></script>
+  <script src="./app.js?v=13.0.0" defer></script>
+  <link rel="stylesheet" href="./harbor-life.css?v=13.0.0">
   <link rel="stylesheet" href="./world.css?v=12.1.0">
   <link rel="stylesheet" href="./campaign.css?v=12.1.0">
   <link rel="stylesheet" href="./growth.css?v=12.1.0">
@@ -31,7 +34,7 @@
   <link rel="stylesheet" href="./fleet.css?v=12.1.0">
   <link rel="stylesheet" href="./land.css?v=12.1.0">
   <link rel="stylesheet" href="./spilinfo.css?v=12.1.1">
-  <script src="./spilinfo.js?v=12.1.0" defer></script>
+  <script src="./spilinfo.js?v=13.0.0" defer></script>
 </head>
 <body>
   <aside class="sponsor-strip" aria-label="Reklame for SejlStrøm">
@@ -39,9 +42,10 @@
     <div class="sponsor-message"><span class="ad-label">Reklame · SejlStrøm</span><p class="sponsor-copy">Udstyr til livet ombord</p></div>
     <div class="sponsor-actions"><a class="sponsor-link" href="https://sejlstroem.dk/" target="_blank" rel="noopener noreferrer">Se webshop ↗</a><a class="spilinfo-link" href="./om-spillet.html">Kontakt & privatliv</a></div>
   </aside>
+  <div id="adfree-preview" class="adfree-preview" hidden role="status"><span><b>Visningsprøve: reklamefri havn</b><br>Intet køb. Slutter ved genindlæsning.</span><button id="adfree-preview-close" type="button">Afslut prøve</button></div>
   <header class="mast">
     <div class="mast-inner">
-      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 12.1.1</span></div></div>
+      <div class="brandline"><img src="./icons/icon.svg" alt="" width="40" height="40"><div><strong>HAVNEKAPTAJNEN</strong><span>ET LILLE STYKKE ØHAV · VERSION 13.0.0</span></div></div>
       <button class="install-button" id="install-button" hidden>Installer spillet ↓</button>
     </div>
   </header>
@@ -61,7 +65,7 @@
   <div id="island-feedback" aria-hidden="true"></div>
   <div id="toast" role="status" aria-live="polite"></div>
   <dialog id="shop-exit" class="shop-exit" aria-labelledby="shop-exit-title" aria-describedby="shop-exit-description">
-    <span class="ad-label">Reklame · SejlStrøm</span><h2 id="shop-exit-title">Du forlader spillet</h2>
+    <span id="shop-exit-label" class="ad-label">Reklame · SejlStrøm</span><h2 id="shop-exit-title">Du forlader spillet</h2>
     <p id="shop-exit-description">SejlStrøm er både spillets udgiver og webshoppen bag reklamen. Webshoppen åbner i en ny fane og har egne priser, vilkår og privatlivsoplysninger.</p>
     <p>Varerne er virkeligt bådudstyr. <strong>Køb eller klik giver ingen fordel i spillet.</strong> Du kan blive her og fortsætte gratis.</p>
     <div class="exit-actions"><button type="button" id="shop-stay" autofocus>Bliv i spillet</button><a id="shop-destination" class="sponsor-link" href="https://sejlstroem.dk/" target="_blank" rel="noopener noreferrer">Gå til sejlstroem.dk ↗</a></div>

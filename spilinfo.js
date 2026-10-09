@@ -11,7 +11,10 @@
    const link=event.target.closest('a[href]');
    if(!link||link===destination)return;
    let url;try{url=new URL(link.href);}catch{return;}
-   if(url.protocol!=='https:'||url.hostname!=='sejlstroem.dk')return;
+   const sponsor=window.HarborSponsors?.details(url.href);if(!sponsor)return;
+   document.getElementById('shop-exit-label').textContent='Reklame · '+sponsor.brand;
+   document.getElementById('shop-exit-description').textContent=(sponsor.owner?sponsor.brand+' er både spillets udgiver og webshoppen bag reklamen. ':sponsor.brand+' er annoncør i spillet. ')+'Hjemmesiden åbner i en ny fane og har egne priser, vilkår og privatlivsoplysninger.';
+   destination.textContent='Gå til '+url.hostname+' ↗';
    event.preventDefault();opener=link;
    destination.href=url.href;
    if(!dialog.open)dialog.showModal();
