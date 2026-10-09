@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN – VERSION 8.6
+HAVNEKAPTAJNEN – VERSION 8.7
 https://havnekaptajnen.onrender.com/
 
 EN HAVN DU KAN BEVÆGE DIG RUNDT I
@@ -52,3 +52,7 @@ Udstyrets tegninger deler nu bådens koordinater, så de følger billedet ved st
 
 VERSION 8.6 – FIGURERNE GÅR
 Ben og arme skifter nu gangstilling efter den tilbagelagte afstand. Figurerne vender i gangretningen, holder pauser og finder ruter omkring bygninger og udsmykning. Gang sættes på pause under indretning og ved reduceret bevægelse. Se TESTSTATUS-VERSION-8.6.txt.
+
+VERSION 8.7 – TRÆ FRA STRANDEN TIL SAVVÆRKET
+Tryk Hent træ eller træbunken ved stranden. Saml gratis drivtømmer, vent på holdet og hent det på lager. Vælg derefter Sav planker: 2 drivtømmer trækkes med det samme; planker kommer på lager, når savningen er færdig og du henter dem. Der kan samles nyt træ, mens savværket arbejder. Lageret vises ved begge aktiviteter. Eksisterende udbygninger gælder fortsat.
+Gangbilleder har nu bløde overgange og bedre justering. Ruter får afrundede hjørner, når der er plads, og figurer starter/stopper gradvist. Se TESTSTATUS-VERSION-8.7.txt.
