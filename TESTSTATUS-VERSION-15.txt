@@ -1,0 +1,17 @@
+TESTSTATUS – HAVNEKAPTAJNEN 15.0.1 – 10. oktober 2026
+
+BESTÅET I AUTOMATISKE LOKALE TESTS
+25 testposter, ingen fejl. Hele den eksisterende spilkontrol er kørt efter v15-ændringerne. Efter den afsluttende grafiske kantrettelse er farve-, landmigration- og offlinekontroller kørt igen og består.
+
+- Alle syv bådmodeller: alle ti farvevalg, inklusive pink. Farver gemmes selvstændigt på hver båd gennem bådskift, genindlæsning og eksport/import. Penge, lager, udstyr og opgraderinger påvirkes ikke. Ukendte farver afvises; en båd i brug kan ikke males.
+- Øerne ligger øst, vest og nord for havnen. Produktionssteder står på deres egen ø. Indretning og genindlæsning virker på alle tre øer, også med negative kortkoordinater. Valgt zoom bevares.
+- Gamle dekorationer, kamerastilling, byggeprojekter, betaling i spilpenge, materialer og deadlines bevares ved engangsflytningen. En allerede opdateret gemning/import flyttes ikke igen.
+- Landkøb, fire bygninger, produktionskæder, materialeforbrug, større laster, 12 introduktionsopgaver, 100 fortsættende etaper og den tidligere flåde/bro/kaj-kontrol består.
+- Gangruter, kamerabevægelser og zoom består i simuleret miljø.
+- Offlinecache v59 indeholder det nye nordlige øbillede og de aktuelle versionsbestemte scripts og stilarter. Spil og privatlivsside kan hentes fra den simulerede offlinecache.
+- Betaling og køb af ekstra indhold forbliver teknisk lukket. Ingen nye hjælpebilletter gives ved opdateringen.
+
+GRAFIK OG BEGRÆNSNINGER
+Grafikken kontrolleres i den offentlige browser på den normale spilleside og via visual-review-v15.html. Kontrolsiden bruger statiske visninger fra den faktiske spilkode med tydeligt markerede syntetiske testdata; knapper i kontrolrammen er inaktive og ændrer ingen spildata. Visninger omfatter alle tre bebyggede øer, alle syv både, alle farver og en ramme på 390 px.
+En nordlig ø er tilpasset med en sti og en brotilslutning mod havnen. Skrogmaling gengives med SVG og en afgrænset farvemaskering; dæk, kahyt, metaldele, stativ og tilkøbt udstyr beholder deres materiale. Personernes eksisterende gangruter forbliver på hovedøen.
+Ingen fysisk iPhone/Android eller installation på hjemmeskærm er testet i denne version. Simuleret tid og 100 etaper er ikke en måling af spillerfastholdelse, virkelig spilletid eller indtjening. Alle farver er gratis. Ingen annonceaftaler, betalingsaftaler eller webshopændringer er foretaget.

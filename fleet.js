@@ -41,13 +41,13 @@
  // Clip the paint pass below each gunwale. A chroma mask keeps cream bands, brass,
  // wood and portholes unchanged; equipment and cradle are separate DOM layers.
  const paintRegions={
-  svalen:'M148 691 Q536 810 1120 573 Q1400 450 1496 318 L1480 458 Q1260 795 402 964 Q267 1002 199 868Z',
-  havkat:'M98 714 Q521 872 1150 591 Q1450 456 1504 350 L1490 506 Q1100 837 319 990 Q222 1010 171 903Z',
-  fjordly:'M89 732 Q490 781 1090 566 Q1400 433 1512 286 L1504 445 Q1320 756 384 968 Q231 1000 158 914Z',
-  tvilling:'M53 610 Q200 628 366 574 L385 610 470 650 Q421 733 174 800 Q120 815 90 729Z M427 810 Q899 741 1507 330 L1508 459 Q1370 749 580 990 Q506 1004 454 923Z',
-  nordlys:'M28 653 Q454 816 1130 554 Q1440 418 1513 300 L1500 459 Q1385 774 430 996 Q263 1021 161 913Z',
-  havbro:'M75 739 Q300 778 485 729 L536 763 Q918 647 1318 453 L1488 370 Q1504 463 1417 540 Q828 926 150 955 L153 884Z',
-  horisont:'M48 688 Q230 764 496 711 L550 748 Q924 637 1330 438 L1512 323 Q1519 433 1420 531 Q901 930 178 982 L159 883Z'
+  svalen:'M100 650 Q536 770 1120 535 Q1400 410 1520 280 L1536 1024H0Z',
+  havkat:'M60 680 Q521 825 1150 550 Q1450 415 1536 300 V1024H0Z',
+  fjordly:'M65 700 Q490 750 1090 530 Q1400 390 1536 250 V1024H0Z',
+  tvilling:'M25 580 Q200 600 366 548 L415 610 500 650 470 700 430 850H0Z M390 775 Q899 700 1536 295 V1024H375Z',
+  nordlys:'M0 620 Q454 775 1130 515 Q1440 380 1536 260 V1024H0Z',
+  havbro:'M40 710 Q300 742 485 696 L536 731 Q918 611 1318 425 L1536 340 V1024H0Z',
+  horisont:'M20 660 Q230 728 496 680 L550 716 Q924 600 1330 410 L1536 290 V1024H0Z'
  };
  let paintSerial=0;
  function paintArt(id,paintId){
@@ -56,7 +56,7 @@
   if(!p.hex)return img;
   const uid='hull-paint-'+(++paintSerial),rgb=p.hex.slice(1).match(/../g).map(n=>parseInt(n,16)/255),gain={havkat:4.4,nordlys:4.2,havbro:4,horisont:3.3,fjordly:3.4}[b.id]||2.8;
   const tint=rgb.map(c=>[.2126*gain*c,.7152*gain*c,.0722*gain*c,0,.06*c].join(' ')).join(' ')+' 0 0 0 1 0';
-  const chroma=b.id==='fjordly'?'20 -30 10 0 -.8':'-20 10 10 0 -.12';
+  const chroma=b.id==='fjordly'?'20 -40 20 0 -.8':'-20 10 10 0 -.12';
   return img+`<svg class="hull-paint-overlay" data-hull-paint="${p.id}" viewBox="0 0 1536 1024" aria-hidden="true"><defs><clipPath id="${uid}-clip"><path d="${paintRegions[b.id]}"/></clipPath><filter id="${uid}" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 ${chroma}" result="paintMask"/><feColorMatrix in="SourceGraphic" type="matrix" values="${tint}" result="tint"/><feComposite in="tint" in2="paintMask" operator="in"/></filter></defs><image href="./${b.image}" width="1536" height="1024" clip-path="url(#${uid}-clip)" filter="url(#${uid})"/></svg>`;
  }
  const freshProfile=()=>({vessel:{hull:'svalen',owned:[],fitted:[],installation:null},upgrades:{engine:0,cargo:0,hull:0}});
