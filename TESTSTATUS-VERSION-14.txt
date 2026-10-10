@@ -1,0 +1,17 @@
+TESTSTATUS – HAVNEKAPTAJNEN 14.0.0 – 10. oktober 2026
+
+BESTÅET I AUTOMATISKE LOKALE TESTS
+- Syv separate bådprofiler: skift, opgraderinger, installeret udstyr, hylde, farve, genindlæsning og eksport/import.
+- Den næste båds grundniveau mod den forrige med alle forbedringer: kapacitet, motor/navigation, søstyrke, betalingsfaktor og havnemærke.
+- Seks brotrin: etapelås, materialer/pris én gang, ventetid, afvist tidlig afhentning, genindlæsning, startbillet og færdiggørelse én gang.
+- Pladsbegrænsning, reserveret båd under bygning, bro før containerkaj, kaj før containerskib. Søsætning af en ny båd afbryder ikke den igangværende tur.
+- Tolv destinationer, adgangskrav, forsyninger, fastlagt hjemlast, genindlæsning og besøg/belønning kun én gang. Maksimalt lastrum og besøgsbonus bevares gennem genindlæsning.
+- Migration fra tidligere flådeversion med aktive opgraderinger og igangværende montering.
+- De tidligere tests for 12 introduktionsopgaver, 100 fortsættende etaper, 200 kontrakter, 100 bygninger, landkøb, produktion, lager, øhavsfragt, to containerkajer, skibsbygning og eksport/import består.
+- Kamera/zoom, gangruter og 120 kontinuerlige gangstillinger består i simuleret miljø.
+- Havneliv: festivaler, produktionshold, minder, farver, 1000 festivaltrin og fragtkassernes huskeaktivitet består.
+- Betalingsadapteren afviser køb og omgår ikke udgivelseslåsen. Ingen optjening af hjælpebilletter.
+- Service-worker-test cacher alle angivne filer og returnerer spil/privatlivsside offline i simuleret miljø. Nyt kort og destinationskatalog er i listen.
+
+AFGRÆNSNING
+Automatiske tests bruger en kontrolleret klokke og syntetiske gemninger. De er ikke et mål for virkelig spilletid, fastholdelse eller indtjening. Der er ikke udført test på fysisk iPhone/Android eller gennemført installation dér. Grafisk kontrol og offentlig udgivelseskontrol dokumenteres særskilt i ejerens udgivelsesrapport. Der er ikke aktiveret rigtige betalinger.
