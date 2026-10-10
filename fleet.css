@@ -22,7 +22,8 @@
 @media(max-width:700px){.port-crane{width:62%;height:28%;left:-10%;top:12%}.container-port .drydock-vessel{width:93%;left:4%;top:35%}.port-sign{left:auto;right:12px;top:19%}.quay-containers{top:34%}}
 /* Paint only the hull; all equipment and the cradle keep their own materials. */
 .paint-blue .vessel-assembly>img,.paint-copper .vessel-assembly>img{filter:none}
-.vessel-assembly>.hull-paint-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.vessel-assembly>.hull-paint-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:1}
+.vessel-assembly>.island-equipment-overlay{z-index:3}
 .paint-preview.vessel-assembly{margin:6px 0 12px;transform:none;border-radius:18px;background:radial-gradient(ellipse at 50% 75%,#8dc7c3,#e3eed9 75%)}
 .paint-current{font-size:14px}.paint-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 22px}
 .paint-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:77px;padding:8px 4px;border:2px solid #cbb480;border-radius:13px;background:#fff8df;color:#655334}
