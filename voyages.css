@@ -5,3 +5,23 @@
 @media(prefers-reduced-motion:reduce){.voyage-boat{animation:none}.voyage-island{transition:none}}
 @media(max-width:900px){.voyage-layout{grid-template-columns:minmax(0,1.1fr) minmax(280px,1fr);gap:15px}.voyage-islands{gap:12px}.voyage-island-copy{padding:12px}.voyage-island-copy b{font-size:19px}.voyage-album>div{grid-template-columns:repeat(4,minmax(0,1fr))}.sea-heading{padding:20px;align-items:flex-start}.bridge-panel{grid-template-columns:190px 1fr;padding:20px}.workshop-ship-label{top:100px}}
 @media(max-width:650px){.sea-heading{display:block;padding:19px}.sea-heading>.btn{margin-top:8px;width:100%}.sea-heading p{font-size:13px}.sea-regions{gap:6px}.sea-regions button{font-size:12px;padding:10px 5px;min-height:63px}.sea-regions small{font-size:10px}.voyage-layout{display:flex;flex-direction:column}.voyage-islands{width:100%;gap:12px}.voyage-detail{position:static;width:100%;padding:21px!important}.voyage-island-copy b{font-size:20px}.voyage-island-copy small{font-size:11px}.voyage-island-copy em{font-size:10px}.voyage-island .voyage-art{aspect-ratio:1.125}.voyage-album{padding:20px 15px}.voyage-album>div{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.voyage-album button b{font-size:12px}.voyage-album button small{font-size:9px}.bridge-panel{display:block;padding:20px 16px}.bridge-illustration{float:right;width:120px;margin:0 0 10px 12px}.bridge-deck>i{height:45px}.bridge-deck b{margin-top:17px;font-size:9px}.bridge-panel h2{font-size:25px}.bridge-panel h3,.bridge-panel .bridge-milestones{clear:both}.bridge-panel .btn{width:100%;white-space:normal}.fleet-hero-boat{max-width:320px;margin:0 auto}.ship-art>.vessel-assembly{position:absolute;top:50%;transform:translateY(-50%);margin:0;width:100%}.ship-art{position:relative}.ship-stats b{font-size:14px}.workshop-ship-label{top:88px;padding:7px 12px;max-width:180px}.workshop-ship-label b{font-size:14px}.workshop-ship-label span{font-size:9px}.island-tools{gap:7px}.island-tools .map-tool{min-height:47px}.island-tools .map-tool>span{font-size:21px}}
+
+/* Clip the atlas within each cell so adjoining island tips never leak into a card. */
+.voyage-art{position:relative;overflow:hidden;background-image:none}
+.voyage-art:before{content:'';position:absolute;inset:0;background-image:url('./archipelago-v14.png');background-size:400% 300%;background-position:var(--island-x) var(--island-y);transform:scale(1.10)}
+/* Keep the actual islands close to the top of the screen. */
+body:has(.sea-heading) .world-hud{padding-top:0;padding-bottom:0;min-height:56px}
+body:has(.sea-heading) .world-title{display:none}
+body:has(.sea-heading) .world-currency{margin-right:auto}
+body:has(.sea-heading) .quest-tracker{display:none}
+.sea-heading{padding:17px 24px;margin:10px 0 16px}
+.sea-heading h1{font-size:clamp(25px,3vw,36px);margin:5px 0}
+.sea-heading p{font-size:13px;margin:5px 0}
+.sea-regions button{min-height:58px;padding:9px}
+.sea-region-description{margin:10px 3px}
+@media(max-width:650px){.sea-heading{padding:15px}.sea-heading h1{font-size:26px}.sea-heading>.btn{font-size:11px;min-height:35px}.sea-regions button{font-size:11px;min-height:58px}.sea-regions small{font-size:9px}}
+
+/* The stern keel must sit beyond the quay edge; upper decks may project above it. */
+.container-port .drydock-vessel{top:28%}
+body:has(.sea-heading) .growth-tracker{display:none}
+@media(max-width:650px){.container-port .drydock-vessel{top:34%}}

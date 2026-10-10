@@ -1,4 +1,4 @@
-HAVNEKAPTAJNEN – VERSION 14.0.0
+HAVNEKAPTAJNEN – VERSION 14.0.1
 https://havnekaptajnen.sejlstroem.dk/
 
 NYT I VERSION 14 – DIN BÅD, DIN BRO, DIT ØHAV
@@ -8,7 +8,7 @@ Broen begynder med to flådepladser. Seks timedrevne udbygninger åbner ved etap
 Containerkaj niveau 1 kræver færdig bro niveau 4. Dybhavskaj niveau 2 kræver bro niveau 5. Containerskibene kræver desuden deres færdige kaj og etape 35/60. Ét havnebyggehold arbejder på bro eller containerkaj ad gangen. Bådbygning kan foregå ved siden af, og eksisterende skibe kan stadig sejle.
 Øhavet har 12 øer i tre egne med et nyt originalt kort. Nye ture kræver kapacitet, søstyrke, niveau og eventuelt kaj. Forsyninger, tid og hjemlast vises før afgang. Besøg giver lokalkendskab: 3/12/27/48/75 besøg giver 5/10/15/20/25 procent flere havnekroner på senere ture til samme ø. Råvarer skalerer med lastrummet. Der er ingen sidste etape i den fortsættende havneudvikling.
 Gamle aktive opgraderinger, betalt igangværende arbejde og allerede afsendte laster bevares. Ældre ejere af store skibe får automatisk det nødvendige broniveau. Der tildeles ikke nye hjælpebilletter ved udbygning eller migration.
-Offlinecache v54 indeholder det nye kort og katalog. Betaling er fortsat lukket. Ingen annonce-SDK, nye sponsoraftaler eller ændringer i webshoppen.
+Offlinecache v55 indeholder det nye kort og katalog. Betaling er fortsat lukket. Ingen annonce-SDK, nye sponsoraftaler eller ændringer i webshoppen.
 Se TESTSTATUS-VERSION-14.txt. Grafisk kontrolside: visual-review-v14.html, med syntetiske testdata og uden gemning.
 
 TIDLIGERE UDGIVELSER
