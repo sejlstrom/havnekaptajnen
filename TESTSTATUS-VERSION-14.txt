@@ -1,4 +1,4 @@
-TESTSTATUS – HAVNEKAPTAJNEN 14.0.2 – 10. oktober 2026
+TESTSTATUS – HAVNEKAPTAJNEN 14.0.3 – 10. oktober 2026
 
 BESTÅET I AUTOMATISKE LOKALE TESTS
 - Syv separate bådprofiler: skift, opgraderinger, installeret udstyr, hylde, farve, genindlæsning og eksport/import.

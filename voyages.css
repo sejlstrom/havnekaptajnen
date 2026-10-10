@@ -28,3 +28,4 @@ body:has(.sea-heading) .growth-tracker{display:none}
 
 /* Hide rear supports behind the nearer hull instead of painting over it. */
 .drydock-vessel.fleet-vessel-tvilling .boat-cradle{z-index:0}
+.voyage-art,.voyage-island .voyage-art{aspect-ratio:var(--island-ratio,1.125)} .voyage-art:before{background-size:400% var(--atlas-height,300%);transform:none}
