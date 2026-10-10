@@ -31,6 +31,27 @@
   {name:'Dug til bådklubben',person:'Nora',boat:'Sejlglæde',text:'Klubben reparerer sejl og mangler stærk sejldug.',needs:{cloth:4,rope:2},cash:5700,tokens:12,tier:1,sites:['sailmaker','ropeworks']},
   {name:'Nye sejl til kapsejladsen',person:'Viggo',boat:'Vindfang',text:'To færdige sejl og lidt proviant til kapsejladsen.',needs:{sail:2,bread:2},cash:8500,tokens:16,tier:1,sites:['sailmaker','bakery','ropeworks']}
  ];
+ // World positions are independent of the purchase order. Each bridge joins the home island.
+ const layoutVersion=2;
+ const layout={
+  meadow:{x:2200,y:520,direction:'Øst for havnen',image:'land-meadow.png?v=12.1.0',bridge:[1560,475,1805,475]},
+  craft:{x:-420,y:520,direction:'Vest for havnen',image:'land-meadow.png?v=12.1.0',bridge:[-15,475,240,475]},
+  sail:{x:765,y:-550,direction:'Bag havnen mod nord',image:'land-north-v15.png',bridge:[770,-345,770,145]}
+ };
+ for(const p of plots){p.legacy={x:p.x,y:p.y};Object.assign(p,layout[p.id]);}
+ for(const b of sites){const p=plots.find(p=>p.id===b.plot);b.x+=p.x-p.legacy.x;b.y+=p.y-p.legacy.y;}
+ const bounds={minX:-850,maxX:2675,minY:-900,maxY:1100};
+ const onPlot=(x,y,p)=>Number.isFinite(x)&&Number.isFinite(y)&&((x-p.x)/330)**2+((y-p.y)/145)**2<=1;
+ function migrateIsland(raw){
+  if(!raw||typeof raw!=='object'||raw.layoutVersion===layoutVersion)return raw;
+  const move=(v,camera=false)=>{
+   if(!v||!Number.isFinite(v.x)||!Number.isFinite(v.y))return v;
+   const p=plots.find(p=>camera?Math.abs(v.x-p.legacy.x)<475&&Math.abs(v.y-p.legacy.y)<360:onPlot(v.x,v.y,p.legacy));
+   return p?{...v,x:v.x+p.x-p.legacy.x,y:v.y+p.y-p.legacy.y}:v;
+  };
+  return {...raw,layoutVersion,camera:move(raw.camera,true),decor:Array.isArray(raw.decor)?raw.decor.map(d=>move(d)):raw.decor};
+ }
+ function decorationSpots(owned){const spots=[];for(let y=300;y<=700;y+=50)for(let x=400;x<=1500;x+=50)spots.push({x,y});for(const p of plots.filter(p=>owned.includes(p.id)))for(let y=-100;y<=100;y+=50)for(let x=-300;x<=300;x+=50)spots.push({x:p.x+x,y:p.y+y});return spots;}
  const fresh=()=>({schema:1,plots:[],levels:Object.fromEntries(sites.map(s=>[s.id,0])),project:null});
  function quote(raw,type,id){
   if(type==='plot'){const p=plots.find(p=>p.id===id);return p&&!raw.plots.includes(id)?{...p,type,level:1}:null;}
@@ -41,7 +62,7 @@
  }
  function normalize(raw,now){
   const s=fresh();if(!raw||typeof raw!=='object')return s;
-  // Parcels are purchased in order; imported progress cannot create detached islands.
+  // Preserve the existing progression and production prerequisites after moving the islands.
   for(const p of plots){if(!Array.isArray(raw.plots)||!raw.plots.includes(p.id))break;s.plots.push(p.id);}
   for(const b of sites)if(s.plots.includes(b.plot)&&Number.isInteger(raw.levels?.[b.id]))s.levels[b.id]=Math.max(0,Math.min(10000,raw.levels[b.id]));
   const p=raw.project;
@@ -49,6 +70,6 @@
   return s;
  }
  const site=id=>sites.find(s=>s.id===id);
- const api=Object.freeze({plots,sites,goods,recipes,orders,fresh,normalize,quote,site});
+ const api=Object.freeze({plots,sites,goods,recipes,orders,fresh,normalize,quote,site,layoutVersion,bounds,onPlot,migrateIsland,decorationSpots});
  if(typeof module==='object'&&module.exports)module.exports=api;else root.HarborLand=api;
 })(typeof window==='undefined'?globalThis:window);

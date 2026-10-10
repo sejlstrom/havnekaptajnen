@@ -24,12 +24,47 @@
  ships.forEach((s,i)=>{s.time=Math.pow(.68,i);s.bonus=i*.49;s.bridge=[0,0,1,1,2,4,5][i];});
  const ship=id=>ships.find(s=>s.id===id)||ships[0];
  const gearIds=['navigation','battery','solar','heater'];
+ // Preserve the three historical save IDs; new colors work on every hull.
+ const paints=[
+  {id:'svalen',name:'Original',color:'original',hex:null},
+  {id:'teal',name:'Turkis',color:'teal',hex:'#168e91'},
+  {id:'nordlys',name:'Havblå',color:'blue',hex:'#397fd7'},
+  {id:'ravnen',name:'Kobber',color:'copper',hex:'#c47c43'},
+  {id:'pink',name:'Pink',color:'pink',hex:'#f05fa8'},
+  {id:'red',name:'Koralrød',color:'red',hex:'#df514c'},
+  {id:'green',name:'Grøn',color:'green',hex:'#56b478'},
+  {id:'purple',name:'Lilla',color:'purple',hex:'#ad78db'},
+  {id:'yellow',name:'Solgul',color:'yellow',hex:'#f2c753'},
+  {id:'white',name:'Perlehvid',color:'white',hex:'#e9ece3'}
+ ];
+ const paintColor=(id,paint)=>paints.find(p=>p.id===paint)?.hex||({svalen:'#168e91',havkat:'#234d72',fjordly:'#853143',tvilling:'#21858a',nordlys:'#175d4b',havbro:'#284864',horisont:'#126b69'}[id]||'#168e91');
+ // Clip the paint pass below each gunwale. A chroma mask keeps cream bands, brass,
+ // wood and portholes unchanged; equipment and cradle are separate DOM layers.
+ const paintRegions={
+  svalen:'M148 691 Q536 810 1120 573 Q1400 450 1496 318 L1480 458 Q1260 795 402 964 Q267 1002 199 868Z',
+  havkat:'M98 714 Q521 872 1150 591 Q1450 456 1504 350 L1490 506 Q1100 837 319 990 Q222 1010 171 903Z',
+  fjordly:'M89 732 Q490 781 1090 566 Q1400 433 1512 286 L1504 445 Q1320 756 384 968 Q231 1000 158 914Z',
+  tvilling:'M53 610 Q200 628 366 574 L385 610 470 650 Q421 733 174 800 Q120 815 90 729Z M427 810 Q899 741 1507 330 L1508 459 Q1370 749 580 990 Q506 1004 454 923Z',
+  nordlys:'M28 653 Q454 816 1130 554 Q1440 418 1513 300 L1500 459 Q1385 774 430 996 Q263 1021 161 913Z',
+  havbro:'M75 739 Q300 778 485 729 L536 763 Q918 647 1318 453 L1488 370 Q1504 463 1417 540 Q828 926 150 955 L153 884Z',
+  horisont:'M48 688 Q230 764 496 711 L550 748 Q924 637 1330 438 L1512 323 Q1519 433 1420 531 Q901 930 178 982 L159 883Z'
+ };
+ let paintSerial=0;
+ function paintArt(id,paintId){
+  const b=ship(id),p=paints.find(p=>p.id===paintId)||paints[0];
+  const img=`<img src="./${b.image}" alt="${b.name} · ${p.name}" draggable="false">`;
+  if(!p.hex)return img;
+  const uid='hull-paint-'+(++paintSerial),rgb=p.hex.slice(1).match(/../g).map(n=>parseInt(n,16)/255),gain={havkat:4.4,nordlys:4.2,havbro:4,horisont:3.3,fjordly:3.4}[b.id]||2.8;
+  const tint=rgb.map(c=>[.2126*gain*c,.7152*gain*c,.0722*gain*c,0,.06*c].join(' ')).join(' ')+' 0 0 0 1 0';
+  const chroma=b.id==='fjordly'?'20 -30 10 0 -.8':'-20 10 10 0 -.12';
+  return img+`<svg class="hull-paint-overlay" data-hull-paint="${p.id}" viewBox="0 0 1536 1024" aria-hidden="true"><defs><clipPath id="${uid}-clip"><path d="${paintRegions[b.id]}"/></clipPath><filter id="${uid}" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 ${chroma}" result="paintMask"/><feColorMatrix in="SourceGraphic" type="matrix" values="${tint}" result="tint"/><feComposite in="tint" in2="paintMask" operator="in"/></filter></defs><image href="./${b.image}" width="1536" height="1024" clip-path="url(#${uid}-clip)" filter="url(#${uid})"/></svg>`;
+ }
  const freshProfile=()=>({vessel:{hull:'svalen',owned:[],fitted:[],installation:null},upgrades:{engine:0,cargo:0,hull:0}});
  function profile(raw){
   const p=freshProfile();if(!raw||typeof raw!=='object')return p;
   for(const [k,max]of Object.entries({engine:3,cargo:3,hull:2}))if(Number.isInteger(raw.upgrades?.[k]))p.upgrades[k]=Math.max(0,Math.min(max,raw.upgrades[k]));
   const v=raw.vessel;if(v&&typeof v==='object'){
-   if(['svalen','nordlys','ravnen'].includes(v.hull))p.vessel.hull=v.hull;
+   if(paints.some(p=>p.id===v.hull))p.vessel.hull=v.hull;
    p.vessel.owned=[...new Set((Array.isArray(v.owned)?v.owned:[]).filter(id=>gearIds.includes(id)))];
    p.vessel.fitted=[...new Set((Array.isArray(v.fitted)?v.fitted:[]).filter(id=>p.vessel.owned.includes(id)))];
   }return p;
@@ -76,6 +111,6 @@
   const boat=stats(active,refits),factor=boat.capacity/ships[0].capacity;
   return {ship:boat.id,capacity:boat.capacity,needs:Object.fromEntries(Object.entries(destination.needs).map(([id,n])=>[id,Math.ceil(n*factor)])),reward:Object.fromEntries(Object.entries(destination.reward).map(([id,n])=>[id,Math.floor(n*factor)])),cash:Math.round(destination.cash*factor*(1+boat.bonus)),seconds:Math.min(28800,Math.max(3,Math.round(destination.seconds*(1+(Math.max(1,chapter)-1)*.08)*boat.time*(navigation?.8:1)*(1-Math.min(3,Math.max(0,engine))*.05))))};
  }
- const api=Object.freeze({ships,routes,ship,fresh,normalize,load,quote,terminalQuote,expeditionQuote,freshProfile,profile,stats,switchBoat,dockSteps,dockQuote,berths});
+ const api=Object.freeze({ships,routes,ship,fresh,normalize,load,quote,terminalQuote,expeditionQuote,freshProfile,profile,stats,switchBoat,dockSteps,dockQuote,berths,paints,paintColor,paintArt});
  if(typeof module==='object'&&module.exports)module.exports=api;else root.HarborFleet=api;
 })(typeof window==='undefined'?globalThis:window);
