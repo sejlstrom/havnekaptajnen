@@ -25,3 +25,6 @@ body:has(.sea-heading) .quest-tracker{display:none}
 .container-port .drydock-vessel{top:28%}
 body:has(.sea-heading) .growth-tracker{display:none}
 @media(max-width:650px){.container-port .drydock-vessel{top:34%}}
+
+/* Hide rear supports behind the nearer hull instead of painting over it. */
+.drydock-vessel.fleet-vessel-tvilling .boat-cradle{z-index:0}
