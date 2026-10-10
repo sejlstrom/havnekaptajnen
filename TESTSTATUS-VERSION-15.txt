@@ -1,4 +1,4 @@
-TESTSTATUS – HAVNEKAPTAJNEN 15.0.2 – 10. oktober 2026
+TESTSTATUS – HAVNEKAPTAJNEN 15.0.3 – 10. oktober 2026
 
 BESTÅET I AUTOMATISKE LOKALE TESTS
 25 testposter, ingen fejl. Hele den eksisterende spilkontrol er kørt efter v15-ændringerne. Efter den afsluttende grafiske kantrettelse er farve-, landmigration- og offlinekontroller kørt igen og består.
@@ -8,7 +8,7 @@ BESTÅET I AUTOMATISKE LOKALE TESTS
 - Gamle dekorationer, kamerastilling, byggeprojekter, betaling i spilpenge, materialer og deadlines bevares ved engangsflytningen. En allerede opdateret gemning/import flyttes ikke igen.
 - Landkøb, fire bygninger, produktionskæder, materialeforbrug, større laster, 12 introduktionsopgaver, 100 fortsættende etaper og den tidligere flåde/bro/kaj-kontrol består.
 - Gangruter, kamerabevægelser og zoom består i simuleret miljø.
-- Offlinecache v60 indeholder det nye nordlige øbillede og de aktuelle versionsbestemte scripts og stilarter. Spil og privatlivsside kan hentes fra den simulerede offlinecache.
+- Offlinecache v61 indeholder det nye nordlige øbillede og de aktuelle versionsbestemte scripts og stilarter. Spil og privatlivsside kan hentes fra den simulerede offlinecache.
 - Betaling og køb af ekstra indhold forbliver teknisk lukket. Ingen nye hjælpebilletter gives ved opdateringen.
 
 GRAFIK OG BEGRÆNSNINGER

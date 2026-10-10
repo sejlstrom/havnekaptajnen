@@ -1,11 +1,11 @@
-HAVNEKAPTAJNEN – VERSION 15.0.2
+HAVNEKAPTAJNEN – VERSION 15.0.3
 https://havnekaptajnen.sejlstroem.dk/
 
 NYT – ØER RUNDT OM HAVNEN OG FARVER TIL ALLE BÅDE
 Solengen ligger øst for havnen, Håndværkerøen vest for den og Sejlmagerøen bagved mod nord. Hver ø får sin egen bro ind til hovedøen. Køb og ventetid følger de samme trin som før. Allerede købte bygninger, varer og dekorationer bevares; gamle dekorationer og kamera flyttes én gang sammen med øerne. Der betales ikke igen.
 Alle syv både kan få Original, Turkis, Havblå, Kobber, Pink, Koralrød, Grøn, Lilla, Solgul eller Perlehvid. Vælg Værksted → Bådens farve. Valget gemmes på den enkelte båd og vises i havnen, værkstedet/containerkajen, flåden og sejladsen. Farver er gratis. Dæk, udstyr og opgraderinger bevares.
 Find øerne via Land & byg → Vis jordstykket på kortet. Kortet kan også trækkes mod vest, øst og nord. Et valgt zoom nulstilles ikke, når man besøger en ø.
-25 automatiske testposter består. Se TESTSTATUS-VERSION-15.txt for omfang og begrænsninger. Offlinecache v60. Kontrolside: visual-review-v15.html med syntetiske testdata uden adgang til spillerens gemning. Rigtige betalinger er fortsat lukkede.
+25 automatiske testposter består. Se TESTSTATUS-VERSION-15.txt for omfang og begrænsninger. Offlinecache v61. Kontrolside: visual-review-v15.html med syntetiske testdata uden adgang til spillerens gemning. Rigtige betalinger er fortsat lukkede.
 
 TIDLIGERE UDGIVELSER
 HAVNEKAPTAJNEN – VERSION 14.0.3
