@@ -1,3 +1,6 @@
+VERSION 1 – 14. oktober 2026
+Det synlige versionsnummer er 1. Teknisk opdaterings-id: 15.0.4; offlinecache v62. Gemmeformatet er uændret. Betalinger er fortsat lukkede.
+
 HAVNEKAPTAJNEN – VERSION 15.0.3
 https://havnekaptajnen.sejlstroem.dk/
 
