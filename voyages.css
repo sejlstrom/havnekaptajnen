@@ -29,3 +29,6 @@ body:has(.sea-heading) .growth-tracker{display:none}
 /* Hide rear supports behind the nearer hull instead of painting over it. */
 .drydock-vessel.fleet-vessel-tvilling .boat-cradle{z-index:0}
 .voyage-art,.voyage-island .voyage-art{aspect-ratio:var(--island-ratio,1.125)} .voyage-art:before{background-size:400% var(--atlas-height,300%);transform:none}
+
+/* Keep the ship name clear of the timber stock on narrow screens. */
+@media(max-width:599px){.workshop-ship-label{left:10px;right:190px;top:78px;max-width:180px;transform:none;padding:7px 8px}}
