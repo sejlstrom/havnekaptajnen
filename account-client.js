@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
  const mutations=new Set(`event day upgrade price staff market welcome voyage claim haul finish-build theme factory-produce factory-collect factory-route factory-send factory-return factory-restore factory-open fleet-dock-build fleet-dock-finish fleet-terminal-build fleet-terminal-finish fleet-buy fleet-launch fleet-select fleet-send fleet-return boat-select gear-fit gear-finish gear-remove story-start story-claim story-finish story-help refit-start refit-finish expedition-start expedition-return sail-start sail-lane sail-tick growth-policy growth-send growth-return growth-build growth-built growth-next shop-confirm shop-style expansion-build expansion-finish expansion-errand land-begin land-finish island-collect island-place life-puzzle-start life-puzzle-flip life-puzzle-close life-puzzle-claim life-start life-collect life-celebrate life-palette life-produce`.split(' '));
- const guestKey='havnekaptajnen.v2.save',marker='havnekaptajnen.account.last';
+ const guestKey='havnekaptajnen.v2.save',marker='havnekaptajnen.account.last',demoKey='havnekaptajnen.demo.actions',demoLimit=6;
  function createClient({api,fetcher,storage,game,ui,uuid=()=>crypto.randomUUID()}){
   let observedMarker=storage.getItem(marker),recoveryKey='havnekaptajnen.tab-recovery.'+uuid();
   const stale=()=>storage.getItem(marker)!==observedMarker;
