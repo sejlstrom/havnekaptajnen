@@ -21,7 +21,7 @@ body.stage-active{padding-bottom:0;height:100dvh;overflow:clip}.island-viewport{
 
 
 .drydock-away{position:absolute;z-index:9;left:50%;top:30%;transform:translateX(-50%);width:min(340px,calc(100vw - 28px));padding:18px;border:3px solid #b88a4e;border-radius:20px;background:#fff4d9f5;box-shadow:0 6px #906537;color:#665130;text-align:center}
-.drydock-away>span{font-size:32px}.drydock-away h2{color:#684d31;font-size:24px}.drydock-away p{font-size:13px;line-height:1.5;margin:10px 0}
+.drydock-away>span{font-size:32px}.drydock-away h2{color:#684d31;font-size:24px}.drydock-away p{color:inherit;font-size:13px;line-height:1.5;margin:10px 0}
 @media(max-width:760px){.drydock-vessel{width:min(41%,calc(100vw - 20px));left:50%;transform:translateX(-50%)}}
 @media(max-width:360px){.captain-crest>div{display:none}.captain-crest{padding:5px}.island-hud{flex-wrap:nowrap}.island-room .installation-banner{width:294px;left:calc(50% - 147px)}}
 @media(max-height:520px) and (min-width:600px){
