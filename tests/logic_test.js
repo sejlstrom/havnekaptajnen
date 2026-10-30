@@ -30,7 +30,7 @@ function boot(){
  };
  const localStorage={getItem(k){return storage.has(k)?storage.get(k):null},setItem(k,v){storage.set(k,v)},removeItem(k){storage.delete(k)}};
  const URLMock={createObjectURL(blob){lastDownload=blob;return 'blob:fake'},revokeObjectURL() {}};
- const win={HarborVoyages:require('../voyages.js'),HarborLife:require('../harbor-life.js'),HarborSponsors:require('../sponsors.js'),HarborContent:require('../harbor-content.js'),HarborFleet:require('../fleet.js'),HarborLand:require('../land.js'),confirm(){return true},addEventListener(){},scrollTo(){}};
+ const win={HarborPresentation:require('../harbor-presentation.js'),HarborVoyages:require('../voyages.js'),HarborLife:require('../harbor-life.js'),HarborSponsors:require('../sponsors.js'),HarborContent:require('../harbor-content.js'),HarborFleet:require('../fleet.js'),HarborLand:require('../land.js'),confirm(){return true},addEventListener(){},scrollTo(){}};
  const ctx={window:win,document,navigator:{},location:{protocol:'file:',hostname:''},localStorage,console,Blob,URL:URLMock,Date:GameDate,Intl,Math,Object,JSON,Array,Number,String,setTimeout(){return 1},clearTimeout(){},setInterval(fn){clockTick=fn;return 1}};
  compiled.runInNewContext(ctx);
  handlers['document:DOMContentLoaded']();
